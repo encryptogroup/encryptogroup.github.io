@@ -1,0 +1,7 @@
+<map id="OTTask" name="OTTask">
+<area shape="rect" id="node2" href="$class_masking_function.html" title="MaskingFunction" alt="" coords="5,199,127,225"/>
+<area shape="rect" id="node3" href="$union_party_values.html" title="PartyValues" alt="" coords="151,199,245,225"/>
+<area shape="rect" id="node4" href="$struct_o_t_sender_vals.html" title="OTSenderVals" alt="" coords="59,109,166,136"/>
+<area shape="rect" id="node5" href="$class_c_bit_vector.html" title="CBitVector" alt="" coords="148,5,235,32"/>
+<area shape="rect" id="node6" href="$struct_o_t_receiver_vals.html" title="OTReceiverVals" alt="" coords="191,109,309,136"/>
+</map>

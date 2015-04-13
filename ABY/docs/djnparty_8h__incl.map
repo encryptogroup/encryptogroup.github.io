@@ -1,0 +1,7 @@
+<map id="src/abycore/DJN/djnparty.h" name="src/abycore/DJN/djnparty.h">
+<area shape="rect" id="node4" href="$typedefs_8h.html" title="Typedefs Implementation. " alt="" coords="723,155,839,181"/>
+<area shape="rect" id="node21" href="$socket_8h.html" title="Socket Implementation. " alt="" coords="642,80,747,107"/>
+<area shape="rect" id="node22" href="$djn_8h.html" title="A library implementing the Damgaard Jurik Nielsen cryptosystem with s=1 (Same properties as Paillier..." alt="" coords="140,80,223,107"/>
+<area shape="rect" id="node24" href="$powmod_8h.html" title="Powmod Implementation. " alt="" coords="229,155,312,181"/>
+<area shape="rect" id="node17" href="$timer_8h.html" title="timer Implementation " alt="" coords="715,229,778,256"/>
+</map>

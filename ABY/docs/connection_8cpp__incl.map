@@ -1,0 +1,12 @@
+<map id="src/abycore/util/connection.cpp" name="src/abycore/util/connection.cpp">
+<area shape="rect" id="node2" href="$connection_8h.html" title="connection Implementation " alt="" coords="1064,80,1160,107"/>
+<area shape="rect" id="node3" href="$typedefs_8h.html" title="Typedefs Implementation. " alt="" coords="789,528,905,555"/>
+<area shape="rect" id="node21" href="$socket_8h.html" title="Socket Implementation. " alt="" coords="1005,304,1110,331"/>
+<area shape="rect" id="node22" href="$cbitvector_8h.html" title="CBitVector Implementation. " alt="" coords="411,155,501,181"/>
+<area shape="rect" id="node16" href="$timer_8h.html" title="timer Implementation " alt="" coords="198,603,261,629"/>
+<area shape="rect" id="node23" href="$crypto_8h.html" title="Crypto primitive class. " alt="" coords="457,229,567,256"/>
+<area shape="rect" id="node29" href="$constants_8h.html" title="File containing all constants used throughout the source. " alt="" coords="706,453,809,480"/>
+<area shape="rect" id="node30" href="$gmp-pk-crypto_8h.html" title="Class with finite&#45;field&#45;cryptography operations (using the GMP library) " alt="" coords="686,304,802,331"/>
+<area shape="rect" id="node33" href="$ecc-pk-crypto_8h.html" title="Class with ECC operations. " alt="" coords="549,304,661,331"/>
+<area shape="rect" id="node31" href="$pk-crypto_8h.html" title="Virtual class for public&#45;key operations. " alt="" coords="759,379,846,405"/>
+</map>

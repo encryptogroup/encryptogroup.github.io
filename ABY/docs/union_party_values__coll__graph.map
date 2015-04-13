@@ -1,0 +1,5 @@
+<map id="PartyValues" name="PartyValues">
+<area shape="rect" id="node2" href="$struct_o_t_sender_vals.html" title="OTSenderVals" alt="" coords="5,109,112,136"/>
+<area shape="rect" id="node3" href="$class_c_bit_vector.html" title="CBitVector" alt="" coords="94,5,181,32"/>
+<area shape="rect" id="node4" href="$struct_o_t_receiver_vals.html" title="OTReceiverVals" alt="" coords="137,109,255,136"/>
+</map>
