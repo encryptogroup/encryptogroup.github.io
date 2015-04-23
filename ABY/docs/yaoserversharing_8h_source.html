@@ -90,156 +90,156 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="yaoserversharing_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef __YAOSERVERSHARING_H__</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define __YAOSERVERSHARING_H__</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sharing_8h.html">sharing.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="yaosharing_8h.html">yaosharing.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structinput__gate__val__t.html">   15</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    uint32_t gateid;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    UGATE_T* inval;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;} <a class="code" href="structinput__gate__val__t.html">input_gate_val_t</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structa2y__gate__pos__t.html">   20</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    uint32_t gateid;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    uint32_t pos;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;} <a class="code" href="structa2y__gate__pos__t.html">a2y_gate_pos_t</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//#define DEBUGYAOSERVER</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_yao_server_sharing.html">   29</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="class_yao_server_sharing.html">YaoServerSharing</a>: <span class="keyword">public</span> <a class="code" href="class_yao_sharing.html">YaoSharing</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef __YAOSERVERSHARING_H__</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define __YAOSERVERSHARING_H__</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sharing_8h.html">sharing.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="yaosharing_8h.html">yaosharing.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structinput__gate__val__t.html">   26</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    uint32_t gateid;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    UGATE_T* inval;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <a class="code" href="structinput__gate__val__t.html">input_gate_val_t</a>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_yao_server_sharing.html#afc223682cac8ff47d83b0d1f9a23ec09">   35</a></span>&#160;    <a class="code" href="class_yao_server_sharing.html#afc223682cac8ff47d83b0d1f9a23ec09">YaoServerSharing</a>(e_role role, uint32_t sharebitlen, <a class="code" href="class_a_b_y_circuit.html">ABYCircuit</a>* circuit, <a class="code" href="classcrypto.html">crypto</a>* crypt) :</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <a class="code" href="class_yao_sharing.html">YaoSharing</a>(role, sharebitlen, circuit, crypt) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        InitServer();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    ;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_yao_server_sharing.html#af9f81ec17f2519f085845a1e55b2f030">   43</a></span>&#160;    <a class="code" href="class_yao_server_sharing.html#af9f81ec17f2519f085845a1e55b2f030">~YaoServerSharing</a>() {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    ;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">//MEMBER FUNCTIONS FROM SUPER CLASS YAO SHARING</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#afcd2587d1526207704386a3ca322b2f8">Reset</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a80324db669c0a885f1298101c75fc37d">PrepareSetupPhase</a>(<a class="code" href="class_a_b_y_setup.html">ABYSetup</a>* setup);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#aed078bddf197fc3e79cd27687e38cf83">PerformSetupPhase</a>(<a class="code" href="class_a_b_y_setup.html">ABYSetup</a>* setup);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a305e1d1fb6752675c017344fafa061f3">FinishSetupPhase</a>(<a class="code" href="class_a_b_y_setup.html">ABYSetup</a>* setup);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a9165f97815df1a3037b81e12fd392584">EvaluateLocalOperations</a>(uint32_t gateid);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a1d0d73d94dad9b3b14fa354995c19c79">EvaluateInteractiveOperations</a>(uint32_t gateid);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> SendConversionValues(uint32_t gateid);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#ac203226bb82336e3af6f95a0f0cb8f6a">FinishCircuitLayer</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structa2y__gate__pos__t.html">   31</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    uint32_t gateid;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    uint32_t pos;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <a class="code" href="structa2y__gate__pos__t.html">a2y_gate_pos_t</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//#define DEBUGYAOSERVER</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_yao_server_sharing.html">   40</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="class_yao_server_sharing.html">YaoServerSharing</a>: <span class="keyword">public</span> <a class="code" href="class_yao_sharing.html">YaoSharing</a> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_yao_server_sharing.html#afc223682cac8ff47d83b0d1f9a23ec09">   46</a></span>&#160;    <a class="code" href="class_yao_server_sharing.html#afc223682cac8ff47d83b0d1f9a23ec09">YaoServerSharing</a>(e_role role, uint32_t sharebitlen, <a class="code" href="class_a_b_y_circuit.html">ABYCircuit</a>* circuit, <a class="code" href="classcrypto.html">crypto</a>* crypt) :</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <a class="code" href="class_yao_sharing.html">YaoSharing</a>(role, sharebitlen, circuit, crypt) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        InitServer();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    ;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_yao_server_sharing.html#af9f81ec17f2519f085845a1e55b2f030">   54</a></span>&#160;    <a class="code" href="class_yao_server_sharing.html#af9f81ec17f2519f085845a1e55b2f030">~YaoServerSharing</a>() {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    ;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a6a9725d3ffafd74c58c152b6cb9699cf">PrepareOnlinePhase</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#ae8e3ae37328d9333c91ed64d1ae58ed8">InstantiateGate</a>(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#abf0870ed61e4068b273e6d140f92969b">UsedGate</a>(uint32_t gateid);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a0d5479e04d8f23151ad12ec1139bf7ea">GetDataToSend</a>(vector&lt;BYTE*&gt;&amp; sendbuf, vector&lt;uint32_t&gt;&amp; bytesize);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a7ae510de608bc3fc6e1baf3787a1d660">GetBuffersToReceive</a>(vector&lt;BYTE*&gt;&amp; rcvbuf, vector&lt;uint32_t&gt;&amp; rcvbytes);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    uint32_t <a class="code" href="class_yao_server_sharing.html#aff30aa69d42de8cdfd5c6df987711f4d">AssignInput</a>(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; input);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    uint32_t <a class="code" href="class_yao_server_sharing.html#af5e819c4f52f103448e2baadaef6e63a">GetOutput</a>(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; out);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">//MEMBER FUNCTIONS FROM SUPER CLASS YAO SHARING</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#afcd2587d1526207704386a3ca322b2f8">Reset</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a80324db669c0a885f1298101c75fc37d">PrepareSetupPhase</a>(<a class="code" href="class_a_b_y_setup.html">ABYSetup</a>* setup);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#aed078bddf197fc3e79cd27687e38cf83">PerformSetupPhase</a>(<a class="code" href="class_a_b_y_setup.html">ABYSetup</a>* setup);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a305e1d1fb6752675c017344fafa061f3">FinishSetupPhase</a>(<a class="code" href="class_a_b_y_setup.html">ABYSetup</a>* setup);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a9165f97815df1a3037b81e12fd392584">EvaluateLocalOperations</a>(uint32_t gateid);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a1d0d73d94dad9b3b14fa354995c19c79">EvaluateInteractiveOperations</a>(uint32_t gateid);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> SendConversionValues(uint32_t gateid);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#ac203226bb82336e3af6f95a0f0cb8f6a">FinishCircuitLayer</a>();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_yao_server_sharing.html#a1015f4a06b69cf9f06c8dd95f1708637">   69</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_yao_server_sharing.html#a1015f4a06b69cf9f06c8dd95f1708637">sharing_type</a>() {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Yao server&quot;</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    ;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">//ENDS HERE..</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">//Global constant key</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vR; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">//Permutation bits for the servers input keys</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vPermBits; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//Random values from output of ot extension</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    vector&lt;CBitVector&gt; m_vROTMasks; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    uint32_t m_nClientInputKexIdx; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    uint32_t m_nClientInputKeyCtr; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vServerKeySndBuf; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    vector&lt;CBitVector&gt; m_vClientKeySndBuf; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vClientROTRcvBuf; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">//vector&lt;CBitVector&gt; m_vClientConversionKeySndBuf;</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">//CBitVector            m_vClientCOnversionROTRcvBuf;</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vOutputShareSndBuf; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vOutputShareRcvBuf; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    vector&lt;GATE*&gt; m_vServerOutputGates; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    uint32_t m_nOutputShareRcvCtr; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    uint64_t m_nPermBitCtr; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    uint32_t m_nServerInBitCtr; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    uint32_t m_nServerKeyCtr; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    uint32_t m_nClientInBitCtr; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    uint8_t* m_bLMaskBuf[2]; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    uint8_t* m_bRMaskBuf[2]; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    uint8_t* m_bLKeyBuf; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    uint8_t* m_bOKeyBuf[2]; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    uint8_t* m_bTmpBuf;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">//CBitVector</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    vector&lt;uint32_t&gt; m_vClientInputGate; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    deque&lt;input_gate_val_t&gt; m_vPreSetInputGates;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    deque&lt;a2y_gate_pos_t&gt; m_vPreSetA2YPositions;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">//deque&lt;uint32_t&gt;           m_vClientInputGate;</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> InitServer();</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> InitNewLayer();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a6a9725d3ffafd74c58c152b6cb9699cf">PrepareOnlinePhase</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#ae8e3ae37328d9333c91ed64d1ae58ed8">InstantiateGate</a>(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#abf0870ed61e4068b273e6d140f92969b">UsedGate</a>(uint32_t gateid);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a0d5479e04d8f23151ad12ec1139bf7ea">GetDataToSend</a>(vector&lt;BYTE*&gt;&amp; sendbuf, vector&lt;uint32_t&gt;&amp; bytesize);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_yao_server_sharing.html#a7ae510de608bc3fc6e1baf3787a1d660">GetBuffersToReceive</a>(vector&lt;BYTE*&gt;&amp; rcvbuf, vector&lt;uint32_t&gt;&amp; rcvbytes);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    uint32_t <a class="code" href="class_yao_server_sharing.html#aff30aa69d42de8cdfd5c6df987711f4d">AssignInput</a>(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; input);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    uint32_t <a class="code" href="class_yao_server_sharing.html#af5e819c4f52f103448e2baadaef6e63a">GetOutput</a>(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; out);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_yao_server_sharing.html#a1015f4a06b69cf9f06c8dd95f1708637">   80</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_yao_server_sharing.html#a1015f4a06b69cf9f06c8dd95f1708637">sharing_type</a>() {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Yao server&quot;</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    ;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">//ENDS HERE..</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">//Global constant key</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vR; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">//Permutation bits for the servers input keys</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vPermBits; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">//Random values from output of ot extension</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    vector&lt;CBitVector&gt; m_vROTMasks; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    uint32_t m_nClientInputKexIdx; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    uint32_t m_nClientInputKeyCtr; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vServerKeySndBuf; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    vector&lt;CBitVector&gt; m_vClientKeySndBuf; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vClientROTRcvBuf; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">//vector&lt;CBitVector&gt; m_vClientConversionKeySndBuf;</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">//CBitVector            m_vClientCOnversionROTRcvBuf;</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vOutputShareSndBuf; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vOutputShareRcvBuf; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    vector&lt;GATE*&gt; m_vServerOutputGates; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    uint32_t m_nOutputShareRcvCtr; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    uint64_t m_nPermBitCtr; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    uint32_t m_nServerInBitCtr; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    uint32_t m_nServerKeyCtr; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    uint32_t m_nClientInBitCtr; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    uint8_t* m_bLMaskBuf[2]; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    uint8_t* m_bRMaskBuf[2]; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    uint8_t* m_bLKeyBuf; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    uint8_t* m_bOKeyBuf[2]; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    uint8_t* m_bTmpBuf;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">//CBitVector</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> CreateRandomWireKeys(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; vec, uint32_t numkeys);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">void</span> CreateAndSendGarbledCircuit(<a class="code" href="class_a_b_y_setup.html">ABYSetup</a>* setup);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">void</span> ReceiveGarbledCircuit();</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">void</span> EvaluateInputGate(uint32_t gateid);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">void</span> EvaluateXORGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">void</span> EvaluateANDGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate);</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">void</span> EvaluateSIMDGate(uint32_t gateid);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">void</span> EvaluateInversionGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate);</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">void</span> EvaluateConversionGate(uint32_t gateid);</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">void</span> CreateGarbledTable(<a class="code" href="struct_g_a_t_e.html">GATE</a>* ggate, uint32_t pos, <a class="code" href="struct_g_a_t_e.html">GATE</a>* gleft, <a class="code" href="struct_g_a_t_e.html">GATE</a>* gright);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">void</span> PrecomputeGC(deque&lt;uint32_t&gt;&amp; queue);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="comment">//void EvaluateClientOutputGate(GATE* gate);</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordtype">void</span> CollectClientOutputShares();</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">void</span> EvaluateOutputGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordtype">void</span> SendServerInputKey(uint32_t gateid);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordtype">void</span> SendClientInputKey(uint32_t gateid);</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordtype">void</span> AssignOutputShares();</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;};</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __YAOSERVERSHARING_H__ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="class_yao_server_sharing_html_a1d0d73d94dad9b3b14fa354995c19c79"><div class="ttname"><a href="class_yao_server_sharing.html#a1d0d73d94dad9b3b14fa354995c19c79">YaoServerSharing::EvaluateInteractiveOperations</a></div><div class="ttdeci">void EvaluateInteractiveOperations(uint32_t gateid)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:159</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_a0d5479e04d8f23151ad12ec1139bf7ea"><div class="ttname"><a href="class_yao_server_sharing.html#a0d5479e04d8f23151ad12ec1139bf7ea">YaoServerSharing::GetDataToSend</a></div><div class="ttdeci">void GetDataToSend(vector&lt; BYTE * &gt; &amp;sendbuf, vector&lt; uint32_t &gt; &amp;bytesize)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:628</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_afcd2587d1526207704386a3ca322b2f8"><div class="ttname"><a href="class_yao_server_sharing.html#afcd2587d1526207704386a3ca322b2f8">YaoServerSharing::Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:922</div></div>
-<div class="ttc" id="structinput__gate__val__t_html"><div class="ttname"><a href="structinput__gate__val__t.html">input_gate_val_t</a></div><div class="ttdef"><b>Definition:</b> yaoserversharing.h:15</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_a1015f4a06b69cf9f06c8dd95f1708637"><div class="ttname"><a href="class_yao_server_sharing.html#a1015f4a06b69cf9f06c8dd95f1708637">YaoServerSharing::sharing_type</a></div><div class="ttdeci">const char * sharing_type()</div><div class="ttdef"><b>Definition:</b> yaoserversharing.h:69</div></div>
-<div class="ttc" id="class_yao_server_sharing_html"><div class="ttname"><a href="class_yao_server_sharing.html">YaoServerSharing</a></div><div class="ttdef"><b>Definition:</b> yaoserversharing.h:29</div></div>
-<div class="ttc" id="classcrypto_html"><div class="ttname"><a href="classcrypto.html">crypto</a></div><div class="ttdef"><b>Definition:</b> crypto.h:47</div></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    vector&lt;uint32_t&gt; m_vClientInputGate; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    deque&lt;input_gate_val_t&gt; m_vPreSetInputGates;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    deque&lt;a2y_gate_pos_t&gt; m_vPreSetA2YPositions;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">//deque&lt;uint32_t&gt;           m_vClientInputGate;</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> InitServer();</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">void</span> InitNewLayer();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> CreateRandomWireKeys(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; vec, uint32_t numkeys);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">void</span> CreateAndSendGarbledCircuit(<a class="code" href="class_a_b_y_setup.html">ABYSetup</a>* setup);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span> ReceiveGarbledCircuit();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">void</span> EvaluateInputGate(uint32_t gateid);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">void</span> EvaluateXORGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">void</span> EvaluateANDGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">void</span> EvaluateSIMDGate(uint32_t gateid);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">void</span> EvaluateInversionGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">void</span> EvaluateConversionGate(uint32_t gateid);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">void</span> CreateGarbledTable(<a class="code" href="struct_g_a_t_e.html">GATE</a>* ggate, uint32_t pos, <a class="code" href="struct_g_a_t_e.html">GATE</a>* gleft, <a class="code" href="struct_g_a_t_e.html">GATE</a>* gright);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">void</span> PrecomputeGC(deque&lt;uint32_t&gt;&amp; queue);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">//void EvaluateClientOutputGate(GATE* gate);</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">void</span> CollectClientOutputShares();</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordtype">void</span> EvaluateOutputGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordtype">void</span> SendServerInputKey(uint32_t gateid);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordtype">void</span> SendClientInputKey(uint32_t gateid);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordtype">void</span> AssignOutputShares();</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;};</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __YAOSERVERSHARING_H__ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_yao_server_sharing_html_a1d0d73d94dad9b3b14fa354995c19c79"><div class="ttname"><a href="class_yao_server_sharing.html#a1d0d73d94dad9b3b14fa354995c19c79">YaoServerSharing::EvaluateInteractiveOperations</a></div><div class="ttdeci">void EvaluateInteractiveOperations(uint32_t gateid)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:170</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_a0d5479e04d8f23151ad12ec1139bf7ea"><div class="ttname"><a href="class_yao_server_sharing.html#a0d5479e04d8f23151ad12ec1139bf7ea">YaoServerSharing::GetDataToSend</a></div><div class="ttdeci">void GetDataToSend(vector&lt; BYTE * &gt; &amp;sendbuf, vector&lt; uint32_t &gt; &amp;bytesize)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:639</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_afcd2587d1526207704386a3ca322b2f8"><div class="ttname"><a href="class_yao_server_sharing.html#afcd2587d1526207704386a3ca322b2f8">YaoServerSharing::Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:933</div></div>
+<div class="ttc" id="structinput__gate__val__t_html"><div class="ttname"><a href="structinput__gate__val__t.html">input_gate_val_t</a></div><div class="ttdef"><b>Definition:</b> yaoserversharing.h:26</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_a1015f4a06b69cf9f06c8dd95f1708637"><div class="ttname"><a href="class_yao_server_sharing.html#a1015f4a06b69cf9f06c8dd95f1708637">YaoServerSharing::sharing_type</a></div><div class="ttdeci">const char * sharing_type()</div><div class="ttdef"><b>Definition:</b> yaoserversharing.h:80</div></div>
+<div class="ttc" id="class_yao_server_sharing_html"><div class="ttname"><a href="class_yao_server_sharing.html">YaoServerSharing</a></div><div class="ttdef"><b>Definition:</b> yaoserversharing.h:40</div></div>
+<div class="ttc" id="classcrypto_html"><div class="ttname"><a href="classcrypto.html">crypto</a></div><div class="ttdef"><b>Definition:</b> crypto.h:58</div></div>
 <div class="ttc" id="sharing_8h_html"><div class="ttname"><a href="sharing_8h.html">sharing.h</a></div><div class="ttdoc">Sharing class. A virtual class that contains the methods which the sharing schemes have to implement...</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_ae8e3ae37328d9333c91ed64d1ae58ed8"><div class="ttname"><a href="class_yao_server_sharing.html#ae8e3ae37328d9333c91ed64d1ae58ed8">YaoServerSharing::InstantiateGate</a></div><div class="ttdeci">void InstantiateGate(GATE *gate)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:810</div></div>
-<div class="ttc" id="struct_g_a_t_e_html"><div class="ttname"><a href="struct_g_a_t_e.html">GATE</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:98</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_aff30aa69d42de8cdfd5c6df987711f4d"><div class="ttname"><a href="class_yao_server_sharing.html#aff30aa69d42de8cdfd5c6df987711f4d">YaoServerSharing::AssignInput</a></div><div class="ttdeci">uint32_t AssignInput(CBitVector &amp;input)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:879</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_af9f81ec17f2519f085845a1e55b2f030"><div class="ttname"><a href="class_yao_server_sharing.html#af9f81ec17f2519f085845a1e55b2f030">YaoServerSharing::~YaoServerSharing</a></div><div class="ttdeci">~YaoServerSharing()</div><div class="ttdef"><b>Definition:</b> yaoserversharing.h:43</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_ac203226bb82336e3af6f95a0f0cb8f6a"><div class="ttname"><a href="class_yao_server_sharing.html#ac203226bb82336e3af6f95a0f0cb8f6a">YaoServerSharing::FinishCircuitLayer</a></div><div class="ttdeci">void FinishCircuitLayer()</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:656</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_af5e819c4f52f103448e2baadaef6e63a"><div class="ttname"><a href="class_yao_server_sharing.html#af5e819c4f52f103448e2baadaef6e63a">YaoServerSharing::GetOutput</a></div><div class="ttdeci">uint32_t GetOutput(CBitVector &amp;out)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:905</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_afc223682cac8ff47d83b0d1f9a23ec09"><div class="ttname"><a href="class_yao_server_sharing.html#afc223682cac8ff47d83b0d1f9a23ec09">YaoServerSharing::YaoServerSharing</a></div><div class="ttdeci">YaoServerSharing(e_role role, uint32_t sharebitlen, ABYCircuit *circuit, crypto *crypt)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.h:35</div></div>
-<div class="ttc" id="class_yao_sharing_html"><div class="ttname"><a href="class_yao_sharing.html">YaoSharing</a></div><div class="ttdef"><b>Definition:</b> yaosharing.h:37</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_a80324db669c0a885f1298101c75fc37d"><div class="ttname"><a href="class_yao_server_sharing.html#a80324db669c0a885f1298101c75fc37d">YaoServerSharing::PrepareSetupPhase</a></div><div class="ttdeci">void PrepareSetupPhase(ABYSetup *setup)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:42</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_a305e1d1fb6752675c017344fafa061f3"><div class="ttname"><a href="class_yao_server_sharing.html#a305e1d1fb6752675c017344fafa061f3">YaoServerSharing::FinishSetupPhase</a></div><div class="ttdeci">void FinishSetupPhase(ABYSetup *setup)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:119</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_aed078bddf197fc3e79cd27687e38cf83"><div class="ttname"><a href="class_yao_server_sharing.html#aed078bddf197fc3e79cd27687e38cf83">YaoServerSharing::PerformSetupPhase</a></div><div class="ttdeci">void PerformSetupPhase(ABYSetup *setup)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:111</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_a9165f97815df1a3037b81e12fd392584"><div class="ttname"><a href="class_yao_server_sharing.html#a9165f97815df1a3037b81e12fd392584">YaoServerSharing::EvaluateLocalOperations</a></div><div class="ttdeci">void EvaluateLocalOperations(uint32_t gateid)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:155</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_a6a9725d3ffafd74c58c152b6cb9699cf"><div class="ttname"><a href="class_yao_server_sharing.html#a6a9725d3ffafd74c58c152b6cb9699cf">YaoServerSharing::PrepareOnlinePhase</a></div><div class="ttdeci">void PrepareOnlinePhase()</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:250</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_a7ae510de608bc3fc6e1baf3787a1d660"><div class="ttname"><a href="class_yao_server_sharing.html#a7ae510de608bc3fc6e1baf3787a1d660">YaoServerSharing::GetBuffersToReceive</a></div><div class="ttdeci">void GetBuffersToReceive(vector&lt; BYTE * &gt; &amp;rcvbuf, vector&lt; uint32_t &gt; &amp;rcvbytes)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:758</div></div>
-<div class="ttc" id="class_a_b_y_circuit_html"><div class="ttname"><a href="class_a_b_y_circuit.html">ABYCircuit</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:121</div></div>
-<div class="ttc" id="class_a_b_y_setup_html"><div class="ttname"><a href="class_a_b_y_setup.html">ABYSetup</a></div><div class="ttdef"><b>Definition:</b> abysetup.h:66</div></div>
-<div class="ttc" id="class_yao_server_sharing_html_abf0870ed61e4068b273e6d140f92969b"><div class="ttname"><a href="class_yao_server_sharing.html#abf0870ed61e4068b273e6d140f92969b">YaoServerSharing::UsedGate</a></div><div class="ttdeci">void UsedGate(uint32_t gateid)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:820</div></div>
-<div class="ttc" id="class_c_bit_vector_html"><div class="ttname"><a href="class_c_bit_vector.html">CBitVector</a></div><div class="ttdef"><b>Definition:</b> cbitvector.h:73</div></div>
-<div class="ttc" id="structa2y__gate__pos__t_html"><div class="ttname"><a href="structa2y__gate__pos__t.html">a2y_gate_pos_t</a></div><div class="ttdef"><b>Definition:</b> yaoserversharing.h:20</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_ae8e3ae37328d9333c91ed64d1ae58ed8"><div class="ttname"><a href="class_yao_server_sharing.html#ae8e3ae37328d9333c91ed64d1ae58ed8">YaoServerSharing::InstantiateGate</a></div><div class="ttdeci">void InstantiateGate(GATE *gate)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:821</div></div>
+<div class="ttc" id="struct_g_a_t_e_html"><div class="ttname"><a href="struct_g_a_t_e.html">GATE</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:109</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_aff30aa69d42de8cdfd5c6df987711f4d"><div class="ttname"><a href="class_yao_server_sharing.html#aff30aa69d42de8cdfd5c6df987711f4d">YaoServerSharing::AssignInput</a></div><div class="ttdeci">uint32_t AssignInput(CBitVector &amp;input)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:890</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_af9f81ec17f2519f085845a1e55b2f030"><div class="ttname"><a href="class_yao_server_sharing.html#af9f81ec17f2519f085845a1e55b2f030">YaoServerSharing::~YaoServerSharing</a></div><div class="ttdeci">~YaoServerSharing()</div><div class="ttdef"><b>Definition:</b> yaoserversharing.h:54</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_ac203226bb82336e3af6f95a0f0cb8f6a"><div class="ttname"><a href="class_yao_server_sharing.html#ac203226bb82336e3af6f95a0f0cb8f6a">YaoServerSharing::FinishCircuitLayer</a></div><div class="ttdeci">void FinishCircuitLayer()</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:667</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_af5e819c4f52f103448e2baadaef6e63a"><div class="ttname"><a href="class_yao_server_sharing.html#af5e819c4f52f103448e2baadaef6e63a">YaoServerSharing::GetOutput</a></div><div class="ttdeci">uint32_t GetOutput(CBitVector &amp;out)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:916</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_afc223682cac8ff47d83b0d1f9a23ec09"><div class="ttname"><a href="class_yao_server_sharing.html#afc223682cac8ff47d83b0d1f9a23ec09">YaoServerSharing::YaoServerSharing</a></div><div class="ttdeci">YaoServerSharing(e_role role, uint32_t sharebitlen, ABYCircuit *circuit, crypto *crypt)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.h:46</div></div>
+<div class="ttc" id="class_yao_sharing_html"><div class="ttname"><a href="class_yao_sharing.html">YaoSharing</a></div><div class="ttdef"><b>Definition:</b> yaosharing.h:48</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_a80324db669c0a885f1298101c75fc37d"><div class="ttname"><a href="class_yao_server_sharing.html#a80324db669c0a885f1298101c75fc37d">YaoServerSharing::PrepareSetupPhase</a></div><div class="ttdeci">void PrepareSetupPhase(ABYSetup *setup)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:53</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_a305e1d1fb6752675c017344fafa061f3"><div class="ttname"><a href="class_yao_server_sharing.html#a305e1d1fb6752675c017344fafa061f3">YaoServerSharing::FinishSetupPhase</a></div><div class="ttdeci">void FinishSetupPhase(ABYSetup *setup)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:130</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_aed078bddf197fc3e79cd27687e38cf83"><div class="ttname"><a href="class_yao_server_sharing.html#aed078bddf197fc3e79cd27687e38cf83">YaoServerSharing::PerformSetupPhase</a></div><div class="ttdeci">void PerformSetupPhase(ABYSetup *setup)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:122</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_a9165f97815df1a3037b81e12fd392584"><div class="ttname"><a href="class_yao_server_sharing.html#a9165f97815df1a3037b81e12fd392584">YaoServerSharing::EvaluateLocalOperations</a></div><div class="ttdeci">void EvaluateLocalOperations(uint32_t gateid)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:166</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_a6a9725d3ffafd74c58c152b6cb9699cf"><div class="ttname"><a href="class_yao_server_sharing.html#a6a9725d3ffafd74c58c152b6cb9699cf">YaoServerSharing::PrepareOnlinePhase</a></div><div class="ttdeci">void PrepareOnlinePhase()</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:261</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_a7ae510de608bc3fc6e1baf3787a1d660"><div class="ttname"><a href="class_yao_server_sharing.html#a7ae510de608bc3fc6e1baf3787a1d660">YaoServerSharing::GetBuffersToReceive</a></div><div class="ttdeci">void GetBuffersToReceive(vector&lt; BYTE * &gt; &amp;rcvbuf, vector&lt; uint32_t &gt; &amp;rcvbytes)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:769</div></div>
+<div class="ttc" id="class_a_b_y_circuit_html"><div class="ttname"><a href="class_a_b_y_circuit.html">ABYCircuit</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:132</div></div>
+<div class="ttc" id="class_a_b_y_setup_html"><div class="ttname"><a href="class_a_b_y_setup.html">ABYSetup</a></div><div class="ttdef"><b>Definition:</b> abysetup.h:77</div></div>
+<div class="ttc" id="class_yao_server_sharing_html_abf0870ed61e4068b273e6d140f92969b"><div class="ttname"><a href="class_yao_server_sharing.html#abf0870ed61e4068b273e6d140f92969b">YaoServerSharing::UsedGate</a></div><div class="ttdeci">void UsedGate(uint32_t gateid)</div><div class="ttdef"><b>Definition:</b> yaoserversharing.cpp:831</div></div>
+<div class="ttc" id="class_c_bit_vector_html"><div class="ttname"><a href="class_c_bit_vector.html">CBitVector</a></div><div class="ttdef"><b>Definition:</b> cbitvector.h:85</div></div>
+<div class="ttc" id="structa2y__gate__pos__t_html"><div class="ttname"><a href="structa2y__gate__pos__t.html">a2y_gate_pos_t</a></div><div class="ttdef"><b>Definition:</b> yaoserversharing.h:31</div></div>
 <div class="ttc" id="yaosharing_8h_html"><div class="ttname"><a href="yaosharing_8h.html">yaosharing.h</a></div><div class="ttdoc">Yao Sharing class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2015 13:31:50 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 23 2015 19:14:05 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -90,37 +90,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="millionaire__prob_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef __MILLIONAIREPROB_H_</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define __MILLIONAIREPROB_H_</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../../../abycore/circuit/booleancircuits.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../../../abycore/circuit/arithmeticcircuits.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;../../../abycore/circuit/circuit.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../../../abycore/aby/abyparty.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define ALICE   &quot;ALICE&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define BOB     &quot;BOB&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;int32_t <a class="code" href="millionaire__prob_8h.html#a79e18f7b70c1d7a751b64c1de4ed179d">test_millionaire_prob_circuit</a>(e_role role, <span class="keywordtype">char</span>* address, <a class="code" href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">seclvl</a> <a class="code" href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">seclvl</a>, uint32_t nvals, uint32_t bitlen, uint32_t nthreads, <a class="code" href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37">e_mt_gen_alg</a> mt_alg, <a class="code" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> sharing);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<a class="code" href="classshare.html">share</a>* <a class="code" href="millionaire__prob_8h.html#a770b6aceb063f3234bb96fb5fe3c6a1e">BuildMillionaireProbCircuit</a>(<a class="code" href="classshare.html">share</a> *s_alice, <a class="code" href="classshare.html">share</a> *s_bob, <a class="code" href="class_boolean_circuit.html">BooleanCircuit</a> *bc);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">static</span> uint32_t m_nBitLength;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __MILLIONAIREPROB_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="class_boolean_circuit_html"><div class="ttname"><a href="class_boolean_circuit.html">BooleanCircuit</a></div><div class="ttdef"><b>Definition:</b> booleancircuits.h:16</div></div>
-<div class="ttc" id="millionaire__prob_8h_html_a770b6aceb063f3234bb96fb5fe3c6a1e"><div class="ttname"><a href="millionaire__prob_8h.html#a770b6aceb063f3234bb96fb5fe3c6a1e">BuildMillionaireProbCircuit</a></div><div class="ttdeci">share * BuildMillionaireProbCircuit(share *s_alice, share *s_bob, BooleanCircuit *bc)</div><div class="ttdoc">This function is used to build and solve the millionaire&#39;s problem. </div><div class="ttdef"><b>Definition:</b> millionaire_prob.cpp:112</div></div>
-<div class="ttc" id="constants_8h_html_a2b590caca6c63d2d7f8cf769a0882f37"><div class="ttname"><a href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37">e_mt_gen_alg</a></div><div class="ttdeci">e_mt_gen_alg</div><div class="ttdoc">Enumeration which defines the method that is used for arithmetic multiplication triple generation...</div><div class="ttdef"><b>Definition:</b> constants.h:44</div></div>
-<div class="ttc" id="classshare_html"><div class="ttname"><a href="classshare.html">share</a></div><div class="ttdef"><b>Definition:</b> circuit.h:185</div></div>
-<div class="ttc" id="millionaire__prob_8h_html_a79e18f7b70c1d7a751b64c1de4ed179d"><div class="ttname"><a href="millionaire__prob_8h.html#a79e18f7b70c1d7a751b64c1de4ed179d">test_millionaire_prob_circuit</a></div><div class="ttdeci">int32_t test_millionaire_prob_circuit(e_role role, char *address, seclvl seclvl, uint32_t nvals, uint32_t bitlen, uint32_t nthreads, e_mt_gen_alg mt_alg, e_sharing sharing)</div><div class="ttdoc">This function is used for running a testing environment for solving the millionaire&#39;s problem...</div><div class="ttdef"><b>Definition:</b> millionaire_prob.cpp:10</div></div>
-<div class="ttc" id="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s_html"><div class="ttname"><a href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">SECURITYLEVELS</a></div><div class="ttdef"><b>Definition:</b> typedefs.h:51</div></div>
-<div class="ttc" id="constants_8h_html_a855a4099bbce3f19217e3e50eb6f0706"><div class="ttname"><a href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a></div><div class="ttdeci">e_sharing</div><div class="ttdoc">Enumeration which defines the different sharing which are there in the framework. ...</div><div class="ttdef"><b>Definition:</b> constants.h:111</div></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef __MILLIONAIREPROB_H_</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define __MILLIONAIREPROB_H_</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;../../../abycore/circuit/booleancircuits.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;../../../abycore/circuit/arithmeticcircuits.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../../../abycore/circuit/circuit.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;../../../abycore/aby/abyparty.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define ALICE   &quot;ALICE&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define BOB     &quot;BOB&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;int32_t <a class="code" href="millionaire__prob_8h.html#a79e18f7b70c1d7a751b64c1de4ed179d">test_millionaire_prob_circuit</a>(e_role role, <span class="keywordtype">char</span>* address, <a class="code" href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">seclvl</a> <a class="code" href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">seclvl</a>,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        uint32_t nvals, uint32_t bitlen, uint32_t nthreads, <a class="code" href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37">e_mt_gen_alg</a> mt_alg,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> sharing);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<a class="code" href="classshare.html">share</a>* <a class="code" href="millionaire__prob_8h.html#a770b6aceb063f3234bb96fb5fe3c6a1e">BuildMillionaireProbCircuit</a>(<a class="code" href="classshare.html">share</a> *s_alice, <a class="code" href="classshare.html">share</a> *s_bob,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="class_boolean_circuit.html">BooleanCircuit</a> *bc);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __MILLIONAIREPROB_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_boolean_circuit_html"><div class="ttname"><a href="class_boolean_circuit.html">BooleanCircuit</a></div><div class="ttdef"><b>Definition:</b> booleancircuits.h:27</div></div>
+<div class="ttc" id="millionaire__prob_8h_html_a770b6aceb063f3234bb96fb5fe3c6a1e"><div class="ttname"><a href="millionaire__prob_8h.html#a770b6aceb063f3234bb96fb5fe3c6a1e">BuildMillionaireProbCircuit</a></div><div class="ttdeci">share * BuildMillionaireProbCircuit(share *s_alice, share *s_bob, BooleanCircuit *bc)</div><div class="ttdoc">This function is used to build and solve the millionaire&#39;s problem. </div><div class="ttdef"><b>Definition:</b> millionaire_prob.cpp:116</div></div>
+<div class="ttc" id="constants_8h_html_a2b590caca6c63d2d7f8cf769a0882f37"><div class="ttname"><a href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37">e_mt_gen_alg</a></div><div class="ttdeci">e_mt_gen_alg</div><div class="ttdoc">Enumeration which defines the method that is used for arithmetic multiplication triple generation...</div><div class="ttdef"><b>Definition:</b> constants.h:55</div></div>
+<div class="ttc" id="classshare_html"><div class="ttname"><a href="classshare.html">share</a></div><div class="ttdef"><b>Definition:</b> circuit.h:198</div></div>
+<div class="ttc" id="millionaire__prob_8h_html_a79e18f7b70c1d7a751b64c1de4ed179d"><div class="ttname"><a href="millionaire__prob_8h.html#a79e18f7b70c1d7a751b64c1de4ed179d">test_millionaire_prob_circuit</a></div><div class="ttdeci">int32_t test_millionaire_prob_circuit(e_role role, char *address, seclvl seclvl, uint32_t nvals, uint32_t bitlen, uint32_t nthreads, e_mt_gen_alg mt_alg, e_sharing sharing)</div><div class="ttdoc">This function is used for running a testing environment for solving the millionaire&#39;s problem...</div><div class="ttdef"><b>Definition:</b> millionaire_prob.cpp:21</div></div>
+<div class="ttc" id="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s_html"><div class="ttname"><a href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">SECURITYLEVELS</a></div><div class="ttdef"><b>Definition:</b> typedefs.h:62</div></div>
+<div class="ttc" id="constants_8h_html_a855a4099bbce3f19217e3e50eb6f0706"><div class="ttname"><a href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a></div><div class="ttdeci">e_sharing</div><div class="ttdoc">Enumeration which defines the different sharing which are there in the framework. ...</div><div class="ttdef"><b>Definition:</b> constants.h:122</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2015 13:31:50 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 23 2015 19:14:06 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

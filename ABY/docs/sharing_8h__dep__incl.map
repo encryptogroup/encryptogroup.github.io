@@ -1,23 +1,29 @@
 <map id="src/abycore/sharing/sharing.h" name="src/abycore/sharing/sharing.h">
-<area shape="rect" id="node2" href="$abyparty_8h.html" title="ABYParty class. " alt="" coords="489,281,669,307"/>
-<area shape="rect" id="node7" href="$abytest_8h.html" title="ABY Test class. " alt="" coords="13,467,137,493"/>
-<area shape="rect" id="node12" href="$boolsharing_8h.html" title="Bool Sharing class. " alt="" coords="511,95,647,136"/>
-<area shape="rect" id="node14" href="$yaoclientsharing_8h.html" title="Yao Client Sharing class. " alt="" coords="85,184,221,225"/>
-<area shape="rect" id="node16" href="$yaosharing_8h.html" title="Yao Sharing class. " alt="" coords="272,95,408,136"/>
-<area shape="rect" id="node17" href="$yaoserversharing_8h.html" title="Yao Server Sharing class. " alt="" coords="405,184,541,225"/>
-<area shape="rect" id="node20" href="$arithsharing_8h.html" title="Arithmetic Sharing class. " alt="" coords="827,95,963,136"/>
-<area shape="rect" id="node22" href="$sharing_8cpp.html" title="Sharing class implementation. " alt="" coords="987,95,1123,136"/>
-<area shape="rect" id="node3" href="$abyparty_8cpp.html" title="ABYParty class implementation. " alt="" coords="347,370,541,397"/>
-<area shape="rect" id="node4" href="$aes__test_8cpp.html" title="AES Test class implementation. " alt="" coords="382,459,533,501"/>
-<area shape="rect" id="node5" href="$aescircuit_8h.html" title="Implementation of AESCiruit. " alt="" coords="144,363,323,404"/>
-<area shape="rect" id="node9" href="$millionaire__prob_8h.html" title="Implementation of the millionaire problem using ABY Framework. " alt="" coords="616,363,829,404"/>
-<area shape="rect" id="node11" href="$millionaire__prob__test_8cpp.html" title="Millionaire problem Test class implementation. " alt="" coords="785,452,948,508"/>
-<area shape="rect" id="node6" href="$aescircuit_8cpp.html" title="Implementation of AESCiruit. " alt="" coords="161,459,340,501"/>
-<area shape="rect" id="node8" href="$abytest_8cpp.html" title="ABYTest class implementation. " alt="" coords="5,556,144,583"/>
-<area shape="rect" id="node10" href="$millionaire__prob_8cpp.html" title="Implementation of the millionaire problem using ABY Framework. " alt="" coords="591,452,761,508"/>
-<area shape="rect" id="node13" href="$boolsharing_8cpp.html" title="Bool sharing class implementation. " alt="" coords="616,184,752,225"/>
-<area shape="rect" id="node15" href="$yaoclientsharing_8cpp.html" title="Yao Client Sharing class implementation. " alt="" coords="86,273,231,315"/>
-<area shape="rect" id="node19" href="$yaosharing_8cpp.html" title="Yao Sharing class implementation. " alt="" coords="245,184,381,225"/>
-<area shape="rect" id="node18" href="$yaoserversharing_8cpp.html" title="Yao Server Sharing class implementation. " alt="" coords="314,273,465,315"/>
-<area shape="rect" id="node21" href="$arithsharing_8cpp.html" title="Arithmetic Sharing class implementation. " alt="" coords="877,184,1013,225"/>
+<area shape="rect" id="node2" href="$abyparty_8h.html" title="ABYParty class. " alt="" coords="627,281,807,307"/>
+<area shape="rect" id="node7" href="$abytest_8h.html" title="ABY Test class. " alt="" coords="13,481,137,508"/>
+<area shape="rect" id="node18" href="$boolsharing_8h.html" title="Bool Sharing class. " alt="" coords="548,95,684,136"/>
+<area shape="rect" id="node20" href="$yaoclientsharing_8h.html" title="Yao Client Sharing class. " alt="" coords="123,184,259,225"/>
+<area shape="rect" id="node22" href="$yaosharing_8h.html" title="Yao Sharing class. " alt="" coords="309,95,445,136"/>
+<area shape="rect" id="node23" href="$yaoserversharing_8h.html" title="Yao Server Sharing class. " alt="" coords="443,184,579,225"/>
+<area shape="rect" id="node26" href="$arithsharing_8h.html" title="Arithmetic Sharing class. " alt="" coords="864,95,1000,136"/>
+<area shape="rect" id="node28" href="$sharing_8cpp.html" title="Sharing class implementation. " alt="" coords="1024,95,1160,136"/>
+<area shape="rect" id="node3" href="$abyparty_8cpp.html" title="ABYParty class implementation. " alt="" coords="149,377,344,404"/>
+<area shape="rect" id="node4" href="$aes__test_8cpp.html" title="AES Test class implementation. " alt="" coords="365,474,515,515"/>
+<area shape="rect" id="node5" href="$aescircuit_8h.html" title="Implementation of AESCiruit. " alt="" coords="368,370,547,411"/>
+<area shape="rect" id="node9" href="$euclidean__dist_8h.html" title="Implementation of the Euclidean Distance using ABY Framework. " alt="" coords="622,363,813,419"/>
+<area shape="rect" id="node11" href="$euclidean__distance__test_8cpp.html" title="Testing the implementation of the Euclidean distance for two coordinates. " alt="" coords="754,467,947,523"/>
+<area shape="rect" id="node12" href="$millionaire__prob_8h.html" title="Implementation of the millionaire problem using ABY Framework. " alt="" coords="951,370,1164,411"/>
+<area shape="rect" id="node14" href="$millionaire__prob__test_8cpp.html" title="Millionaire problem Test class implementation. " alt="" coords="1167,467,1329,523"/>
+<area shape="rect" id="node15" href="$min-euclidean-dist-circuit_8h.html" title="Implementation of Minimum Euclidean Distance Circuit. " alt="" coords="1354,363,1539,419"/>
+<area shape="rect" id="node17" href="$min-euclidean-dist_8cpp.html" title="Minimum Euclidean distance Test class implementation. " alt="" coords="1564,474,1748,515"/>
+<area shape="rect" id="node6" href="$aescircuit_8cpp.html" title="Implementation of AESCiruit. " alt="" coords="161,474,340,515"/>
+<area shape="rect" id="node8" href="$abytest_8cpp.html" title="ABYTest class implementation. " alt="" coords="5,571,144,597"/>
+<area shape="rect" id="node10" href="$euclidean__dist_8cpp.html" title="Testing the implementation of the Euclidean distance for two coordinates. " alt="" coords="539,467,730,523"/>
+<area shape="rect" id="node13" href="$millionaire__prob_8cpp.html" title="Implementation of the millionaire problem using ABY Framework. " alt="" coords="972,467,1143,523"/>
+<area shape="rect" id="node16" href="$min-euclidean-dist-circuit_8cpp.html" title="Implementation of Minimum Euclidean Distance Circuit. " alt="" coords="1354,467,1539,523"/>
+<area shape="rect" id="node19" href="$boolsharing_8cpp.html" title="Bool sharing class implementation. " alt="" coords="653,184,789,225"/>
+<area shape="rect" id="node21" href="$yaoclientsharing_8cpp.html" title="Yao Client Sharing class implementation. " alt="" coords="118,273,263,315"/>
+<area shape="rect" id="node25" href="$yaosharing_8cpp.html" title="Yao Sharing class implementation. " alt="" coords="283,184,419,225"/>
+<area shape="rect" id="node24" href="$yaoserversharing_8cpp.html" title="Yao Server Sharing class implementation. " alt="" coords="435,273,586,315"/>
+<area shape="rect" id="node27" href="$arithsharing_8cpp.html" title="Arithmetic Sharing class implementation. " alt="" coords="915,184,1051,225"/>
 </map>

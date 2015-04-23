@@ -114,8 +114,8 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of the millionaire problem using ABY Framework. </p>
-<dl class="section author"><dt>Author</dt><dd>Sreeram Sadasivam </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>__________________ </dd></dl>
+<dl class="section author"><dt>Author</dt><dd><a href="#" onclick="location.href='mai'+'lto:'+'sre'+'er'+'am.'+'sa'+'das'+'iv'+'am@'+'ca'+'sed'+'.d'+'e'; return false;">sreer<span style="display: none;">.nosp@m.</span>am.s<span style="display: none;">.nosp@m.</span>adasi<span style="display: none;">.nosp@m.</span>vam@<span style="display: none;">.nosp@m.</span>cased<span style="display: none;">.nosp@m.</span>.de</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>ABY - A Framework for Efficient Mixed-protocol Secure Two-party Computation Copyright (C) 2015 Engineering Cryptographic Protocols Group, TU Darmstadt This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a770b6aceb063f3234bb96fb5fe3c6a1e"></a>
 <div class="memitem">
@@ -234,40 +234,23 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Step 1: Create the <a class="el" href="class_a_b_y_party.html">ABYParty</a> object which defines the basis of</p>
-<p>all the operations which are happening. Operations performed</p>
-<p>are on the basis of the role played by this object.</p>
+<p>Step 1: Create the <a class="el" href="class_a_b_y_party.html">ABYParty</a> object which defines the basis of all the operations which are happening. Operations performed are on the basis of the role played by this object.</p>
 <p>Step 2: Get to know all the sharing types available in the program.</p>
-<p>Step 3: Create the circuit object on the basis of the sharing type</p>
-<p>being inputed.</p>
-<p>Step 4: Creating the share objects - s_alice_money, s_bob_money which</p>
-<p>is used as input to the computation function. Also s_out</p>
-<p>which stores the output.</p>
-<p>Step 5: Initialize Alice's and Bob's money with random values.</p>
-<p>Both parties use the same seed, to be able to verify the</p>
-<p>result. In a real example each party would only supply</p>
-<p>one input value.</p>
-<p>Step 6: Copy the randomly generated money into the respective</p>
-<p>share objects using the circuit object method PUTInGate().</p>
-<p>Also mention who is sharing the object.</p>
-<p>The value for the party different from role is ignored,</p>
-<p>but PutINGate() must always be called for both roles.</p>
-<p>Step 7: Call the build method for building the circuit for the</p>
-<p>problem by passing the shared objects and circuit object.</p>
-<p>Don't forget to type cast the circuit object to type of share</p>
-<p>Step 8: Modify the output receiver based on the role played by</p>
-<p>the server and the client. This step writes the output to the</p>
-<p>shared output object based on the role.</p>
-<p>Step 9: Executing the circuit using the <a class="el" href="class_a_b_y_party.html">ABYParty</a> object evaluate the</p>
-<p>problem.</p>
-<p>Step 10:Type casting the value to 32 bit unsigned integer for output. </p>
+<p>Step 3: Create the circuit object on the basis of the sharing type being inputed.</p>
+<p>Step 4: Creating the share objects - s_alice_money, s_bob_money which is used as input to the computation function. Also s_out which stores the output.</p>
+<p>Step 5: Initialize Alice's and Bob's money with random values. Both parties use the same seed, to be able to verify the result. In a real example each party would only supply one input value.</p>
+<p>Step 6: Copy the randomly generated money into the respective share objects using the circuit object method PUTInGate(). Also mention who is sharing the object. The value for the party different from role is ignored, but PutINGate() must always be called for both roles.</p>
+<p>Step 7: Call the build method for building the circuit for the problem by passing the shared objects and circuit object. Don't forget to type cast the circuit object to type of share</p>
+<p>Step 8: Modify the output receiver based on the role played by the server and the client. This step writes the output to the shared output object based on the role.</p>
+<p>Step 9: Executing the circuit using the <a class="el" href="class_a_b_y_party.html">ABYParty</a> object evaluate the problem.</p>
+<p>Step 10:Type casting the value to 32 bit unsigned integer for output.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2015 13:31:50 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 23 2015 19:14:06 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

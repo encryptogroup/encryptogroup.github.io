@@ -1,4 +1,4 @@
 <map id="CThread" name="CThread">
-<area shape="rect" id="node2" href="$class_o_t_extension_receiver_1_1_o_t_receiver_thread.html" title="OTExtensionReceiver\l::OTReceiverThread" alt="" coords="5,80,156,121"/>
-<area shape="rect" id="node3" href="$class_o_t_extension_sender_1_1_o_t_sender_thread.html" title="OTExtensionSender::\lOTSenderThread" alt="" coords="181,80,327,121"/>
+<area shape="rect" id="node2" href="$class_o_t_ext_rec_1_1_o_t_receiver_thread.html" title="OTExtRec::OTReceiverThread" alt="" coords="5,80,208,107"/>
+<area shape="rect" id="node3" href="$class_o_t_ext_snd_1_1_o_t_sender_thread.html" title="OTExtSnd::OTSenderThread" alt="" coords="233,80,423,107"/>
 </map>

@@ -90,195 +90,195 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="abycircuit_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef __ABYCIRCUIT_H_</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define __ABYCIRCUIT_H_</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../util/typedefs.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;limits.h&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;deque&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../util/constants.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//#define DEBUG_CIRCUIT_CONSTRUCTION</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//A macro that defines whether a gate requires interaction</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define IsInteractive(gatetype, gatecontext) (!((gatecontext == C_ARITH &amp;&amp; gatetype == G_ADD) || ((gatecontext == C_BOOL || gatecontext == C_YAO) &amp;&amp; gatetype == G_XOR)) || (gatetype == G_MUL))</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define ComputeDepth(predecessor) ( (predecessor).depth + (predecessor).nrounds )</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define IsSIMDGate(gatetype) (!!((gatetype)&amp;0x80))</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//TODO redefine outkey as UINT64_T</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structyao__fields.html">   26</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structyao__fields.html">yao_fields</a> {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">//The output wire key</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    BYTE* outKey;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">//The permutation bit for point-and-permute</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    BYTE* pi;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structinput__fields.html">   33</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structinput__fields.html">input_fields</a> {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    e_role src;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    UGATE_T* inval;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structoutput__fields.html">   38</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structoutput__fields.html">output_fields</a> {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    e_role dst;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structcombine__at__pos__gate.html">   42</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structcombine__at__pos__gate.html">combine_at_pos_gate</a> {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    uint32_t pos;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structsplitter__fields.html">   46</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structsplitter__fields.html">splitter_fields</a> {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    uint32_t pos;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structpermutation__gate.html">   50</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structpermutation__gate.html">permutation_gate</a> {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    uint32_t* posids;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">//TODO redefine yval as UINT64_T</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">//TODO store in a specific output field, stored in val right now (which also BOOL values are)</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="uniongate__specific.html">   56</a></span>&#160;<span class="keyword">union </span><a class="code" href="uniongate__specific.html">gate_specific</a> {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">//fields of the combiner gate</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    uint32_t* cinput;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">//fields of the standard gate (pos)</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="structsplitter__fields.html">splitter_fields</a> sinput;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">//fields of a yao&#39;s garbled circuit gate</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="structyao__fields.html">yao_fields</a> yinput;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    BYTE* yval;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">//Arithmetic sharing values, a pointer to a uint16, uint32 or uint64 array with val_size elements</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    UGATE_T* aval;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">//fields of the evaluated gate</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    UGATE_T* val;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">//fields for the permutation gate. perm is a vector that first has the id i of the input gate and then the pos p of the input gate for n input gates (i_1,p_1,i_2,p_2,...,i_n,p_n)</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="structpermutation__gate.html">permutation_gate</a> perm;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">//fields for the combinepos gate. combinepos first holds the position and then the ids of the input gates it combines</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">//TODO: combine the combine and combinepos gate into one gate</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="structcombine__at__pos__gate.html">combine_at_pos_gate</a> combinepos;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">//value that is supposed to be shared</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="structinput__fields.html">input_fields</a> ishare;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">//gate whose value is reconstructed</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="structoutput__fields.html">output_fields</a> oshare;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">//constant value of a gate</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    UGATE_T constval;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//specific field for the conversion type</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    uint32_t pos;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">typedef</span> <span class="keyword">union </span><a class="code" href="uniongate__specific.html">gate_specific</a> <a class="code" href="uniongate__specific.html">gs_t</a>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="structinput__gates.html">   86</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structinput__gates.html">input_gates</a> {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">union </span>{</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        uint32_t parent;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            uint32_t left;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            uint32_t right;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        } twin;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        uint32_t* parents;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    } inputs;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    uint32_t ningates;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="struct_g_a_t_e.html">   98</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_g_a_t_e.html">GATE</a> {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">bool</span> instantiated;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> context;      <span class="comment">// the representation of the value stored in the gate (Public / arithmetic sharing / Boolean sharing / Yao sharing)</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type;            <span class="comment">// gate type</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    uint32_t nrounds;       <span class="comment">// specifies the number of interaction rounds that are required when evaluating this gate</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    uint32_t nused;         <span class="comment">// number of uses of the gate</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    uint32_t depth;         <span class="comment">// number of AND gates to the root</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    uint32_t nvals;         <span class="comment">// the number of values that are stored in this gate</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="uniongate__specific.html">gs_t</a> gs;                <span class="comment">// here the differences for the gates come in</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    uint32_t sharebitlen;   <span class="comment">// bitlength of the shares in the context</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="structinput__gates.html">input_gates</a> ingates;        <span class="comment">// the number of input gates together with the values of the input gates</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;};</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">string</span> GetOpName(<a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> op);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="structnon__lin__vec__ctx.html">  114</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structnon__lin__vec__ctx.html">non_lin_vec_ctx</a> {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    uint32_t bitlen;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    uint32_t numgates;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;uint32_t FindBitLenPositionInVec(uint32_t bitlen, <a class="code" href="structnon__lin__vec__ctx.html">non_lin_vec_ctx</a>* list, uint32_t listentries);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef __ABYCIRCUIT_H_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define __ABYCIRCUIT_H_</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;../util/typedefs.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;limits.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;deque&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;../util/constants.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//#define DEBUG_CIRCUIT_CONSTRUCTION</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//A macro that defines whether a gate requires interaction</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#define IsInteractive(gatetype, gatecontext) (!((gatecontext == C_ARITH &amp;&amp; gatetype == G_ADD) || ((gatecontext == C_BOOL || gatecontext == C_YAO) &amp;&amp; gatetype == G_XOR)) || (gatetype == G_MUL))</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#define ComputeDepth(predecessor) ( (predecessor).depth + (predecessor).nrounds )</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#define IsSIMDGate(gatetype) (!!((gatetype)&amp;0x80))</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//TODO redefine outkey as UINT64_T</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structyao__fields.html">   37</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structyao__fields.html">yao_fields</a> {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//The output wire key</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    BYTE* outKey;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">//The permutation bit for point-and-permute</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    BYTE* pi;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structinput__fields.html">   44</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structinput__fields.html">input_fields</a> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    e_role src;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    UGATE_T* inval;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structoutput__fields.html">   49</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structoutput__fields.html">output_fields</a> {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    e_role dst;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structcombine__at__pos__gate.html">   53</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structcombine__at__pos__gate.html">combine_at_pos_gate</a> {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    uint32_t pos;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structsplitter__fields.html">   57</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structsplitter__fields.html">splitter_fields</a> {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    uint32_t pos;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="structpermutation__gate.html">   61</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structpermutation__gate.html">permutation_gate</a> {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    uint32_t* posids;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">//TODO redefine yval as UINT64_T</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">//TODO store in a specific output field, stored in val right now (which also BOOL values are)</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="uniongate__specific.html">   67</a></span>&#160;<span class="keyword">union </span><a class="code" href="uniongate__specific.html">gate_specific</a> {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">//fields of the combiner gate</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    uint32_t* cinput;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">//fields of the standard gate (pos)</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="structsplitter__fields.html">splitter_fields</a> sinput;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">//fields of a yao&#39;s garbled circuit gate</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="structyao__fields.html">yao_fields</a> yinput;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    BYTE* yval;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">//Arithmetic sharing values, a pointer to a uint16, uint32 or uint64 array with val_size elements</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    UGATE_T* aval;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">//fields of the evaluated gate</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    UGATE_T* val;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//fields for the permutation gate. perm is a vector that first has the id i of the input gate and then the pos p of the input gate for n input gates (i_1,p_1,i_2,p_2,...,i_n,p_n)</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="structpermutation__gate.html">permutation_gate</a> perm;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">//fields for the combinepos gate. combinepos first holds the position and then the ids of the input gates it combines</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">//TODO: combine the combine and combinepos gate into one gate</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="structcombine__at__pos__gate.html">combine_at_pos_gate</a> combinepos;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">//value that is supposed to be shared</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="structinput__fields.html">input_fields</a> ishare;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">//gate whose value is reconstructed</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="structoutput__fields.html">output_fields</a> oshare;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">//constant value of a gate</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    UGATE_T constval;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">//specific field for the conversion type</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    uint32_t pos;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">typedef</span> <span class="keyword">union </span><a class="code" href="uniongate__specific.html">gate_specific</a> <a class="code" href="uniongate__specific.html">gs_t</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="structinput__gates.html">   97</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structinput__gates.html">input_gates</a> {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">union </span>{</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        uint32_t parent;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            uint32_t left;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            uint32_t right;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        } twin;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        uint32_t* parents;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    } inputs;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    uint32_t ningates;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="struct_g_a_t_e.html">  109</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_g_a_t_e.html">GATE</a> {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">bool</span> instantiated;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> context;      <span class="comment">// the representation of the value stored in the gate (Public / arithmetic sharing / Boolean sharing / Yao sharing)</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type;            <span class="comment">// gate type</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    uint32_t nrounds;       <span class="comment">// specifies the number of interaction rounds that are required when evaluating this gate</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    uint32_t nused;         <span class="comment">// number of uses of the gate</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    uint32_t depth;         <span class="comment">// number of AND gates to the root</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    uint32_t nvals;         <span class="comment">// the number of values that are stored in this gate</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <a class="code" href="uniongate__specific.html">gs_t</a> gs;                <span class="comment">// here the differences for the gates come in</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    uint32_t sharebitlen;   <span class="comment">// bitlength of the shares in the context</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="structinput__gates.html">input_gates</a> ingates;        <span class="comment">// the number of input gates together with the values of the input gates</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="class_a_b_y_circuit.html">  121</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_a_b_y_circuit.html">ABYCircuit</a> {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="class_a_b_y_circuit.html">ABYCircuit</a>(uint32_t maxgates);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_a_b_y_circuit.html">ABYCircuit</a>() {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        Cleanup();</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> Cleanup();</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> Reset();</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <a class="code" href="struct_g_a_t_e.html">GATE</a>* Gates() {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">return</span> m_pGates;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    uint32_t PutPrimitiveGate(<a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, uint32_t inleft, uint32_t inright, uint32_t rounds, uint32_t mindepth = 0);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    uint32_t PutNonLinearVectorGate(<a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, uint32_t choiceinput, uint32_t vectorinput, uint32_t rounds, uint32_t mindepth = 0);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    uint32_t PutCombinerGate(vector&lt;uint32_t&gt;&amp; input, uint32_t mindepth = 0);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    vector&lt;uint32_t&gt; PutSplitterGate(uint32_t input, uint32_t mindepth = 0);        <span class="comment">//, vector&lt;uint32_t&gt; gatelengths = NULL);</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    uint32_t PutCombineAtPosGate(vector&lt;uint32_t&gt;&amp; input, uint32_t pos, uint32_t mindepth = 0);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    uint32_t PutRepeaterGate(uint32_t input, uint32_t nvals, uint32_t mindepth = 0);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    vector&lt;uint32_t&gt; PutRepeaterGate(vector&lt;uint32_t&gt; input, uint32_t nvals, uint32_t mindepth = 0);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    uint32_t PutPermutationGate();</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    uint32_t PutOUTGate(uint32_t in, e_role dst, uint32_t rounds, uint32_t mindepth = 0);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    vector&lt;uint32_t&gt; PutOUTGate(vector&lt;uint32_t&gt; in, e_role dst, uint32_t rounds, uint32_t mindepth = 0);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    uint32_t PutINGate(<a class="code" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> context, uint32_t nvals, uint32_t sharebitlen, e_role src, uint32_t rounds, uint32_t mindepth = 0);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    uint32_t PutConstantGate(<a class="code" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> context, UGATE_T val, uint32_t nvals, uint32_t sharebitlen, uint32_t mindepth = 0);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    uint32_t PutINVGate(uint32_t in, uint32_t mindepth = 0);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    uint32_t PutCONVGate(vector&lt;uint32_t&gt;&amp; in, uint32_t nrounds, <a class="code" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> dst, uint32_t sharebitlen, uint32_t mindepth = 0);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    uint32_t GetGateHead() {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">return</span> m_nNextFreeGate;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    ;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    uint32_t GetMaxVectorSize() {</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">return</span> m_nMaxVectorSize;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    }</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">void</span> FinishCircuitGeneration();</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> InitGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate, <a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> InitGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate, <a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, uint32_t ina, uint32_t mindepth);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> InitGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate, <a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, uint32_t ina, uint32_t inb, uint32_t mindepth);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> InitGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate, <a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, vector&lt;uint32_t&gt;&amp; inputs, uint32_t mindepth);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">inline</span> uint32_t GetNumRounds(<a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, <a class="code" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> context);</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> MarkGateAsUsed(uint32_t gateid, uint32_t uses = 1);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <a class="code" href="struct_g_a_t_e.html">GATE</a>* m_pGates;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    uint32_t m_nNextFreeGate;   <span class="comment">// points to the current first unused gate</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    uint32_t m_nSizeOfVal;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    uint32_t m_nMaxVectorSize;  <span class="comment">// The maximum vector size in bits, required for correctly instantiating the 0 and 1 gates</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    uint32_t m_nMaxGates;       <span class="comment">// Maximal number of gates that is allowed</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;};</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keywordtype">string</span> GetOpName(<a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> op);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="structnon__lin__vec__ctx.html">  125</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structnon__lin__vec__ctx.html">non_lin_vec_ctx</a> {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    uint32_t bitlen;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    uint32_t numgates;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;};</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;uint32_t FindBitLenPositionInVec(uint32_t bitlen, <a class="code" href="structnon__lin__vec__ctx.html">non_lin_vec_ctx</a>* list, uint32_t listentries);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="class_a_b_y_circuit.html">  132</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_a_b_y_circuit.html">ABYCircuit</a> {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="class_a_b_y_circuit.html">ABYCircuit</a>(uint32_t maxgates);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_a_b_y_circuit.html">ABYCircuit</a>() {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        Cleanup();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> Cleanup();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">void</span> Reset();</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="struct_g_a_t_e.html">GATE</a>* Gates() {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">return</span> m_pGates;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    }</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    uint32_t PutPrimitiveGate(<a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, uint32_t inleft, uint32_t inright, uint32_t rounds, uint32_t mindepth = 0);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    uint32_t PutNonLinearVectorGate(<a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, uint32_t choiceinput, uint32_t vectorinput, uint32_t rounds, uint32_t mindepth = 0);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    uint32_t PutCombinerGate(vector&lt;uint32_t&gt;&amp; input, uint32_t mindepth = 0);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    vector&lt;uint32_t&gt; PutSplitterGate(uint32_t input, uint32_t mindepth = 0);        <span class="comment">//, vector&lt;uint32_t&gt; gatelengths = NULL);</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    uint32_t PutCombineAtPosGate(vector&lt;uint32_t&gt;&amp; input, uint32_t pos, uint32_t mindepth = 0);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    uint32_t PutRepeaterGate(uint32_t input, uint32_t nvals, uint32_t mindepth = 0);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    vector&lt;uint32_t&gt; PutRepeaterGate(vector&lt;uint32_t&gt; input, uint32_t nvals, uint32_t mindepth = 0);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    uint32_t PutPermutationGate();</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    uint32_t PutOUTGate(uint32_t in, e_role dst, uint32_t rounds, uint32_t mindepth = 0);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    vector&lt;uint32_t&gt; PutOUTGate(vector&lt;uint32_t&gt; in, e_role dst, uint32_t rounds, uint32_t mindepth = 0);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    uint32_t PutINGate(<a class="code" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> context, uint32_t nvals, uint32_t sharebitlen, e_role src, uint32_t rounds, uint32_t mindepth = 0);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    uint32_t PutConstantGate(<a class="code" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> context, UGATE_T val, uint32_t nvals, uint32_t sharebitlen, uint32_t mindepth = 0);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    uint32_t PutINVGate(uint32_t in, uint32_t mindepth = 0);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    uint32_t PutCONVGate(vector&lt;uint32_t&gt;&amp; in, uint32_t nrounds, <a class="code" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> dst, uint32_t sharebitlen, uint32_t mindepth = 0);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    uint32_t GetGateHead() {</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordflow">return</span> m_nNextFreeGate;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    ;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    uint32_t GetMaxVectorSize() {</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">return</span> m_nMaxVectorSize;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">void</span> FinishCircuitGeneration();</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> InitGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate, <a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> InitGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate, <a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, uint32_t ina, uint32_t mindepth);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> InitGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate, <a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, uint32_t ina, uint32_t inb, uint32_t mindepth);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> InitGate(<a class="code" href="struct_g_a_t_e.html">GATE</a>* gate, <a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, vector&lt;uint32_t&gt;&amp; inputs, uint32_t mindepth);</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __ABYCIRCUIT_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="structpermutation__gate_html"><div class="ttname"><a href="structpermutation__gate.html">permutation_gate</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:50</div></div>
-<div class="ttc" id="constants_8h_html_a04ce4f8c892d5edcd3052815a201c1b1"><div class="ttname"><a href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a></div><div class="ttdeci">e_gatetype</div><div class="ttdoc">Enumeration which defines the type of the gate in the circuit. </div><div class="ttdef"><b>Definition:</b> constants.h:56</div></div>
-<div class="ttc" id="structcombine__at__pos__gate_html"><div class="ttname"><a href="structcombine__at__pos__gate.html">combine_at_pos_gate</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:42</div></div>
-<div class="ttc" id="structinput__gates_html"><div class="ttname"><a href="structinput__gates.html">input_gates</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:86</div></div>
-<div class="ttc" id="struct_g_a_t_e_html"><div class="ttname"><a href="struct_g_a_t_e.html">GATE</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:98</div></div>
-<div class="ttc" id="structyao__fields_html"><div class="ttname"><a href="structyao__fields.html">yao_fields</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:26</div></div>
-<div class="ttc" id="structsplitter__fields_html"><div class="ttname"><a href="structsplitter__fields.html">splitter_fields</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:46</div></div>
-<div class="ttc" id="structinput__fields_html"><div class="ttname"><a href="structinput__fields.html">input_fields</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:33</div></div>
-<div class="ttc" id="structoutput__fields_html"><div class="ttname"><a href="structoutput__fields.html">output_fields</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:38</div></div>
-<div class="ttc" id="class_a_b_y_circuit_html"><div class="ttname"><a href="class_a_b_y_circuit.html">ABYCircuit</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:121</div></div>
-<div class="ttc" id="constants_8h_html_a855a4099bbce3f19217e3e50eb6f0706"><div class="ttname"><a href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a></div><div class="ttdeci">e_sharing</div><div class="ttdoc">Enumeration which defines the different sharing which are there in the framework. ...</div><div class="ttdef"><b>Definition:</b> constants.h:111</div></div>
-<div class="ttc" id="uniongate__specific_html"><div class="ttname"><a href="uniongate__specific.html">gate_specific</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:56</div></div>
-<div class="ttc" id="structnon__lin__vec__ctx_html"><div class="ttname"><a href="structnon__lin__vec__ctx.html">non_lin_vec_ctx</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:114</div></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">inline</span> uint32_t GetNumRounds(<a class="code" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, <a class="code" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> context);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> MarkGateAsUsed(uint32_t gateid, uint32_t uses = 1);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <a class="code" href="struct_g_a_t_e.html">GATE</a>* m_pGates;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    uint32_t m_nNextFreeGate;   <span class="comment">// points to the current first unused gate</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    uint32_t m_nSizeOfVal;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    uint32_t m_nMaxVectorSize;  <span class="comment">// The maximum vector size in bits, required for correctly instantiating the 0 and 1 gates</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    uint32_t m_nMaxGates;       <span class="comment">// Maximal number of gates that is allowed</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;};</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __ABYCIRCUIT_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="structpermutation__gate_html"><div class="ttname"><a href="structpermutation__gate.html">permutation_gate</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:61</div></div>
+<div class="ttc" id="constants_8h_html_a04ce4f8c892d5edcd3052815a201c1b1"><div class="ttname"><a href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a></div><div class="ttdeci">e_gatetype</div><div class="ttdoc">Enumeration which defines the type of the gate in the circuit. </div><div class="ttdef"><b>Definition:</b> constants.h:67</div></div>
+<div class="ttc" id="structcombine__at__pos__gate_html"><div class="ttname"><a href="structcombine__at__pos__gate.html">combine_at_pos_gate</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:53</div></div>
+<div class="ttc" id="structinput__gates_html"><div class="ttname"><a href="structinput__gates.html">input_gates</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:97</div></div>
+<div class="ttc" id="struct_g_a_t_e_html"><div class="ttname"><a href="struct_g_a_t_e.html">GATE</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:109</div></div>
+<div class="ttc" id="structyao__fields_html"><div class="ttname"><a href="structyao__fields.html">yao_fields</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:37</div></div>
+<div class="ttc" id="structsplitter__fields_html"><div class="ttname"><a href="structsplitter__fields.html">splitter_fields</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:57</div></div>
+<div class="ttc" id="structinput__fields_html"><div class="ttname"><a href="structinput__fields.html">input_fields</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:44</div></div>
+<div class="ttc" id="structoutput__fields_html"><div class="ttname"><a href="structoutput__fields.html">output_fields</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:49</div></div>
+<div class="ttc" id="class_a_b_y_circuit_html"><div class="ttname"><a href="class_a_b_y_circuit.html">ABYCircuit</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:132</div></div>
+<div class="ttc" id="constants_8h_html_a855a4099bbce3f19217e3e50eb6f0706"><div class="ttname"><a href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a></div><div class="ttdeci">e_sharing</div><div class="ttdoc">Enumeration which defines the different sharing which are there in the framework. ...</div><div class="ttdef"><b>Definition:</b> constants.h:122</div></div>
+<div class="ttc" id="uniongate__specific_html"><div class="ttname"><a href="uniongate__specific.html">gate_specific</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:67</div></div>
+<div class="ttc" id="structnon__lin__vec__ctx_html"><div class="ttname"><a href="structnon__lin__vec__ctx.html">non_lin_vec_ctx</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:125</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2015 13:31:50 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 23 2015 19:14:05 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

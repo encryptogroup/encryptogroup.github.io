@@ -1,8 +1,0 @@
-<map id="OTExtensionSender" name="OTExtensionSender">
-<area shape="rect" id="node2" href="$class_masking_function.html" title="MaskingFunction" alt="" coords="5,5,127,32"/>
-<area shape="rect" id="node3" href="$classcrypto.html" title="crypto" alt="" coords="151,5,210,32"/>
-<area shape="rect" id="node4" href="$class_c_socket.html" title="CSocket" alt="" coords="236,5,309,32"/>
-<area shape="rect" id="node5" href="$class_c_lock.html" title="CLock" alt="" coords="351,5,411,32"/>
-<area shape="rect" id="node6" href="$struct_o_t_block__t.html" title="OTBlock_t" alt="" coords="444,5,528,32"/>
-<area shape="rect" id="node7" href="$class_c_bit_vector.html" title="CBitVector" alt="" coords="605,5,692,32"/>
-</map>

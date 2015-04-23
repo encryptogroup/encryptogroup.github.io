@@ -11,5 +11,6 @@ var searchData=
   ['boolsharing_2eh',['boolsharing.h',['../boolsharing_8h.html',1,'']]],
   ['brickexp',['brickexp',['../classbrickexp.html',1,'']]],
   ['build_5fcode',['build_code',['../graycode_8h.html#a9d0c6af8e2b88f88dc408dc63c5dc610',1,'graycode.cpp']]],
+  ['buildeucliddistancecircuit',['BuildEuclidDistanceCircuit',['../euclidean__dist_8cpp.html#ae7d3f411c05c18c12cd0132c2c90b755',1,'BuildEuclidDistanceCircuit(share *s_x1, share *s_x2, share *s_y1, share *s_y2, BooleanCircuit *bc):&#160;euclidean_dist.cpp'],['../euclidean__dist_8h.html#ae7d3f411c05c18c12cd0132c2c90b755',1,'BuildEuclidDistanceCircuit(share *s_x1, share *s_x2, share *s_y1, share *s_y2, BooleanCircuit *bc):&#160;euclidean_dist.cpp']]],
   ['buildmillionaireprobcircuit',['BuildMillionaireProbCircuit',['../millionaire__prob_8cpp.html#a770b6aceb063f3234bb96fb5fe3c6a1e',1,'BuildMillionaireProbCircuit(share *s_alice, share *s_bob, BooleanCircuit *bc):&#160;millionaire_prob.cpp'],['../millionaire__prob_8h.html#a770b6aceb063f3234bb96fb5fe3c6a1e',1,'BuildMillionaireProbCircuit(share *s_alice, share *s_bob, BooleanCircuit *bc):&#160;millionaire_prob.cpp']]]
 ];

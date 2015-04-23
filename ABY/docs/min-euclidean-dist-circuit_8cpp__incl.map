@@ -1,0 +1,24 @@
+<map id="src/examples/min&#45;euclidean&#45;dist/common/min&#45;euclidean&#45;dist&#45;circuit.cpp" name="src/examples/min&#45;euclidean&#45;dist/common/min&#45;euclidean&#45;dist&#45;circuit.cpp">
+<area shape="rect" id="node2" href="$min-euclidean-dist-circuit_8h.html" title="Implementation of Minimum Euclidean Distance Circuit. " alt="" coords="1594,109,1721,151"/>
+<area shape="rect" id="node3" href="$circuit_8h.html" title="Contains the class for generic circuits, which is a super&#45;class of Boolean and Arithmetic circuits..." alt="" coords="1615,437,1758,479"/>
+<area shape="rect" id="node27" href="$abyparty_8h.html" title="ABYParty class. " alt="" coords="786,199,915,240"/>
+<area shape="rect" id="node4" href="$abycircuit_8h.html" title="ABYCircuit class. " alt="" coords="1642,527,1731,553"/>
+<area shape="rect" id="node6" href="$typedefs_8h.html" title="Typedefs Implementation. " alt="" coords="927,676,1043,703"/>
+<area shape="rect" id="node26" href="$constants_8h.html" title="File containing all constants used throughout the source. " alt="" coords="1107,601,1229,628"/>
+<area shape="rect" id="node19" href="$timer_8h.html" title="timer Implementation " alt="" coords="303,751,366,777"/>
+<area shape="rect" id="node28" href="$crypto_8h.html" title="Crypto primitive class. " alt="" coords="687,527,830,553"/>
+<area shape="rect" id="node36" href="$socket_8h.html" title="Socket Implementation. " alt="" coords="1457,601,1541,628"/>
+<area shape="rect" id="node37" href="$thread_8h.html" title="Thread Implementation. " alt="" coords="255,288,358,315"/>
+<area shape="rect" id="node39" href="$cbitvector_8h.html" title="CBitVector Implementation. " alt="" coords="1107,445,1229,471"/>
+<area shape="rect" id="node41" href="$abysetup_8h.html" title="Contains all methods that are processed during the setup phase of ABY. " alt="" coords="425,445,511,471"/>
+<area shape="rect" id="node43" href="$sharing_8h.html" title="Sharing class. A virtual class that contains the methods which the sharing schemes have to implement..." alt="" coords="1048,363,1181,389"/>
+<area shape="rect" id="node44" href="$boolsharing_8h.html" title="Bool Sharing class. " alt="" coords="673,288,831,315"/>
+<area shape="rect" id="node45" href="$yaoclientsharing_8h.html" title="Yao Client Sharing class. " alt="" coords="855,288,1041,315"/>
+<area shape="rect" id="node46" href="$yaoserversharing_8h.html" title="Yao Server Sharing class. " alt="" coords="1065,288,1255,315"/>
+<area shape="rect" id="node47" href="$arithsharing_8h.html" title="Arithmetic Sharing class. " alt="" coords="1279,288,1438,315"/>
+<area shape="rect" id="node48" href="$yaokey_8h.html" title="YaoKey Implementation. " alt="" coords="1267,363,1375,389"/>
+<area shape="rect" id="node49" href="$connection_8h.html" title="connection Implementation " alt="" coords="1403,363,1533,389"/>
+<area shape="rect" id="node34" href="$gmp-pk-crypto_8h.html" title="Class with finite&#45;field&#45;cryptography operations (using the GMP library) " alt="" coords="651,601,767,628"/>
+<area shape="rect" id="node35" href="$ecc-pk-crypto_8h.html" title="Class with ECC operations. " alt="" coords="792,601,904,628"/>
+<area shape="rect" id="node42" href="$naor-pinkas_8h.html" title="Compute the Naor&#45;Pinkas Base OTs. " alt="" coords="405,527,531,553"/>
+</map>

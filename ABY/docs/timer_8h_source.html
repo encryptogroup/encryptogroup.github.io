@@ -90,97 +90,97 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="timer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef __TIMER_H__</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define __TIMER_H__</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;sys/time.h&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">typedefs.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//Note do not change P_FIRST and P_LAST and keep them pointing to the first and last element in the enum</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">enum</span> ABYPHASE {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    P_TOTAL, P_INIT, P_CIRCUIT, P_NETWORK, P_BASE_OT, P_SETUP, P_OT_EXT, P_GARBLE, P_ONLINE, P_FIRST = P_TOTAL, P_LAST = P_ONLINE</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structaby__timings.html">   21</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structaby__timings.html">aby_timings</a> {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">double</span> timing;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    timeval tbegin;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    timeval tend;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">static</span> <span class="keywordtype">int</span> m_nTimings = P_LAST - P_FIRST + 1;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">static</span> <a class="code" href="structaby__timings.html">aby_timings</a> m_tTimes[P_LAST - P_FIRST + 1];</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// Timing routines</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">static</span> <span class="keywordtype">double</span> getMillies(timeval timestart, timeval timeend) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">long</span> time1 = (timestart.tv_sec * 1000000) + (timestart.tv_usec);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">long</span> time2 = (timeend.tv_sec * 1000000) + (timeend.tv_usec);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> (<span class="keywordtype">double</span>) (time2 - time1) / 1000;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">// Timing routines</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">static</span> <span class="keywordtype">double</span> getMillies(timespec timestart, timespec timeend) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">long</span> time1 = (timestart.tv_sec * 1000000) + (timestart.tv_nsec / 1000);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">long</span> time2 = (timeend.tv_sec * 1000000) + (timeend.tv_nsec / 1000);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> (<span class="keywordtype">double</span>) (time2 - time1) / 1000;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef __TIMER_H__</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define __TIMER_H__</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;sys/time.h&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedefs_8h.html">typedefs.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//Note do not change P_FIRST and P_LAST and keep them pointing to the first and last element in the enum</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">enum</span> ABYPHASE {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    P_TOTAL, P_INIT, P_CIRCUIT, P_NETWORK, P_BASE_OT, P_SETUP, P_OT_EXT, P_GARBLE, P_ONLINE, P_FIRST = P_TOTAL, P_LAST = P_ONLINE</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structaby__timings.html">   32</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structaby__timings.html">aby_timings</a> {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">double</span> timing;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    timeval tbegin;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    timeval tend;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">static</span> <span class="keywordtype">int</span> m_nTimings = P_LAST - P_FIRST + 1;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">static</span> <a class="code" href="structaby__timings.html">aby_timings</a> m_tTimes[P_LAST - P_FIRST + 1];</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// Timing routines</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">static</span> <span class="keywordtype">double</span> getMillies(timeval timestart, timeval timeend) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">long</span> time1 = (timestart.tv_sec * 1000000) + (timestart.tv_usec);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">long</span> time2 = (timeend.tv_sec * 1000000) + (timeend.tv_usec);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> StartWatch(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg, ABYPHASE phase) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span> (phase &lt; P_FIRST &amp;&amp; phase &gt; P_LAST) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        cerr &lt;&lt; <span class="stringliteral">&quot;Phase not recognized: &quot;</span> &lt;&lt; phase &lt;&lt; endl;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    gettimeofday(&amp;(m_tTimes[phase].tbegin), NULL);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#ifndef BATCH</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    cout &lt;&lt; msg &lt;&lt; endl;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> (<span class="keywordtype">double</span>) (time2 - time1) / 1000;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">// Timing routines</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">static</span> <span class="keywordtype">double</span> getMillies(timespec timestart, timespec timeend) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">long</span> time1 = (timestart.tv_sec * 1000000) + (timestart.tv_nsec / 1000);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">long</span> time2 = (timeend.tv_sec * 1000000) + (timeend.tv_nsec / 1000);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> (<span class="keywordtype">double</span>) (time2 - time1) / 1000;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> StopWatch(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg, ABYPHASE phase) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> StartWatch(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg, ABYPHASE phase) {</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span> (phase &lt; P_FIRST &amp;&amp; phase &gt; P_LAST) {</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        cerr &lt;&lt; <span class="stringliteral">&quot;Phase not recognized: &quot;</span> &lt;&lt; phase &lt;&lt; endl;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    gettimeofday(&amp;(m_tTimes[phase].tend), NULL);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    m_tTimes[phase].timing = getMillies(m_tTimes[phase].tbegin, m_tTimes[phase].tend);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#ifndef BATCH</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    cout &lt;&lt; msg &lt;&lt; m_tTimes[phase].timing &lt;&lt; <span class="stringliteral">&quot; ms &quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> PrintTimings() {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">string</span> unit = <span class="stringliteral">&quot; ms&quot;</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Timings: &quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Total =\t\t&quot;</span> &lt;&lt; m_tTimes[0].timing &lt;&lt; unit &lt;&lt; endl;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Init =\t\t&quot;</span> &lt;&lt; m_tTimes[1].timing &lt;&lt; unit &lt;&lt; endl;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;CircuitGen =\t&quot;</span> &lt;&lt; m_tTimes[2].timing &lt;&lt; unit &lt;&lt; endl;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Network =\t&quot;</span> &lt;&lt; m_tTimes[3].timing &lt;&lt; unit &lt;&lt; endl;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;BaseOTs =\t&quot;</span> &lt;&lt; m_tTimes[4].timing &lt;&lt; unit &lt;&lt; endl;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Setup =\t\t&quot;</span> &lt;&lt; m_tTimes[5].timing &lt;&lt; unit &lt;&lt; endl;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;OTExtension =\t&quot;</span> &lt;&lt; m_tTimes[6].timing &lt;&lt; unit &lt;&lt; endl;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Garbling =\t&quot;</span> &lt;&lt; m_tTimes[7].timing &lt;&lt; unit &lt;&lt; endl;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Online =\t&quot;</span> &lt;&lt; m_tTimes[8].timing &lt;&lt; unit &lt;&lt; endl;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">static</span> <span class="keywordtype">double</span> GetTimeForPhase(ABYPHASE phase) {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> m_tTimes[phase].timing;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TIMER_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="structaby__timings_html"><div class="ttname"><a href="structaby__timings.html">aby_timings</a></div><div class="ttdef"><b>Definition:</b> timer.h:21</div></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    gettimeofday(&amp;(m_tTimes[phase].tbegin), NULL);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#ifndef BATCH</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    cout &lt;&lt; msg &lt;&lt; endl;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> StopWatch(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg, ABYPHASE phase) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span> (phase &lt; P_FIRST &amp;&amp; phase &gt; P_LAST) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        cerr &lt;&lt; <span class="stringliteral">&quot;Phase not recognized: &quot;</span> &lt;&lt; phase &lt;&lt; endl;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    gettimeofday(&amp;(m_tTimes[phase].tend), NULL);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    m_tTimes[phase].timing = getMillies(m_tTimes[phase].tbegin, m_tTimes[phase].tend);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#ifndef BATCH</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    cout &lt;&lt; msg &lt;&lt; m_tTimes[phase].timing &lt;&lt; <span class="stringliteral">&quot; ms &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> PrintTimings() {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">string</span> unit = <span class="stringliteral">&quot; ms&quot;</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Timings: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Total =\t\t&quot;</span> &lt;&lt; m_tTimes[0].timing &lt;&lt; unit &lt;&lt; endl;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Init =\t\t&quot;</span> &lt;&lt; m_tTimes[1].timing &lt;&lt; unit &lt;&lt; endl;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;CircuitGen =\t&quot;</span> &lt;&lt; m_tTimes[2].timing &lt;&lt; unit &lt;&lt; endl;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Network =\t&quot;</span> &lt;&lt; m_tTimes[3].timing &lt;&lt; unit &lt;&lt; endl;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;BaseOTs =\t&quot;</span> &lt;&lt; m_tTimes[4].timing &lt;&lt; unit &lt;&lt; endl;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Setup =\t\t&quot;</span> &lt;&lt; m_tTimes[5].timing &lt;&lt; unit &lt;&lt; endl;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;OTExtension =\t&quot;</span> &lt;&lt; m_tTimes[6].timing &lt;&lt; unit &lt;&lt; endl;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Garbling =\t&quot;</span> &lt;&lt; m_tTimes[7].timing &lt;&lt; unit &lt;&lt; endl;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Online =\t&quot;</span> &lt;&lt; m_tTimes[8].timing &lt;&lt; unit &lt;&lt; endl;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">static</span> <span class="keywordtype">double</span> GetTimeForPhase(ABYPHASE phase) {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> m_tTimes[phase].timing;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TIMER_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="structaby__timings_html"><div class="ttname"><a href="structaby__timings.html">aby_timings</a></div><div class="ttdef"><b>Definition:</b> timer.h:32</div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
 <div class="ttc" id="typedefs_8h_html"><div class="ttname"><a href="typedefs_8h.html">typedefs.h</a></div><div class="ttdoc">Typedefs Implementation. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2015 13:31:50 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 23 2015 19:14:06 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -90,179 +90,179 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="abyparty_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef __ABYPARTY_H__</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define __ABYPARTY_H__</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../util/typedefs.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../util/crypto/crypto.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;../circuit/abycircuit.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../util/socket.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../util/thread.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;../util/cbitvector.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="abysetup_8h.html">abysetup.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;../sharing/sharing.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;../sharing/boolsharing.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../util/timer.h&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;../sharing/yaoclientsharing.h&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;../sharing/yaoserversharing.h&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../sharing/arithsharing.h&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;../util/yaokey.h&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;limits.h&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;../util/connection.h&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//#define ABYDEBUG</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">//#define PRINT_OUTPUT</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">//#define DEBUGABYPARTY</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//#define BENCHONLINEPHASE</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">//#define PRINT_PERFORMANCE_STATS</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//#define DEBUGCOMM</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//#define BATCH</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef __ABYPARTY_H__</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define __ABYPARTY_H__</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;../util/typedefs.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;../util/crypto/crypto.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../circuit/abycircuit.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;../util/socket.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;../util/thread.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;../util/cbitvector.h&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="abysetup_8h.html">abysetup.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;../sharing/sharing.h&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;../sharing/boolsharing.h&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;../util/timer.h&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;../sharing/yaoclientsharing.h&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;../sharing/yaoserversharing.h&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;../sharing/arithsharing.h&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;../util/yaokey.h&quot;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_a_b_y_party.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_a_b_y_party.html">ABYParty</a> {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_a_b_y_party.html">ABYParty</a>(e_role pid, <span class="keywordtype">char</span>* addr, <a class="code" href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">seclvl</a> <a class="code" href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">seclvl</a>, uint32_t bitlen, uint32_t nthreads, <a class="code" href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37">e_mt_gen_alg</a> mg_algo = <a class="code" href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37ab0a9c1460c0c0b107966f56a34b5f99e">MT_OT</a>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    ~<a class="code" href="class_a_b_y_party.html">ABYParty</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    vector&lt;Sharing*&gt;&amp; GetSharings() {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> m_vSharings;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> ExecCircuit();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> ExecSetupPhase();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    uint32_t GetMyInput(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; in); <span class="comment">//TODO deprecated, used only for benchmarking reasons where input is random</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    uint32_t GetOtherInput(<a class="code" href="class_c_bit_vector.html">CBitVector</a> &amp;otherin); <span class="comment">//used for verification, parties exchange inputs</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    uint32_t GetOutput(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; out);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> Reset();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &lt;limits.h&gt;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;../util/connection.h&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">//#define ABYDEBUG</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">//#define PRINT_OUTPUT</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//#define DEBUGABYPARTY</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">//#define BENCHONLINEPHASE</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">//#define PRINT_PERFORMANCE_STATS</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">//#define DEBUGCOMM</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">//#define BATCH</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_a_b_y_party.html">   52</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_a_b_y_party.html">ABYParty</a> {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_a_b_y_party.html">ABYParty</a>(e_role pid, <span class="keywordtype">char</span>* addr, <a class="code" href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">seclvl</a> <a class="code" href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">seclvl</a>, uint32_t bitlen, uint32_t nthreads, <a class="code" href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37">e_mt_gen_alg</a> mg_algo = <a class="code" href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37ab0a9c1460c0c0b107966f56a34b5f99e">MT_OT</a>);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    ~<a class="code" href="class_a_b_y_party.html">ABYParty</a>();</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">double</span> GetTiming(ABYPHASE phase);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    BOOL Init();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> Cleanup();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    BOOL InitCircuit(uint32_t bitlen);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    vector&lt;Sharing*&gt;&amp; GetSharings() {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> m_vSharings;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> ExecCircuit();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> ExecSetupPhase();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    uint32_t GetMyInput(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; in); <span class="comment">//TODO deprecated, used only for benchmarking reasons where input is random</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    uint32_t GetOtherInput(<a class="code" href="class_c_bit_vector.html">CBitVector</a> &amp;otherin); <span class="comment">//used for verification, parties exchange inputs</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    BOOL EstablishConnection();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    BOOL ABYPartyListen();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    BOOL ABYPartyConnect();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    uint32_t GetOutput(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; out);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> Reset();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">double</span> GetTiming(ABYPHASE phase);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    BOOL AssignInputValues();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    BOOL EvaluateCircuit();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> BuildCircuit();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> BuildBoolMult(uint32_t bitlen, uint32_t resbitlen, uint32_t nvals);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> BuildBoolAdd(uint32_t bitlen, uint32_t nvals);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> InstantiateGate(uint32_t gateid);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> UsedGate(uint32_t gateid);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    BOOL PerformInteraction();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    BOOL ThreadSendValues();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    BOOL ThreadReceiveValues();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    BOOL Init();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> Cleanup();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    BOOL InitCircuit(uint32_t bitlen);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    BOOL EstablishConnection();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    BOOL ABYPartyListen();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    BOOL ABYPartyConnect();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    BOOL AssignInputValues();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    BOOL EvaluateCircuit();</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    BOOL PrintInput();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> PrintOutput();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#ifdef VERIFYABYRES</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    BOOL VerifyResult();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> BuildCircuit();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> BuildBoolMult(uint32_t bitlen, uint32_t resbitlen, uint32_t nvals);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> BuildBoolAdd(uint32_t bitlen, uint32_t nvals);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> InstantiateGate(uint32_t gateid);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> UsedGate(uint32_t gateid);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> PrintPerformanceStatistics();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37">e_mt_gen_alg</a> m_eMTGenAlg;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="class_a_b_y_setup.html">ABYSetup</a>* m_pSetup;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">// Network Communication</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    vector&lt;CSocket&gt; m_vSockets; <span class="comment">// sockets for threads</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    e_role m_eRole; <span class="comment">// thread id</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">short</span> m_nPort;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    seclvl m_sSecLvl;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    BOOL PerformInteraction();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    BOOL ThreadSendValues();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    BOOL ThreadReceiveValues();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    BOOL PrintInput();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> PrintOutput();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#ifdef VERIFYABYRES</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    BOOL VerifyResult();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    uint32_t m_nNumOTThreads;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">void</span> PrintPerformanceStatistics();</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    uint32_t m_nHelperThreads;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">char</span>* m_cAddress;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    uint32_t m_nDepth;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    uint32_t m_nMyNumInBits;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">// Ciruit</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="class_a_b_y_circuit.html">ABYCircuit</a>* m_pCircuit;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="struct_g_a_t_e.html">GATE</a>* m_pGates;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37">e_mt_gen_alg</a> m_eMTGenAlg;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="class_a_b_y_setup.html">ABYSetup</a>* m_pSetup;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="comment">// Network Communication</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    vector&lt;CSocket&gt; m_vSockets; <span class="comment">// sockets for threads</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    e_role m_eRole; <span class="comment">// thread id</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">short</span> m_nPort;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    seclvl m_sSecLvl;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    uint32_t m_nNumOTThreads;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    uint32_t m_nSizeOfVal;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    uint32_t m_nHelperThreads;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">// Input values</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vInputBits;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment">//constant 128-bit seed, IMPORTANT: exclude if used in practice</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    BYTE* m_cConstantInsecureSeed;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    vector&lt;Sharing*&gt; m_vSharings;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="classcrypto.html">crypto</a>* m_cCrypt;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">enum</span> EPartyJobType {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        e_Party_Comm, e_Party_Stop,</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    };</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">char</span>* m_cAddress;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    uint32_t m_nDepth;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    uint32_t m_nMyNumInBits;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="comment">// Ciruit</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="class_a_b_y_circuit.html">ABYCircuit</a>* m_pCircuit;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="struct_g_a_t_e.html">GATE</a>* m_pGates;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    uint32_t m_nSizeOfVal;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">// Input values</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a> m_vInputBits;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">class </span>CPartyWorkerThread: <span class="keyword">public</span> <a class="code" href="class_c_thread.html">CThread</a> {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        CPartyWorkerThread(uint32_t <span class="keywordtype">id</span>, <a class="code" href="class_a_b_y_party.html">ABYParty</a>* callback) :</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                threadid(<span class="keywordtype">id</span>), m_pCallback(callback) {</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        }</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        ;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordtype">void</span> PutJob(EPartyJobType e) {</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            m_eJob = e;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            m_evt.Set();</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        }</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keywordtype">void</span> ThreadMain();</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        uint32_t threadid;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <a class="code" href="class_a_b_y_party.html">ABYParty</a>* m_pCallback;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <a class="code" href="class_c_event.html">CEvent</a> m_evt;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        EPartyJobType m_eJob;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    };</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    BOOL WakeupWorkerThreads(EPartyJobType);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    BOOL WaitWorkerThreads();</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    BOOL ThreadNotifyTaskDone(BOOL);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    vector&lt;CPartyWorkerThread*&gt; m_vThreads;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <a class="code" href="class_c_event.html">CEvent</a> m_evt;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="class_c_lock.html">CLock</a> m_lock;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    uint32_t m_nWorkingThreads;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    BOOL m_bWorkerThreadSuccess;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="comment">//constant 128-bit seed, IMPORTANT: exclude if used in practice</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    BYTE* m_cConstantInsecureSeed;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    vector&lt;Sharing*&gt; m_vSharings;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="classcrypto.html">crypto</a>* m_cCrypt;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">enum</span> EPartyJobType {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        e_Party_Comm, e_Party_Stop,</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    };</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keyword">class </span>CPartyWorkerThread: <span class="keyword">public</span> <a class="code" href="class_c_thread.html">CThread</a> {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        CPartyWorkerThread(uint32_t <span class="keywordtype">id</span>, <a class="code" href="class_a_b_y_party.html">ABYParty</a>* callback) :</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                threadid(<span class="keywordtype">id</span>), m_pCallback(callback) {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        ;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordtype">void</span> PutJob(EPartyJobType e) {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            m_eJob = e;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            m_evt.Set();</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordtype">void</span> ThreadMain();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        uint32_t threadid;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <a class="code" href="class_a_b_y_party.html">ABYParty</a>* m_pCallback;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <a class="code" href="class_c_event.html">CEvent</a> m_evt;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        EPartyJobType m_eJob;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    };</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;};</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor">#endif //__ABYPARTY_H__</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    BOOL WakeupWorkerThreads(EPartyJobType);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    BOOL WaitWorkerThreads();</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    BOOL ThreadNotifyTaskDone(BOOL);</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="ttc" id="classcrypto_html"><div class="ttname"><a href="classcrypto.html">crypto</a></div><div class="ttdef"><b>Definition:</b> crypto.h:47</div></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    vector&lt;CPartyWorkerThread*&gt; m_vThreads;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <a class="code" href="class_c_event.html">CEvent</a> m_evt;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <a class="code" href="class_c_lock.html">CLock</a> m_lock;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    uint32_t m_nWorkingThreads;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    BOOL m_bWorkerThreadSuccess;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;};</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor">#endif //__ABYPARTY_H__</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="ttc" id="classcrypto_html"><div class="ttname"><a href="classcrypto.html">crypto</a></div><div class="ttdef"><b>Definition:</b> crypto.h:58</div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
-<div class="ttc" id="class_a_b_y_party_html"><div class="ttname"><a href="class_a_b_y_party.html">ABYParty</a></div><div class="ttdef"><b>Definition:</b> abyparty.h:41</div></div>
+<div class="ttc" id="class_a_b_y_party_html"><div class="ttname"><a href="class_a_b_y_party.html">ABYParty</a></div><div class="ttdef"><b>Definition:</b> abyparty.h:52</div></div>
 <div class="ttc" id="abysetup_8h_html"><div class="ttname"><a href="abysetup_8h.html">abysetup.h</a></div><div class="ttdoc">Contains all methods that are processed during the setup phase of ABY. </div></div>
-<div class="ttc" id="struct_g_a_t_e_html"><div class="ttname"><a href="struct_g_a_t_e.html">GATE</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:98</div></div>
-<div class="ttc" id="constants_8h_html_a2b590caca6c63d2d7f8cf769a0882f37"><div class="ttname"><a href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37">e_mt_gen_alg</a></div><div class="ttdeci">e_mt_gen_alg</div><div class="ttdoc">Enumeration which defines the method that is used for arithmetic multiplication triple generation...</div><div class="ttdef"><b>Definition:</b> constants.h:44</div></div>
-<div class="ttc" id="class_c_thread_html"><div class="ttname"><a href="class_c_thread.html">CThread</a></div><div class="ttdef"><b>Definition:</b> thread.h:114</div></div>
-<div class="ttc" id="constants_8h_html_a2b590caca6c63d2d7f8cf769a0882f37ab0a9c1460c0c0b107966f56a34b5f99e"><div class="ttname"><a href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37ab0a9c1460c0c0b107966f56a34b5f99e">MT_OT</a></div><div class="ttdef"><b>Definition:</b> constants.h:46</div></div>
-<div class="ttc" id="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s_html"><div class="ttname"><a href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">SECURITYLEVELS</a></div><div class="ttdef"><b>Definition:</b> typedefs.h:51</div></div>
-<div class="ttc" id="class_a_b_y_circuit_html"><div class="ttname"><a href="class_a_b_y_circuit.html">ABYCircuit</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:121</div></div>
-<div class="ttc" id="class_c_event_html"><div class="ttname"><a href="class_c_event.html">CEvent</a></div><div class="ttdef"><b>Definition:</b> thread.h:181</div></div>
-<div class="ttc" id="class_a_b_y_setup_html"><div class="ttname"><a href="class_a_b_y_setup.html">ABYSetup</a></div><div class="ttdef"><b>Definition:</b> abysetup.h:66</div></div>
-<div class="ttc" id="class_c_lock_html"><div class="ttname"><a href="class_c_lock.html">CLock</a></div><div class="ttdef"><b>Definition:</b> thread.h:159</div></div>
-<div class="ttc" id="class_c_bit_vector_html"><div class="ttname"><a href="class_c_bit_vector.html">CBitVector</a></div><div class="ttdef"><b>Definition:</b> cbitvector.h:73</div></div>
+<div class="ttc" id="struct_g_a_t_e_html"><div class="ttname"><a href="struct_g_a_t_e.html">GATE</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:109</div></div>
+<div class="ttc" id="constants_8h_html_a2b590caca6c63d2d7f8cf769a0882f37"><div class="ttname"><a href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37">e_mt_gen_alg</a></div><div class="ttdeci">e_mt_gen_alg</div><div class="ttdoc">Enumeration which defines the method that is used for arithmetic multiplication triple generation...</div><div class="ttdef"><b>Definition:</b> constants.h:55</div></div>
+<div class="ttc" id="class_c_thread_html"><div class="ttname"><a href="class_c_thread.html">CThread</a></div><div class="ttdef"><b>Definition:</b> thread.h:125</div></div>
+<div class="ttc" id="constants_8h_html_a2b590caca6c63d2d7f8cf769a0882f37ab0a9c1460c0c0b107966f56a34b5f99e"><div class="ttname"><a href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37ab0a9c1460c0c0b107966f56a34b5f99e">MT_OT</a></div><div class="ttdef"><b>Definition:</b> constants.h:57</div></div>
+<div class="ttc" id="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s_html"><div class="ttname"><a href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">SECURITYLEVELS</a></div><div class="ttdef"><b>Definition:</b> typedefs.h:62</div></div>
+<div class="ttc" id="class_a_b_y_circuit_html"><div class="ttname"><a href="class_a_b_y_circuit.html">ABYCircuit</a></div><div class="ttdef"><b>Definition:</b> abycircuit.h:132</div></div>
+<div class="ttc" id="class_c_event_html"><div class="ttname"><a href="class_c_event.html">CEvent</a></div><div class="ttdef"><b>Definition:</b> thread.h:192</div></div>
+<div class="ttc" id="class_a_b_y_setup_html"><div class="ttname"><a href="class_a_b_y_setup.html">ABYSetup</a></div><div class="ttdef"><b>Definition:</b> abysetup.h:77</div></div>
+<div class="ttc" id="class_c_lock_html"><div class="ttname"><a href="class_c_lock.html">CLock</a></div><div class="ttdef"><b>Definition:</b> thread.h:170</div></div>
+<div class="ttc" id="class_c_bit_vector_html"><div class="ttname"><a href="class_c_bit_vector.html">CBitVector</a></div><div class="ttdef"><b>Definition:</b> cbitvector.h:85</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 13 2015 13:31:50 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 23 2015 19:14:05 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
