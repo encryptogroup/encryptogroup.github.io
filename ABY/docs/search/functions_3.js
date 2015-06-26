@@ -1,7 +1,9 @@
 var searchData=
 [
   ['dbpowmod',['dbpowmod',['../powmod_8cpp.html#a01201fc5e2a53ad82294b17ebb1b2fb6',1,'dbpowmod(mpz_t ret, const mpz_t b1, const mpz_t e1, const mpz_t b2, const mpz_t e2, const mpz_t mod):&#160;powmod.cpp'],['../powmod_8h.html#a01201fc5e2a53ad82294b17ebb1b2fb6',1,'dbpowmod(mpz_t ret, const mpz_t b1, const mpz_t e1, const mpz_t b2, const mpz_t e2, const mpz_t mod):&#160;powmod.cpp']]],
+  ['delcbitvector',['delCBitVector',['../class_c_bit_vector.html#abfb30c013fd211bf0eec9cacaf4b087d',1,'CBitVector']]],
   ['destroy_5fcode',['destroy_code',['../graycode_8h.html#a133fb1e5958f8d8f453015c1e9245fdc',1,'graycode.cpp']]],
+  ['detachbuf',['DetachBuf',['../class_c_bit_vector.html#a8e034dbbbe7efafde0507dfe4e2daf37',1,'CBitVector']]],
   ['dgk_5fcomplete_5fpubkey',['dgk_complete_pubkey',['../dgk_8h.html#aec99c4d5c15c19f8a8fbcd20817d8730',1,'dgk.cpp']]],
   ['dgk_5fdecrypt',['dgk_decrypt',['../dgk_8h.html#a1e2973b93fda98aabb5d095ab7ec64ea',1,'dgk.cpp']]],
   ['dgk_5fencrypt_5fcrt',['dgk_encrypt_crt',['../dgk_8h.html#ab033279be8187bc7e9745eb3efd8dcec',1,'dgk.cpp']]],

@@ -1,20 +1,22 @@
 <map id="YaoSharing" name="YaoSharing">
-<area shape="rect" id="node2" href="$class_sharing.html" title="Sharing" alt="" coords="702,56,769,83"/>
-<area shape="rect" id="node3" href="$classcrypto.html" title="crypto" alt="" coords="485,11,543,37"/>
-<area shape="rect" id="node4" href="$class_a_b_y_circuit.html" title="ABYCircuit" alt="" coords="471,89,557,116"/>
-<area shape="rect" id="node16" href="$class_circuit.html" title="Circuit" alt="" coords="705,157,765,184"/>
-<area shape="rect" id="node5" href="$struct_g_a_t_e.html" title="GATE" alt="" coords="485,160,543,187"/>
-<area shape="rect" id="node6" href="$uniongate__specific.html" title="gate_specific" alt="" coords="277,132,376,159"/>
+<area shape="rect" id="node2" href="$class_sharing.html" title="Sharing" alt="" coords="702,107,769,133"/>
+<area shape="rect" id="node3" href="$classcrypto.html" title="crypto" alt="" coords="485,61,543,88"/>
+<area shape="rect" id="node4" href="$class_a_b_y_circuit.html" title="ABYCircuit" alt="" coords="471,140,557,167"/>
+<area shape="rect" id="node18" href="$class_circuit.html" title="Circuit" alt="" coords="705,208,765,235"/>
+<area shape="rect" id="node5" href="$struct_g_a_t_e.html" title="GATE" alt="" coords="485,211,543,237"/>
+<area shape="rect" id="node6" href="$uniongate__specific.html" title="gate_specific" alt="" coords="277,183,376,209"/>
 <area shape="rect" id="node7" href="$structcombine__at__pos__gate.html" title="combine_at_pos_gate" alt="" coords="5,5,155,32"/>
 <area shape="rect" id="node8" href="$structinput__fields.html" title="input_fields" alt="" coords="36,56,124,83"/>
 <area shape="rect" id="node9" href="$structsplitter__fields.html" title="splitter_fields" alt="" coords="31,107,129,133"/>
 <area shape="rect" id="node10" href="$structoutput__fields.html" title="output_fields" alt="" coords="32,157,128,184"/>
-<area shape="rect" id="node11" href="$structyao__fields.html" title="yao_fields" alt="" coords="39,208,121,235"/>
-<area shape="rect" id="node12" href="$structpermutation__gate.html" title="permutation_gate" alt="" coords="19,259,141,285"/>
-<area shape="rect" id="node13" href="$structinput__gates.html" title="input_gates" alt="" coords="282,183,371,209"/>
-<area shape="rect" id="node14" href="$class_yao_key.html" title="YaoKey" alt="" coords="865,107,933,133"/>
-<area shape="rect" id="node15" href="$class_boolean_circuit.html" title="BooleanCircuit" alt="" coords="845,157,952,184"/>
-<area shape="rect" id="node17" href="$class_x_o_r_masking.html" title="XORMasking" alt="" coords="849,208,949,235"/>
-<area shape="rect" id="node18" href="$class_masking_function.html" title="MaskingFunction" alt="" coords="675,208,796,235"/>
-<area shape="rect" id="node19" href="$class_c_bit_vector.html" title="CBitVector" alt="" coords="855,275,942,301"/>
+<area shape="rect" id="node11" href="$structsubset__gate.html" title="subset_gate" alt="" coords="33,208,127,235"/>
+<area shape="rect" id="node12" href="$structcallback__gate.html" title="callback_gate" alt="" coords="29,259,131,285"/>
+<area shape="rect" id="node13" href="$structyao__fields.html" title="yao_fields" alt="" coords="39,309,121,336"/>
+<area shape="rect" id="node14" href="$structpermutation__gate.html" title="permutation_gate" alt="" coords="19,360,141,387"/>
+<area shape="rect" id="node15" href="$structinput__gates.html" title="input_gates" alt="" coords="282,233,371,260"/>
+<area shape="rect" id="node16" href="$class_yao_key.html" title="YaoKey" alt="" coords="865,157,933,184"/>
+<area shape="rect" id="node17" href="$class_boolean_circuit.html" title="BooleanCircuit" alt="" coords="845,208,952,235"/>
+<area shape="rect" id="node19" href="$class_x_o_r_masking.html" title="XORMasking" alt="" coords="849,259,949,285"/>
+<area shape="rect" id="node20" href="$class_masking_function.html" title="MaskingFunction" alt="" coords="675,259,796,285"/>
+<area shape="rect" id="node21" href="$class_c_bit_vector.html" title="CBitVector" alt="" coords="855,325,942,352"/>
 </map>

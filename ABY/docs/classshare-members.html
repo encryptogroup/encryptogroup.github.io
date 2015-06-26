@@ -93,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>get_circuit_type</b>() (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>get_clear_value</b>() (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>get_clear_value</b>()=0 (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>get_clear_value_vec</b>(uint32_t **vec)=0 (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>get_clear_value_vec</b>(uint32_t **vec, uint32_t *bitlen, uint32_t *nvals)=0 (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>get_gate</b>(uint32_t shareid) (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>get_gates</b>() (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>get_share_type</b>() (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
@@ -105,14 +105,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>resize</b>(uint32_t sharelen) (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>set_gate</b>(uint32_t shareid, uint32_t gateid) (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>set_gates</b>(vector&lt; uint32_t &gt; shares) (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classshare.html#a3a8bb4557d93beb9aa4cb61ade77eddc">share</a>(uint32_t sharelen, Circuit *circ)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classshare.html#a8155a73596651075dffecee91bdedbee">share</a>(vector&lt; uint32_t &gt; gates, Circuit *circ)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>size</b>() (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classshare.html#accf81e5d4b2bb14e556459a3a2ebfff2">~share</a>()</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>set_max_size</b>(uint32_t maxsize) (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classshare.html#a3a8bb4557d93beb9aa4cb61ade77eddc">share</a>(uint32_t sharelen, Circuit *circ)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classshare.html#a8155a73596651075dffecee91bdedbee">share</a>(vector&lt; uint32_t &gt; gates, Circuit *circ)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>size</b>() (defined in <a class="el" href="classshare.html">share</a>)</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classshare.html#accf81e5d4b2bb14e556459a3a2ebfff2">~share</a>()</td><td class="entry"><a class="el" href="classshare.html">share</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 23 2015 19:14:06 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 26 2015 16:45:53 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

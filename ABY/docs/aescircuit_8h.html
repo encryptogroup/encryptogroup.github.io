@@ -146,11 +146,11 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af6cdeec0ba36f4a988b4c8f3a3478a30"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6cdeec0ba36f4a988b4c8f3a3478a30"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>verify_AES_encryption</b> (<a class="el" href="class_c_bit_vector.html">CBitVector</a> input, <a class="el" href="class_c_bit_vector.html">CBitVector</a> key, uint32_t nvals, <a class="el" href="class_c_bit_vector.html">CBitVector</a> &amp;out, <a class="el" href="classcrypto.html">crypto</a> *crypt)</td></tr>
-<tr class="separator:af6cdeec0ba36f4a988b4c8f3a3478a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fb30568d96db4a4961eb68324c21d6d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9fb30568d96db4a4961eb68324c21d6d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>verify_AES_encryption</b> (uint8_t *input, uint8_t *key, uint32_t nvals, uint8_t *out, <a class="el" href="classcrypto.html">crypto</a> *crypt)</td></tr>
+<tr class="separator:a9fb30568d96db4a4961eb68324c21d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af49eff65996277a08c90052dc069b671"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af49eff65996277a08c90052dc069b671"></a>
-int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>test_aes_circuit</b> (e_role role, char *address, <a class="el" href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">seclvl</a> <a class="el" href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">seclvl</a>, uint32_t nvals, uint32_t nthreads, <a class="el" href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37">e_mt_gen_alg</a> mt_alg, <a class="el" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> sharing)</td></tr>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>test_aes_circuit</b> (<a class="el" href="constants_8h.html#ab40aefc92bb691490850a668351e207b">e_role</a> role, char *address, <a class="el" href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">seclvl</a> <a class="el" href="struct_s_e_c_u_r_i_t_y_l_e_v_e_l_s.html">seclvl</a>, uint32_t nvals, uint32_t nthreads, <a class="el" href="constants_8h.html#a2b590caca6c63d2d7f8cf769a0882f37">e_mt_gen_alg</a> mt_alg, <a class="el" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> sharing)</td></tr>
 <tr class="separator:af49eff65996277a08c90052dc069b671"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa1e43f500e399468877879066722097"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa1e43f500e399468877879066722097"></a>
 <a class="el" href="classshare.html">share</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>BuildAESCircuit</b> (<a class="el" href="classshare.html">share</a> *val, <a class="el" href="classshare.html">share</a> *key, <a class="el" href="class_boolean_circuit.html">BooleanCircuit</a> *circ)</td></tr>
@@ -253,7 +253,7 @@ const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>AES_TEST_INP
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 23 2015 19:14:06 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 26 2015 16:45:52 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

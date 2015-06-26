@@ -1,5 +1,10 @@
 var searchData=
 [
+  ['cbitvector',['CBitVector',['../class_c_bit_vector.html#a0e327fc81bc37e2914213f7a70e8b172',1,'CBitVector::CBitVector()'],['../class_c_bit_vector.html#ad470bc9607569c04d950f8a31215fee8',1,'CBitVector::CBitVector(uint32_t bits)'],['../class_c_bit_vector.html#a587d50aa7307f2846644ddfcf98749a0',1,'CBitVector::CBitVector(uint32_t bits, crypto *crypt)']]],
   ['circuit',['Circuit',['../class_circuit.html#abbe54020f72e14942f17a6d21cb42985',1,'Circuit']]],
-  ['create',['Create',['../class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad',1,'CBitVector']]]
+  ['cleanup',['Cleanup',['../class_circuit.html#a51eaa4272b947dba2373c1f9a30d5828',1,'Circuit']]],
+  ['copy',['Copy',['../class_c_bit_vector.html#a10e6085997f64cec320a428b99367b89',1,'CBitVector::Copy(CBitVector &amp;vec)'],['../class_c_bit_vector.html#a996e10ebc700e6eaa19e49d041a0c60a',1,'CBitVector::Copy(CBitVector &amp;vec, int pos, int len)'],['../class_c_bit_vector.html#a1a05178228bc597a5a66c26cd3f8f0ef',1,'CBitVector::Copy(BYTE *p, int pos, int len)']]],
+  ['create',['Create',['../class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad',1,'CBitVector::Create(uint64_t bits)'],['../class_c_bit_vector.html#afba9d34a34ca16fee372039fcc9d17a1',1,'CBitVector::Create(uint64_t bits, crypto *crypt)'],['../class_c_bit_vector.html#a9652e4d7e14bc6f7c0e1b29d06a7130a',1,'CBitVector::Create(uint64_t numelements, uint64_t elementlength)'],['../class_c_bit_vector.html#a0eab7cb5f8029901e14af6778d57f8d3',1,'CBitVector::Create(uint64_t numelements, uint64_t elementlength, crypto *crypt)'],['../class_c_bit_vector.html#ad32318bef03278747aa9cf8b8a241030',1,'CBitVector::Create(uint64_t numelementsDimA, uint64_t numelementsDimB, uint64_t elementlength)'],['../class_c_bit_vector.html#a643106324dfcdac8effd8ae185d1343a',1,'CBitVector::Create(uint64_t numelementsDimA, uint64_t numelementsDimB, uint64_t elementlength, crypto *crypt)']]],
+  ['createbytes',['CreateBytes',['../class_c_bit_vector.html#a8152f869cce43fcc2216386afc21a643',1,'CBitVector']]],
+  ['createzeros',['CreateZeros',['../class_c_bit_vector.html#a465c6c58b64215794bcbf927b79c6b0b',1,'CBitVector']]]
 ];

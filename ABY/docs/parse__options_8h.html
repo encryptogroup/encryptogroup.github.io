@@ -101,6 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for parse_options.h:</div>
 <div class="dyncontent">
@@ -113,7 +114,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="parse__options_8h__dep__incl.png" border="0" usemap="#src_2abycore_2util_2parse__options_8hdep" alt=""/></div>
 <map name="src_2abycore_2util_2parse__options_8hdep" id="src_2abycore_2util_2parse__options_8hdep">
-<area shape="rect" id="node2" href="parse__options_8cpp.html" title="Parse Options Implementation. " alt="" coords="5,102,152,143"/><area shape="rect" id="node3" href="aes__test_8cpp.html" title="AES Test class implementation. " alt="" coords="177,102,327,143"/><area shape="rect" id="node4" href="euclidean__distance__test_8cpp.html" title="Testing the implementation of the Euclidean distance for two coordinates. " alt="" coords="351,95,545,151"/><area shape="rect" id="node5" href="millionaire__prob__test_8cpp.html" title="Millionaire problem Test class implementation. " alt="" coords="569,95,732,151"/><area shape="rect" id="node6" href="min-euclidean-dist_8cpp.html" title="Minimum Euclidean distance Test class implementation. " alt="" coords="756,102,940,143"/><area shape="rect" id="node7" href="abytest_8h.html" title="ABY Test class. " alt="" coords="965,109,1089,136"/><area shape="rect" id="node8" href="abytest_8cpp.html" title="ABYTest class implementation. " alt="" coords="957,199,1096,225"/></map>
+<area shape="rect" id="node2" href="parse__options_8cpp.html" title="Parse Options Implementation. " alt="" coords="5,102,152,143"/><area shape="rect" id="node3" href="aes__test_8cpp.html" title="AES Test class implementation. " alt="" coords="177,102,327,143"/><area shape="rect" id="node4" href="bgp__test_8cpp.html" title="BGP Test implementation. " alt="" coords="351,102,502,143"/><area shape="rect" id="node5" href="euclidean__distance__test_8cpp.html" title="Testing the implementation of the Euclidean distance for two coordinates. " alt="" coords="526,95,719,151"/><area shape="rect" id="node6" href="millionaire__prob__test_8cpp.html" title="Millionaire problem Test class implementation. " alt="" coords="744,95,907,151"/><area shape="rect" id="node7" href="min-euclidean-dist_8cpp.html" title="Minimum Euclidean distance Test class implementation. " alt="" coords="931,102,1115,143"/><area shape="rect" id="node8" href="psi__phasing_8cpp.html" title="Private Set Intersection Test class implementation. " alt="" coords="1139,102,1312,143"/><area shape="rect" id="node9" href="psi__scs_8cpp.html" title="Private Set Intersection with Sort&#45;Compare&#45;Shuffle of &quot;Huang, Katz, Evans: Private Set Intersection: ..." alt="" coords="1336,102,1485,143"/><area shape="rect" id="node10" href="abytest_8h.html" title="ABY Test class. " alt="" coords="1509,109,1633,136"/><area shape="rect" id="node11" href="abytest_8cpp.html" title="ABYTest class implementation. " alt="" coords="1501,199,1640,225"/></map>
 </div>
 </div>
 <p><a href="parse__options_8h_source.html">Go to the source code of this file.</a></p>
@@ -140,15 +141,57 @@ int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>parse_options</b> 
 <tr class="memitem:a691f98028be3be22b987c73e77c23777"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a691f98028be3be22b987c73e77c23777"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>print_usage</b> (std::string progname, <a class="el" href="structparsing__ctx.html">parsing_ctx</a> *options, uint32_t nops)</td></tr>
 <tr class="separator:a691f98028be3be22b987c73e77c23777"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b677c1a0d02e6143806f0075fd408ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse__options_8h.html#a5b677c1a0d02e6143806f0075fd408ce">tokenize</a> (const std::string &amp;str, std::vector&lt; uint32_t &gt; &amp;tokens, const std::string &amp;delimiters=&quot;| \t&quot;)</td></tr>
+<tr class="separator:a5b677c1a0d02e6143806f0075fd408ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Parse Options Implementation. </p>
 <dl class="section author"><dt>Author</dt><dd><a href="#" onclick="location.href='mai'+'lto:'+'mic'+'ha'+'el.'+'zo'+'hne'+'r@'+'ec-'+'sp'+'rid'+'e.'+'de'; return false;">micha<span style="display: none;">.nosp@m.</span>el.z<span style="display: none;">.nosp@m.</span>ohner<span style="display: none;">.nosp@m.</span>@ec-<span style="display: none;">.nosp@m.</span>sprid<span style="display: none;">.nosp@m.</span>e.de</a> </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>ABY - A Framework for Efficient Mixed-protocol Secure Two-party Computation Copyright (C) 2015 Engineering Cryptographic Protocols Group, TU Darmstadt This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>. </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a5b677c1a0d02e6143806f0075fd408ce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tokenize </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint32_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tokens</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>delimiters</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>takes a string in the Format "i|i|i|..." (integers separated by '|') and returns a vector of all integers </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>the string to tokenize </td></tr>
+    <tr><td class="paramname">tokens</td><td>the result vector of wire id </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 23 2015 19:14:06 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 26 2015 16:45:52 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['share',['share',['../classshare.html#a3a8bb4557d93beb9aa4cb61ade77eddc',1,'share::share(uint32_t sharelen, Circuit *circ)'],['../classshare.html#a8155a73596651075dffecee91bdedbee',1,'share::share(vector&lt; uint32_t &gt; gates, Circuit *circ)']]],
-  ['sharing',['Sharing',['../class_sharing.html#adc772ce0e6e62d44cfc952bf6656b34c',1,'Sharing']]],
-  ['sharing_5ftype',['sharing_type',['../class_arith_sharing.html#a9add37f940e7bf1f0afee1d6bcd2caba',1,'ArithSharing::sharing_type()'],['../class_bool_sharing.html#ac789f97d363941d9f4f621ceac4a950a',1,'BoolSharing::sharing_type()'],['../class_sharing.html#a4816130e011e1706836cd7f1e9997702',1,'Sharing::sharing_type()'],['../class_yao_client_sharing.html#ad4025617330bf69e7940b1e8cb9fb1ae',1,'YaoClientSharing::sharing_type()'],['../class_yao_server_sharing.html#a1015f4a06b69cf9f06c8dd95f1708637',1,'YaoServerSharing::sharing_type()']]]
+  ['reset',['Reset',['../class_circuit.html#a9db4bf172f45348627c62ba861829107',1,'Circuit::Reset()'],['../class_arith_sharing.html#ac7ee60d884eea6c9516f4910153f69d2',1,'ArithSharing::Reset()'],['../class_bool_sharing.html#a1fce36bb079a1d436ff8d3e5f4944b50',1,'BoolSharing::Reset()'],['../class_sharing.html#a7500beb8b4740646b3c2b7a7092b936b',1,'Sharing::Reset()'],['../class_yao_client_sharing.html#a9e44d8126bb7be5961acdced9406eac7',1,'YaoClientSharing::Reset()'],['../class_yao_server_sharing.html#afcd2587d1526207704386a3ca322b2f8',1,'YaoServerSharing::Reset()'],['../class_yao_sharing.html#a64ffc8bcf9c471258009bcd07392483d',1,'YaoSharing::Reset()'],['../class_c_bit_vector.html#a48146fc1124ad63d930a6ea3d8e76c11',1,'CBitVector::Reset()']]],
+  ['resetfromto',['ResetFromTo',['../class_c_bit_vector.html#a0d2f1256613f532b1d728c2c36223931',1,'CBitVector']]],
+  ['resizeinbytes',['ResizeinBytes',['../class_c_bit_vector.html#ab4237185a0ebf54614bd6250b4e60a1e',1,'CBitVector']]]
 ];

@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_o_t_ext_snd.html" title="OTExtSnd" alt="" coords="5,5,88,32"/>
+<area shape="rect" id="node1" href="$class_masking_function.html" title="MaskingFunction" alt="" coords="5,31,127,57"/>
+<area shape="rect" id="node2" href="$class_arith_m_t_masking.html" title="ArithMTMasking\&lt; T \&gt;" alt="" coords="175,5,324,32"/>
+<area shape="rect" id="node3" href="$class_x_o_r_masking.html" title="XORMasking" alt="" coords="199,56,299,83"/>
 </map>

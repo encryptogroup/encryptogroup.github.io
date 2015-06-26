@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classshare.html" title="share" alt="" coords="5,31,60,57"/>
-<area shape="rect" id="node2" href="$classarithshare.html" title="arithshare" alt="" coords="108,5,187,32"/>
-<area shape="rect" id="node3" href="$classboolshare.html" title="boolshare" alt="" coords="108,56,187,83"/>
+<area shape="rect" id="node1" href="$classpk__crypto.html" title="pk_crypto" alt="" coords="5,31,84,57"/>
+<area shape="rect" id="node2" href="$classecc__field.html" title="ecc_field" alt="" coords="137,5,212,32"/>
+<area shape="rect" id="node3" href="$classprime__field.html" title="prime_field" alt="" coords="132,56,217,83"/>
 </map>

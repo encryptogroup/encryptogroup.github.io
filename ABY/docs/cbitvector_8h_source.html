@@ -98,8 +98,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE REVERSE_NIBBLE_ORDER[16] = { 0x0, 0x8, 0x4, 0xC, 0x2, 0xA, 0x6, 0xE, 0x1, 0x9, 0x5, 0xD, 0x3, 0xB, 0x7, 0xF };</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE REVERSE_NIBBLE_ORDER[16] = { 0x0, 0x8, 0x4, 0xC, 0x2, 0xA, 0x6, 0xE, 0x1, 0x9, 0x5, 0xD, 0x3, 0xB, 0x7, 0xF };</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE REVERSE_BYTE_ORDER[256] = { 0x00, 0x80, 0x40, 0xC0, 0x20, 0xA0, 0x60, 0xE0, 0x10, 0x90, 0x50, 0xD0, 0x30, 0xB0, 0x70, 0xF0, 0x08, 0x88, 0x48, 0xC8, 0x28, 0xA8,</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        0x68, 0xE8, 0x18, 0x98, 0x58, 0xD8, 0x38, 0xB8, 0x78, 0xF8, 0x04, 0x84, 0x44, 0xC4, 0x24, 0xA4, 0x64, 0xE4, 0x14, 0x94, 0x54, 0xD4, 0x34, 0xB4, 0x74, 0xF4, 0x0C, 0x8C,</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        0x4C, 0xCC, 0x2C, 0xAC, 0x6C, 0xEC, 0x1C, 0x9C, 0x5C, 0xDC, 0x3C, 0xBC, 0x7C, 0xFC, 0x02, 0x82, 0x42, 0xC2, 0x22, 0xA2, 0x62, 0xE2, 0x12, 0x92, 0x52, 0xD2, 0x32, 0xB2,</div>
@@ -111,320 +111,470 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        0x5B, 0xDB, 0x3B, 0xBB, 0x7B, 0xFB, 0x07, 0x87, 0x47, 0xC7, 0x27, 0xA7, 0x67, 0xE7, 0x17, 0x97, 0x57, 0xD7, 0x37, 0xB7, 0x77, 0xF7, 0x0F, 0x8F, 0x4F, 0xCF, 0x2F, 0xAF,</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        0x6F, 0xEF, 0x1F, 0x9F, 0x5F, 0xDF, 0x3F, 0xBF, 0x7F, 0xFF };</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE RESET_BIT_POSITIONS[9] = { 0x00, 0x01, 0x03, 0x07, 0x0F, 0x1F, 0x3F, 0x7F, 0xFF };</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE RESET_BIT_POSITIONS_INV[9] = { 0x00, 0x80, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC, 0xFE, 0xFF };</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE GET_BIT_POSITIONS[9] = { 0xFF, 0xFE, 0xFC, 0xF8, 0xF0, 0xE0, 0xC0, 0x80, 0x00 };</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE GET_BIT_POSITIONS_INV[9] = { 0xFF, 0x7F, 0x3F, 0x1F, 0x0F, 0x07, 0x03, 0x01, 0x00 };</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> INT_MASK[8] = { 0xFF, 0x7F, 0x3F, 0x1F, 0x0F, 0x07, 0x03, 0x01 };</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> FIRST_MASK_SHIFT[8] = { 0xFF00, 0x7F80, 0x3FC0, 0x1FE0, 0x0FF0, 0x07F8, 0x03FC, 0x01FE };</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE MASK_BIT[8] = { 0x80, 0x40, 0x20, 0x10, 0x8, 0x4, 0x2, 0x1 };</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE RESET_BIT_POSITIONS[9] = { 0x00, 0x01, 0x03, 0x07, 0x0F, 0x1F, 0x3F, 0x7F, 0xFF };</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE RESET_BIT_POSITIONS_INV[9] = { 0x00, 0x80, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC, 0xFE, 0xFF };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE GET_BIT_POSITIONS[9] = { 0xFF, 0xFE, 0xFC, 0xF8, 0xF0, 0xE0, 0xC0, 0x80, 0x00 };</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE BIT[8] = { 0x1, 0x2, 0x4, 0x8, 0x10, 0x20, 0x40, 0x80 };</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE CMASK_BIT[8] = { 0x7f, 0xbf, 0xdf, 0xef, 0xf7, 0xfb, 0xfd, 0xfe };</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE C_BIT[8] = { 0xFE, 0xFD, 0xFB, 0xF7, 0xEF, 0xDF, 0xBF, 0x7F };</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE GET_BIT_POSITIONS_INV[9] = { 0xFF, 0x7F, 0x3F, 0x1F, 0x0F, 0x07, 0x03, 0x01, 0x00 };</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> INT_MASK[8] = { 0xFF, 0x7F, 0x3F, 0x1F, 0x0F, 0x07, 0x03, 0x01 };</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE MASK_SET_BIT[2][8] = { { 0, 0, 0, 0, 0, 0, 0, 0 }, { 0x80, 0x40, 0x20, 0x10, 0x8, 0x4, 0x2, 0x1 } };</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE MASK_SET_BIT_C[2][8] = { { 0x80, 0x40, 0x20, 0x10, 0x8, 0x4, 0x2, 0x1 }, { 0, 0, 0, 0, 0, 0, 0, 0 } };</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE SET_BIT_C[2][8] = { { 0x1, 0x2, 0x4, 0x8, 0x10, 0x20, 0x40, 0x80 }, { 0, 0, 0, 0, 0, 0, 0, 0 } };</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">const</span> BYTE SELECT_BIT_POSITIONS[9] = { 0x00, 0x01, 0x03, 0x07, 0x0F, 0x1F, 0x3F, 0x7F, 0xFF };</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> FIRST_MASK_SHIFT[8] = { 0xFF00, 0x7F80, 0x3FC0, 0x1FE0, 0x0FF0, 0x07F8, 0x03FC, 0x01FE };</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE MASK_BIT[8] = { 0x80, 0x40, 0x20, 0x10, 0x8, 0x4, 0x2, 0x1 };</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#ifdef MACHINE_SIZE_32</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> REGISTER_SIZE TRANSPOSITION_MASKS[6] =</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{   0x55555555, 0x33333333, 0x0F0F0F0F, 0x00FF00FF, 0x0000FFFF};</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> REGISTER_SIZE TRANSPOSITION_MASKS_INV[6] =</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{   0xAAAAAAAA, 0xCCCCCCCC, 0xF0F0F0F0, 0xFF00FF00, 0xFFFF0000};</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#ifdef MACHINE_SIZE_64</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> REGISTER_SIZE TRANSPOSITION_MASKS[6] = { 0x5555555555555555, 0x3333333333333333, 0x0F0F0F0F0F0F0F0F, 0x00FF00FF00FF00FF, 0x0000FFFF0000FFFF, 0x00000000FFFFFFFF };</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> REGISTER_SIZE TRANSPOSITION_MASKS_INV[6] = { 0xAAAAAAAAAAAAAAAA, 0xCCCCCCCCCCCCCCCC, 0xF0F0F0F0F0F0F0F0, 0xFF00FF00FF00FF00, 0xFFFF0000FFFF0000, 0xFFFFFFFF00000000 };</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> SHIFTVAL = 3;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html">   85</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_bit_vector.html">CBitVector</a> {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a>() {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        Init();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a>(uint32_t bits) {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        Init();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(bits);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="class_c_bit_vector.html">CBitVector</a>(uint32_t bits, <a class="code" href="classcrypto.html">crypto</a>* crypt) {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        Init();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(bits, crypt);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> Init() {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        m_pBits = NULL;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        m_nByteSize = 0;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE BIT[8] = { 0x1, 0x2, 0x4, 0x8, 0x10, 0x20, 0x40, 0x80 };</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE CMASK_BIT[8] = { 0x7f, 0xbf, 0xdf, 0xef, 0xf7, 0xfb, 0xfd, 0xfe };</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE C_BIT[8] = { 0xFE, 0xFD, 0xFB, 0xF7, 0xEF, 0xDF, 0xBF, 0x7F };</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE MASK_SET_BIT[2][8] = { { 0, 0, 0, 0, 0, 0, 0, 0 }, { 0x80, 0x40, 0x20, 0x10, 0x8, 0x4, 0x2, 0x1 } };</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE MASK_SET_BIT_C[2][8] = { { 0x80, 0x40, 0x20, 0x10, 0x8, 0x4, 0x2, 0x1 }, { 0, 0, 0, 0, 0, 0, 0, 0 } };</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> BYTE SET_BIT_C[2][8] = { { 0x1, 0x2, 0x4, 0x8, 0x10, 0x20, 0x40, 0x80 }, { 0, 0, 0, 0, 0, 0, 0, 0 } };</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">//~CBitVector(){ if(m_pBits) free(m_pBits); }</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> delCBitVector() {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">if</span> (m_nByteSize &gt; 0)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            free(m_pBits);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        m_nByteSize = 0;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        m_pBits = NULL;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="comment">/* Fill the bitvector with random values using the crypto object */</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> FillRand(uint32_t bits, <a class="code" href="classcrypto.html">crypto</a>* crypt);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">//Create in bits and bytes</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(uint64_t bits);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">//void Create(int bits) {Create((uint64_t) bits);}</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> CreateBytes(uint64_t bytes) {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(bytes &lt;&lt; 3);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">void</span> CreateZeros(uint64_t bits) {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(bits);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        memset(m_pBits, 0, m_nByteSize);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="comment">//Create and fill with random values</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(uint64_t bits, <a class="code" href="classcrypto.html">crypto</a>* crypt);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="comment">//Create an abstract array of values</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(uint64_t numelements, uint64_t elementlength);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(uint64_t numelements, uint64_t elementlength, <a class="code" href="classcrypto.html">crypto</a>* crypt);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="comment">//Create an abstract two-dimensional array of values</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(uint64_t numelementsDimA, uint64_t numelementsDimB, uint64_t elementlength);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(uint64_t numelementsDimA, uint64_t numelementsDimB, uint64_t elementlength, <a class="code" href="classcrypto.html">crypto</a>* crypt);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">     * Management operations</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">void</span> ResizeinBytes(<span class="keywordtype">int</span> newSizeBytes);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">void</span> Reset() {</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        memset(m_pBits, 0, m_nByteSize);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">void</span> ResetFromTo(<span class="keywordtype">int</span> frombyte, <span class="keywordtype">int</span> tobyte) {</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        memset(m_pBits + frombyte, 0, tobyte - frombyte);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    }</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span> SetToOne() {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        memset(m_pBits, 0xFF, m_nByteSize);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">int</span> GetSize() {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">return</span> m_nByteSize;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    }</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    BOOL IsEqual(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; vec);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    BOOL IsEqual(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; vec, <span class="keywordtype">int</span> from, <span class="keywordtype">int</span> to);</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">void</span> SetElementLength(<span class="keywordtype">int</span> elelen) {</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        m_nElementLength = elelen;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">const</span> BYTE SELECT_BIT_POSITIONS[9] = { 0x00, 0x01, 0x03, 0x07, 0x0F, 0x1F, 0x3F, 0x7F, 0xFF };</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#ifdef MACHINE_SIZE_32</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> REGISTER_SIZE TRANSPOSITION_MASKS[6] =</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{   0x55555555, 0x33333333, 0x0F0F0F0F, 0x00FF00FF, 0x0000FFFF};</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> REGISTER_SIZE TRANSPOSITION_MASKS_INV[6] =</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{   0xAAAAAAAA, 0xCCCCCCCC, 0xF0F0F0F0, 0xFF00FF00, 0xFFFF0000};</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#ifdef MACHINE_SIZE_64</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> REGISTER_SIZE TRANSPOSITION_MASKS[6] = { 0x5555555555555555, 0x3333333333333333, 0x0F0F0F0F0F0F0F0F, 0x00FF00FF00FF00FF, 0x0000FFFF0000FFFF, 0x00000000FFFFFFFF };</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> REGISTER_SIZE TRANSPOSITION_MASKS_INV[6] = { 0xAAAAAAAAAAAAAAAA, 0xCCCCCCCCCCCCCCCC, 0xF0F0F0F0F0F0F0F0, 0xFF00FF00FF00FF00, 0xFFFF0000FFFF0000, 0xFFFFFFFF00000000 };</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> SHIFTVAL = 3;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html">  123</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_bit_vector.html">CBitVector</a> {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">//Constructor code begins here...</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a0e327fc81bc37e2914213f7a70e8b172">  129</a></span>&#160;    <a class="code" href="class_c_bit_vector.html#a0e327fc81bc37e2914213f7a70e8b172">CBitVector</a>() {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <a class="code" href="class_c_bit_vector.html#a4e6f10b3bd827dda301dec3d88af0b4d">Init</a>();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#ad470bc9607569c04d950f8a31215fee8">  136</a></span>&#160;    <a class="code" href="class_c_bit_vector.html#ad470bc9607569c04d950f8a31215fee8">CBitVector</a>(uint32_t bits) {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <a class="code" href="class_c_bit_vector.html#a4e6f10b3bd827dda301dec3d88af0b4d">Init</a>();</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(bits);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    }</div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a587d50aa7307f2846644ddfcf98749a0">  145</a></span>&#160;    <a class="code" href="class_c_bit_vector.html#a587d50aa7307f2846644ddfcf98749a0">CBitVector</a>(uint32_t bits, <a class="code" href="classcrypto.html">crypto</a>* crypt) {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <a class="code" href="class_c_bit_vector.html#a4e6f10b3bd827dda301dec3d88af0b4d">Init</a>();</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(bits, crypt);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="comment">//Constructor code ends here...</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment">//Basic Primitive function of allocation and deallocation begins here.</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a4e6f10b3bd827dda301dec3d88af0b4d">  156</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a4e6f10b3bd827dda301dec3d88af0b4d">Init</a>() {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        m_pBits = NULL;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        m_nByteSize = 0;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">     * Copy operations</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> Copy(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; vec) {</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        Copy(vec.GetArr(), 0, vec.GetSize());</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#ad78f81531ed4219340aa03294e7f1de1">  165</a></span>&#160;    <a class="code" href="class_c_bit_vector.html#ad78f81531ed4219340aa03294e7f1de1">~CBitVector</a>(){</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <a class="code" href="class_c_bit_vector.html#abfb30c013fd211bf0eec9cacaf4b087d">delCBitVector</a>();</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    }</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">void</span> Copy(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; vec, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        Copy(vec.GetArr(), pos, len);</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    }</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> Copy(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">void</span> XOR_no_mask(<span class="keywordtype">int</span> p, <span class="keywordtype">int</span> bitPos, <span class="keywordtype">int</span> bitLen);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> GetInt(<span class="keywordtype">int</span> bitPos, <span class="keywordtype">int</span> bitLen);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor">#define GetIntBitsFromLen(x, from, len)     ( ( (x &amp; ( ( (2&lt;&lt;(len))-1) &lt;&lt; from )) &gt;&gt; from) &amp; 0xFF)</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#define GetMask(len)                (( (1&lt;&lt;(len))-1))</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">void</span> ORByte(<span class="keywordtype">int</span> pos, BYTE p);</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">     * Bitwise operations</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    BYTE GetBit(<span class="keywordtype">int</span> idx) {</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span> !!(m_pBits[idx &gt;&gt; 3] &amp; MASK_BIT[idx &amp; 0x7]);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">void</span> SetBit(<span class="keywordtype">int</span> idx, BYTE b) {</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        m_pBits[idx &gt;&gt; 3] = (m_pBits[idx &gt;&gt; 3] &amp; CMASK_BIT[idx &amp; 0x7]) | MASK_SET_BIT_C[!(b &amp; 0x01)][idx &amp; 0x7];</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    }</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordtype">void</span> XORBit(<span class="keywordtype">int</span> idx, BYTE b) {</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        m_pBits[idx &gt;&gt; 3] ^= MASK_SET_BIT_C[!(b &amp; 0x01)][idx &amp; 0x7];</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    }</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">void</span> ANDBit(<span class="keywordtype">int</span> idx, BYTE b) {</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keywordflow">if</span> (!b)</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            m_pBits[idx &gt;&gt; 3] &amp;= CMASK_BIT[idx &amp; 0x7];</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#abfb30c013fd211bf0eec9cacaf4b087d">  172</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#abfb30c013fd211bf0eec9cacaf4b087d">delCBitVector</a>() {</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">if</span> (m_nByteSize &gt; 0) {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            free(m_pBits);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        }</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        m_nByteSize = 0;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        m_pBits = NULL;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="comment">//Basic Primitive function of allocation and deallocation ends here.</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="comment">//Create function supported by CBitVector starts here...</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#ac3819ba1f6d80d838abbd0e93041ce5a">FillRand</a>(uint32_t bits, <a class="code" href="classcrypto.html">crypto</a>* crypt);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="comment">/* Create in bits and bytes */</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="comment">//used to access bits in the regular order</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    BYTE GetBitNoMask(<span class="keywordtype">int</span> idx) {</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">return</span> !!(m_pBits[idx &gt;&gt; 3] &amp; BIT[idx &amp; 0x7]);</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    }</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordtype">void</span> SetBitNoMask(<span class="keywordtype">int</span> idx, BYTE b) {</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        m_pBits[idx &gt;&gt; 3] = (m_pBits[idx &gt;&gt; 3] &amp; C_BIT[idx &amp; 0x7]) | SET_BIT_C[!(b &amp; 0x01)][idx &amp; 0x7];</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    }</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">void</span> XORBitNoMask(<span class="keywordtype">int</span> idx, BYTE b) {</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        m_pBits[idx &gt;&gt; 3] ^= SET_BIT_C[!(b &amp; 0x01)][idx &amp; 0x7];</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    }</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">void</span> ANDBitNoMask(<span class="keywordtype">int</span> idx, BYTE b) {</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="keywordflow">if</span> (!b)</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            m_pBits[idx &gt;&gt; 3] &amp;= C_BIT[idx &amp; 0x7];</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    }</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">     * Single byte operations</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordtype">void</span> SetByte(<span class="keywordtype">int</span> idx, BYTE p) {</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        m_pBits[idx] = p;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    BYTE GetByte(<span class="keywordtype">int</span> idx) {</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keywordflow">return</span> m_pBits[idx];</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    }</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordtype">void</span> XORByte(<span class="keywordtype">int</span> idx, BYTE b) {</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        m_pBits[idx] ^= b;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    }</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordtype">void</span> ANDByte(<span class="keywordtype">int</span> idx, BYTE b) {</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        m_pBits[idx] &amp;= b;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    }</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment">     * Get Operations</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordtype">void</span> GetBits(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordtype">void</span> GetBytes(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> GetBytes(T* dst, T* src, T* lim);</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; T Get(<span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        T val = 0;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        GetBits((BYTE*) &amp;val, pos, len);</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">return</span> val;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment">     * Set Operations</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordtype">void</span> SetBits(BYTE* p, uint64_t pos, uint64_t len);</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordtype">void</span> SetBits(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        SetBits(p, (uint64_t) pos, (uint64_t) len);</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    }</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordtype">void</span> SetBytes(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> SetBytes(T* dst, T* src, T* lim);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> Set(T val, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        SetBits((BYTE*) &amp;val, (uint64_t) pos, (uint64_t) len);</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    }</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordtype">void</span> SetBitsToZero(<span class="keywordtype">int</span> bitpos, <span class="keywordtype">int</span> bitlen);</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment">     * XOR Operations</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">void</span> XORBytes(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordtype">void</span> XORBytes(BYTE* p, <span class="keywordtype">int</span> len) {</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        XORBytes(p, 0, len);</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    }</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordtype">void</span> XORVector(<a class="code" href="class_c_bit_vector.html">CBitVector</a> &amp;vec, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        XORBytes(vec.GetArr(), pos, len);</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    }</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> XOR(T val, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        XORBits((BYTE*) &amp;val, pos, len);</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    }</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordtype">void</span> XORBits(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordtype">void</span> XORBitsPosOffset(BYTE* p, <span class="keywordtype">int</span> ppos, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> XORBytes(T* dst, T* src, T* lim);</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordtype">void</span> XORRepeat(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len, <span class="keywordtype">int</span> <a class="code" href="classnum.html">num</a>);</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordtype">void</span> XORBytesReverse(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment">     * AND Operations</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordtype">void</span> ANDBytes(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> ANDBytes(T* dst, T* src, T* lim);</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment">     * Set operations</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordtype">void</span> SetXOR(BYTE* p, BYTE* q, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordtype">void</span> SetAND(BYTE* p, BYTE* q, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment">     * Buffer access operations</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    BYTE* GetArr() {</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keywordflow">return</span> m_pBits;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    }</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordtype">void</span> AttachBuf(BYTE* p, <span class="keywordtype">int</span> size = -1) {</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        m_pBits = p;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        m_nByteSize = size;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    }</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordtype">void</span> AttachBuf(BYTE* p, uint64_t size = -1) {</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        m_pBits = p;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        m_nByteSize = size;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    }</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordtype">void</span> DetachBuf() {</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        m_pBits = NULL;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        m_nByteSize = 0;</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    }</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment">     * Print Operations</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordtype">void</span> Print(<span class="keywordtype">int</span> fromBit, <span class="keywordtype">int</span> toBit);</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordtype">void</span> PrintHex();</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordtype">void</span> PrintHex(<span class="keywordtype">int</span> fromByte, <span class="keywordtype">int</span> toByte);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordtype">void</span> PrintBinary() {</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        Print(0, m_nByteSize &lt;&lt; 3);</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    }</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keywordtype">void</span> PrintContent();</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">void</span> PrintBinaryMasked(<span class="keywordtype">int</span> from, <span class="keywordtype">int</span> to);</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment">     * If the cbitvector is abstracted to an array of elements with m_nElementLength bits size, these methods can be used for easier access</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; T Get(<span class="keywordtype">int</span> i) {</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keywordflow">return</span> Get&lt;T&gt;(i * m_nElementLength, m_nElementLength);</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    }</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> Set(T val, <span class="keywordtype">int</span> i) {</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        Set&lt;T&gt;(val, i * m_nElementLength, m_nElementLength);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(uint64_t bits);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="comment">//void Create(int bits) {Create((uint64_t) bits);}</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a8152f869cce43fcc2216386afc21a643">  216</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a8152f869cce43fcc2216386afc21a643">CreateBytes</a>(uint64_t bytes) {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(bytes &lt;&lt; 3);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    }</div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a465c6c58b64215794bcbf927b79c6b0b">  226</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a465c6c58b64215794bcbf927b79c6b0b">CreateZeros</a>(uint64_t bits) {</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(bits);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        memset(m_pBits, 0, m_nByteSize);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(uint64_t bits, <a class="code" href="classcrypto.html">crypto</a>* crypt);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(uint64_t numelements, uint64_t elementlength);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(uint64_t numelements, uint64_t elementlength, <a class="code" href="classcrypto.html">crypto</a>* crypt);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(uint64_t numelementsDimA, uint64_t numelementsDimB, uint64_t elementlength);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(uint64_t numelementsDimA, uint64_t numelementsDimB, uint64_t elementlength, <a class="code" href="classcrypto.html">crypto</a>* crypt);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">//Create function supported by CBitVector ends here...</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment">     * Management operations</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#ab4237185a0ebf54614bd6250b4e60a1e">ResizeinBytes</a>(<span class="keywordtype">int</span> newSizeBytes);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a48146fc1124ad63d930a6ea3d8e76c11">  298</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a48146fc1124ad63d930a6ea3d8e76c11">Reset</a>() {</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        memset(m_pBits, 0, m_nByteSize);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    }</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
+<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a0d2f1256613f532b1d728c2c36223931">  307</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a0d2f1256613f532b1d728c2c36223931">ResetFromTo</a>(<span class="keywordtype">int</span> frombyte, <span class="keywordtype">int</span> tobyte) {</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        memset(m_pBits + frombyte, 0, tobyte - frombyte);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    }</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
+<div class="line"><a name="l00314"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#ac06967330a3ea126866475abb09d06b3">  314</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#ac06967330a3ea126866475abb09d06b3">SetToOne</a>() {</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        memset(m_pBits, 0xFF, m_nByteSize);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    }</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a82bcafefe7b29c8c64ab45258f2b3e82">  322</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_c_bit_vector.html#a82bcafefe7b29c8c64ab45258f2b3e82">GetSize</a>() {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keywordflow">return</span> m_nByteSize;</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment">     * The same as the above methods only for two-dimensional access</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; T Get2D(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j) {</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keywordflow">return</span> Get&lt;T&gt;((i * m_nNumElementsDimB + j) * m_nElementLength, m_nElementLength);</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    }</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> Set2D(T val, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j) {</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        Set&lt;T&gt;(val, (i * m_nNumElementsDimB + j) * m_nElementLength, m_nElementLength);</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    }</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="comment">//useful when accessing elements using an index</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="comment">//View the cbitvector as a rows x columns matrix and transpose</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordtype">void</span> EklundhBitTranspose(<span class="keywordtype">int</span> rows, <span class="keywordtype">int</span> columns);</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordtype">void</span> SimpleTranspose(<span class="keywordtype">int</span> rows, <span class="keywordtype">int</span> columns);</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    BYTE* m_pBits;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    uint64_t m_nByteSize;</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    uint64_t m_nBits; <span class="comment">//The exact number of bits</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    uint64_t m_nElementLength;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    uint64_t m_nNumElements;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    uint64_t m_nNumElementsDimB;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;};</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BITVECTOR_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    BOOL <a class="code" href="class_c_bit_vector.html#ace95eb69514a8f3b1866f64237598228">IsEqual</a>(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; vec);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    BOOL <a class="code" href="class_c_bit_vector.html#ace95eb69514a8f3b1866f64237598228">IsEqual</a>(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; vec, <span class="keywordtype">int</span> from, <span class="keywordtype">int</span> to);</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;</div>
+<div class="line"><a name="l00347"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a154810d495493eb274b0918deea159f0">  347</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a154810d495493eb274b0918deea159f0">SetElementLength</a>(<span class="keywordtype">int</span> elelen) {</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        m_nElementLength = elelen;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    }</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
+<div class="line"><a name="l00356"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a56c4cbdfd0562d4bf0878cc481ae2166">  356</a></span>&#160;    uint64_t <a class="code" href="class_c_bit_vector.html#a56c4cbdfd0562d4bf0878cc481ae2166">GetElementLength</a>() {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="keywordflow">return</span> m_nElementLength;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    }</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment">     * Copy operations</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
+<div class="line"><a name="l00369"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a10e6085997f64cec320a428b99367b89">  369</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a10e6085997f64cec320a428b99367b89">Copy</a>(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; vec) {</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <a class="code" href="class_c_bit_vector.html#a10e6085997f64cec320a428b99367b89">Copy</a>(vec.<a class="code" href="class_c_bit_vector.html#aad5967a41d1dd1a254ce196722f6c68d">GetArr</a>(), 0, vec.<a class="code" href="class_c_bit_vector.html#a82bcafefe7b29c8c64ab45258f2b3e82">GetSize</a>());</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    }</div>
+<div class="line"><a name="l00381"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a996e10ebc700e6eaa19e49d041a0c60a">  381</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a996e10ebc700e6eaa19e49d041a0c60a">Copy</a>(<a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; vec, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        <a class="code" href="class_c_bit_vector.html#a10e6085997f64cec320a428b99367b89">Copy</a>(vec.<a class="code" href="class_c_bit_vector.html#aad5967a41d1dd1a254ce196722f6c68d">GetArr</a>(), pos, len);</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    }</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a10e6085997f64cec320a428b99367b89">Copy</a>(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#af7c591e1e5f5efdba62d28bb3c733515">XOR_no_mask</a>(<span class="keywordtype">int</span> p, <span class="keywordtype">int</span> bitPos, <span class="keywordtype">int</span> bitLen);</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_c_bit_vector.html#a40a8614cf0fc79043602aac083781307">GetInt</a>(<span class="keywordtype">int</span> bitPos, <span class="keywordtype">int</span> bitLen);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="preprocessor">#define GetIntBitsFromLen(x, from, len)     ( ( (x &amp; ( ( (2&lt;&lt;(len))-1) &lt;&lt; from )) &gt;&gt; from) &amp; 0xFF)</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="preprocessor">#define GetMask(len)                (( (1&lt;&lt;(len))-1))</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a6aa2c3db137c95be38a28507928237bb">ORByte</a>(<span class="keywordtype">int</span> pos, BYTE p);</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">     * Bitwise operations</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;</div>
+<div class="line"><a name="l00421"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a2b28ceb8806d5635e4c7df0d105cf709">  421</a></span>&#160;    BYTE <a class="code" href="class_c_bit_vector.html#a2b28ceb8806d5635e4c7df0d105cf709">GetBit</a>(<span class="keywordtype">int</span> idx) {</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="keywordflow">return</span> !!(m_pBits[idx &gt;&gt; 3] &amp; MASK_BIT[idx &amp; 0x7]);</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    }</div>
+<div class="line"><a name="l00431"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a8c4775aef59942f5bef497a8e5ecd818">  431</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a8c4775aef59942f5bef497a8e5ecd818">SetBit</a>(<span class="keywordtype">int</span> idx, BYTE b) {</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        m_pBits[idx &gt;&gt; 3] = (m_pBits[idx &gt;&gt; 3] &amp; CMASK_BIT[idx &amp; 0x7]) | MASK_SET_BIT_C[!(b &amp; 0x01)][idx &amp; 0x7];</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    }</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <span class="comment">/* Deprecated */</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a1c19baf537b532b74ee8d4f2fba516c5">  442</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a1c19baf537b532b74ee8d4f2fba516c5">XORBit</a>(<span class="keywordtype">int</span> idx, BYTE b) {</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        m_pBits[idx &gt;&gt; 3] ^= MASK_SET_BIT_C[!(b &amp; 0x01)][idx &amp; 0x7];</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    }</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="comment">/* Deprecated */</span></div>
+<div class="line"><a name="l00454"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a5a0901dd5e52643359b6753125b3e6cd">  454</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a5a0901dd5e52643359b6753125b3e6cd">ANDBit</a>(<span class="keywordtype">int</span> idx, BYTE b) {</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;        <span class="keywordflow">if</span> (!b)</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;            m_pBits[idx &gt;&gt; 3] &amp;= CMASK_BIT[idx &amp; 0x7];</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    }</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    <span class="comment">//used to access bits in the regular order</span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;</div>
+<div class="line"><a name="l00467"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a93883bf4914d1dc028a5f3e0631d7952">  467</a></span>&#160;    BYTE <a class="code" href="class_c_bit_vector.html#a93883bf4914d1dc028a5f3e0631d7952">GetBitNoMask</a>(<span class="keywordtype">int</span> idx) {</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;        <span class="keywordflow">return</span> !!(m_pBits[idx &gt;&gt; 3] &amp; BIT[idx &amp; 0x7]);</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    }</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;</div>
+<div class="line"><a name="l00477"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a9996cb024410ad0b0bc8fbc4496a82bc">  477</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a9996cb024410ad0b0bc8fbc4496a82bc">SetBitNoMask</a>(<span class="keywordtype">int</span> idx, BYTE b) {</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        m_pBits[idx &gt;&gt; 3] = (m_pBits[idx &gt;&gt; 3] &amp; C_BIT[idx &amp; 0x7]) | SET_BIT_C[!(b &amp; 0x01)][idx &amp; 0x7];</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    }</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;</div>
+<div class="line"><a name="l00487"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a72a741227827d658c1715deec220032b">  487</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a72a741227827d658c1715deec220032b">XORBitNoMask</a>(<span class="keywordtype">int</span> idx, BYTE b) {</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        m_pBits[idx &gt;&gt; 3] ^= SET_BIT_C[!(b &amp; 0x01)][idx &amp; 0x7];</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    }</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <span class="comment">/* Deprecated */</span></div>
+<div class="line"><a name="l00498"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a59c33fdc7612480239624a5bf73c368d">  498</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a59c33fdc7612480239624a5bf73c368d">ANDBitNoMask</a>(<span class="keywordtype">int</span> idx, BYTE b) {</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;        <span class="keywordflow">if</span> (!b)</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;            m_pBits[idx &gt;&gt; 3] &amp;= C_BIT[idx &amp; 0x7];</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    }</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment">     * Single byte operations</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;</div>
+<div class="line"><a name="l00512"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a2a0df36cd75420fbf3662b3b2a43ff98">  512</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a2a0df36cd75420fbf3662b3b2a43ff98">SetByte</a>(<span class="keywordtype">int</span> idx, BYTE p) {</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        m_pBits[idx] = p;</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    }</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;</div>
+<div class="line"><a name="l00521"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a985267d6e158994938ef0664fe7de259">  521</a></span>&#160;    BYTE <a class="code" href="class_c_bit_vector.html#a985267d6e158994938ef0664fe7de259">GetByte</a>(<span class="keywordtype">int</span> idx) {</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        <span class="keywordflow">return</span> m_pBits[idx];</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    }</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;</div>
+<div class="line"><a name="l00531"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a5896f8fca8729c743deac7e99c361ca7">  531</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a5896f8fca8729c743deac7e99c361ca7">XORByte</a>(<span class="keywordtype">int</span> idx, BYTE b) {</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;        m_pBits[idx] ^= b;</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    }</div>
+<div class="line"><a name="l00539"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a701ec8dc5658058218ab0ac8be05aa48">  539</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a701ec8dc5658058218ab0ac8be05aa48">ANDByte</a>(<span class="keywordtype">int</span> idx, BYTE b) {</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;        m_pBits[idx] &amp;= b;</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    }</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<span class="comment">     * Get Operations</span></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a85139fc0623f0c8792511fa2bac23865">GetBits</a>(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#aea918d3f0741daf876408cb4182c1b17">GetBytes</a>(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#aea918d3f0741daf876408cb4182c1b17">GetBytes</a>(T* dst, T* src, T* lim);</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;</div>
+<div class="line"><a name="l00577"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#aab9ec30c7ce0e57b35fb1dee84f6b227">  577</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; T <a class="code" href="class_c_bit_vector.html#aab9ec30c7ce0e57b35fb1dee84f6b227">Get</a>(<span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        T val = 0;</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        <a class="code" href="class_c_bit_vector.html#a85139fc0623f0c8792511fa2bac23865">GetBits</a>((BYTE*) &amp;val, pos, len);</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        <span class="keywordflow">return</span> val;</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    }</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="comment">     * Set Operations</span></div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a309ebf3ca25a520cba5c4fc3e35028f9">SetBits</a>(BYTE* p, uint64_t pos, uint64_t len);</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;</div>
+<div class="line"><a name="l00602"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a1cb6250074ff4317e67ecdfc99047260">  602</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a1cb6250074ff4317e67ecdfc99047260">SetBits</a>(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;        <a class="code" href="class_c_bit_vector.html#a309ebf3ca25a520cba5c4fc3e35028f9">SetBits</a>(p, (uint64_t) pos, (uint64_t) len);</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    }</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a18d1e30af12e0e4f4d432186c1b0b40d">SetBitsPosOffset</a>(BYTE* p, <span class="keywordtype">int</span> ppos, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a57566943e8183748b39fa85805ef3fff">SetBytes</a>(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a57566943e8183748b39fa85805ef3fff">SetBytes</a>(T* dst, T* src, T* lim);</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;</div>
+<div class="line"><a name="l00636"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a5573a0b254514ed8de9d7432e9d86033">  636</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a5573a0b254514ed8de9d7432e9d86033">Set</a>(T val, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;        <a class="code" href="class_c_bit_vector.html#a309ebf3ca25a520cba5c4fc3e35028f9">SetBits</a>((BYTE*) &amp;val, (uint64_t) pos, (uint64_t) len);</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    }</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a7cfcce1c2beadebd6762ea83f2b100a0">SetBitsToZero</a>(<span class="keywordtype">int</span> bitpos, <span class="keywordtype">int</span> bitlen);</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment">     * XOR Operations</span></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a263d8b59ba682177f0ce45fac658098c">XORBytes</a>(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00665"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a498ce0adaeaf9fd9b56a362eada3bbba">  665</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a498ce0adaeaf9fd9b56a362eada3bbba">XORBytes</a>(BYTE* p, <span class="keywordtype">int</span> len) {</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;        <a class="code" href="class_c_bit_vector.html#a263d8b59ba682177f0ce45fac658098c">XORBytes</a>(p, 0, len);</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    }</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;</div>
+<div class="line"><a name="l00677"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a9afd43a5ba95477f8a6d9746ec7f7a82">  677</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a9afd43a5ba95477f8a6d9746ec7f7a82">XORVector</a>(<a class="code" href="class_c_bit_vector.html">CBitVector</a> &amp;vec, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        <a class="code" href="class_c_bit_vector.html#a263d8b59ba682177f0ce45fac658098c">XORBytes</a>(vec.<a class="code" href="class_c_bit_vector.html#aad5967a41d1dd1a254ce196722f6c68d">GetArr</a>(), pos, len);</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    }</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;</div>
+<div class="line"><a name="l00685"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#aec76212bf95a668f212f191dc70f5149">  685</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#aec76212bf95a668f212f191dc70f5149">XOR</a>(T val, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;        <a class="code" href="class_c_bit_vector.html#a02d8f5d6f91e48534739b7f43943c9fb">XORBits</a>((BYTE*) &amp;val, pos, len);</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    }</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a02d8f5d6f91e48534739b7f43943c9fb">XORBits</a>(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a057a35cc675262513498ac61cad198f9">XORBitsPosOffset</a>(BYTE* p, <span class="keywordtype">int</span> ppos, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a263d8b59ba682177f0ce45fac658098c">XORBytes</a>(T* dst, T* src, T* lim);</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#ab6d21dc2673b728462c08eda0ff0d343">XORRepeat</a>(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len, <span class="keywordtype">int</span> <a class="code" href="classnum.html">num</a>);</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#ac46c00c3986e7c22988a9e40ad1401b4">XORBytesReverse</a>(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="comment">     * AND Operations</span></div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a16049116df333c9498b2b26cde3530f4">ANDBytes</a>(BYTE* p, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a16049116df333c9498b2b26cde3530f4">ANDBytes</a>(T* dst, T* src, T* lim);</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="comment">     * Set operations</span></div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a833c9d66e3222c5e9a01d9a983961442">SetXOR</a>(BYTE* p, BYTE* q, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#ad529794892a4a742851ccf77f37b72bd">SetAND</a>(BYTE* p, BYTE* q, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment">     * Buffer access operations</span></div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;</div>
+<div class="line"><a name="l00777"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#aad5967a41d1dd1a254ce196722f6c68d">  777</a></span>&#160;    BYTE* <a class="code" href="class_c_bit_vector.html#aad5967a41d1dd1a254ce196722f6c68d">GetArr</a>() {</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;        <span class="keywordflow">return</span> m_pBits;</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;    }</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;</div>
+<div class="line"><a name="l00786"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a9c33f2491c526892da0c535644d813a7">  786</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a9c33f2491c526892da0c535644d813a7">AttachBuf</a>(BYTE* p, <span class="keywordtype">int</span> size = -1) {</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;        m_pBits = p;</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;        m_nByteSize = size;</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;    }</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;</div>
+<div class="line"><a name="l00796"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a0a588deb16b35b87af9bc1a6e59bf710">  796</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a0a588deb16b35b87af9bc1a6e59bf710">AttachBuf</a>(BYTE* p, uint64_t size = -1) {</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;        m_pBits = p;</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;        m_nByteSize = size;</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;    }</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;<span class="comment">/* The definition of this method is similar to that of Init(). I don&#39;t understand why you need to methods</span></div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;<span class="comment">    which performs exactly the same work. */</span></div>
+<div class="line"><a name="l00805"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a8e034dbbbe7efafde0507dfe4e2daf37">  805</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a8e034dbbbe7efafde0507dfe4e2daf37">DetachBuf</a>() {</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;        m_pBits = NULL;</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;        m_nByteSize = 0;</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;    }</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;</div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;<span class="comment">     * Print Operations</span></div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;</div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#aa00441afa14ef881eb25b2ca676088f2">Print</a>(<span class="keywordtype">int</span> fromBit, <span class="keywordtype">int</span> toBit);</div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#afec292cf93910f3ce9ca427f677958da">PrintHex</a>();</div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#afec292cf93910f3ce9ca427f677958da">PrintHex</a>(<span class="keywordtype">int</span> fromByte, <span class="keywordtype">int</span> toByte);</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;</div>
+<div class="line"><a name="l00837"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a9c39c4899a143f2cc5d9f728f4410586">  837</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a9c39c4899a143f2cc5d9f728f4410586">PrintBinary</a>() {</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;        <a class="code" href="class_c_bit_vector.html#aa00441afa14ef881eb25b2ca676088f2">Print</a>(0, m_nByteSize &lt;&lt; 3);</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;    }</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;</div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#ab345a6b215839a01e547ab3d54773646">PrintContent</a>();</div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#ac5cfb99f0a20a8b45f38d37eb3fc7b00">PrintBinaryMasked</a>(<span class="keywordtype">int</span> from, <span class="keywordtype">int</span> to);</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;</div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;<span class="comment">     * If the cbitvector is abstracted to an array of elements with m_nElementLength bits size, these methods can be used for easier access</span></div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;</div>
+<div class="line"><a name="l00864"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#adc0c87c5eddf7a18cf3145bd2ba64c36">  864</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; T <a class="code" href="class_c_bit_vector.html#adc0c87c5eddf7a18cf3145bd2ba64c36">Get</a>(<span class="keywordtype">int</span> i) {</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;        <span class="keywordflow">return</span> Get&lt;T&gt;(i * m_nElementLength, m_nElementLength);</div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;    }</div>
+<div class="line"><a name="l00873"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a7394b44a53678cfc641730e655c7e496">  873</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a7394b44a53678cfc641730e655c7e496">Set</a>(T val, <span class="keywordtype">int</span> i) {</div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;        Set&lt;T&gt;(val, i * m_nElementLength, m_nElementLength);</div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;    }</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;<span class="comment">     * The same as the above methods only for two-dimensional access</span></div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00885"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a6c06ba63a5fbc2cda03a7fae02bd5709">  885</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; T <a class="code" href="class_c_bit_vector.html#a6c06ba63a5fbc2cda03a7fae02bd5709">Get2D</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j) {</div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;        <span class="keywordflow">return</span> Get&lt;T&gt;((i * m_nNumElementsDimB + j) * m_nElementLength, m_nElementLength);</div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;    }</div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;</div>
+<div class="line"><a name="l00896"></a><span class="lineno"><a class="line" href="class_c_bit_vector.html#a15616ece0d9d626a6fabf1b0495ef580">  896</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="class_c_bit_vector.html#a15616ece0d9d626a6fabf1b0495ef580">Set2D</a>(T val, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j) {</div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;        Set&lt;T&gt;(val, (i * m_nNumElementsDimB + j) * m_nElementLength, m_nElementLength);</div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;    }</div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;    <span class="comment">//useful when accessing elements using an index</span></div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;    <span class="comment">//View the cbitvector as a rows x columns matrix and transpose</span></div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;    <span class="keywordtype">void</span> EklundhBitTranspose(<span class="keywordtype">int</span> rows, <span class="keywordtype">int</span> columns);</div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;    <span class="keywordtype">void</span> SimpleTranspose(<span class="keywordtype">int</span> rows, <span class="keywordtype">int</span> columns);</div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;</div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;    BYTE* m_pBits;  </div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;    uint64_t m_nByteSize; </div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;    uint64_t m_nBits; <span class="comment">//The exact number of bits</span></div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;    uint64_t m_nElementLength; </div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;    uint64_t m_nNumElements;  </div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;    uint64_t m_nNumElementsDimB;</div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;};</div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BITVECTOR_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_c_bit_vector_html_a1c19baf537b532b74ee8d4f2fba516c5"><div class="ttname"><a href="class_c_bit_vector.html#a1c19baf537b532b74ee8d4f2fba516c5">CBitVector::XORBit</a></div><div class="ttdeci">void XORBit(int idx, BYTE b)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:442</div></div>
+<div class="ttc" id="class_c_bit_vector_html_ad470bc9607569c04d950f8a31215fee8"><div class="ttname"><a href="class_c_bit_vector.html#ad470bc9607569c04d950f8a31215fee8">CBitVector::CBitVector</a></div><div class="ttdeci">CBitVector(uint32_t bits)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:136</div></div>
+<div class="ttc" id="class_c_bit_vector_html_af7c591e1e5f5efdba62d28bb3c733515"><div class="ttname"><a href="class_c_bit_vector.html#af7c591e1e5f5efdba62d28bb3c733515">CBitVector::XOR_no_mask</a></div><div class="ttdeci">void XOR_no_mask(int p, int bitPos, int bitLen)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:431</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a833c9d66e3222c5e9a01d9a983961442"><div class="ttname"><a href="class_c_bit_vector.html#a833c9d66e3222c5e9a01d9a983961442">CBitVector::SetXOR</a></div><div class="ttdeci">void SetXOR(BYTE *p, BYTE *q, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:337</div></div>
 <div class="ttc" id="class_c_bit_vector_html_a84d010b478a05a56b5bfa762e19641ad"><div class="ttname"><a href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">CBitVector::Create</a></div><div class="ttdeci">void Create(uint64_t bits)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:40</div></div>
 <div class="ttc" id="classnum_html"><div class="ttname"><a href="classnum.html">num</a></div><div class="ttdef"><b>Definition:</b> pk-crypto.h:59</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a9c39c4899a143f2cc5d9f728f4410586"><div class="ttname"><a href="class_c_bit_vector.html#a9c39c4899a143f2cc5d9f728f4410586">CBitVector::PrintBinary</a></div><div class="ttdeci">void PrintBinary()</div><div class="ttdef"><b>Definition:</b> cbitvector.h:837</div></div>
+<div class="ttc" id="class_c_bit_vector_html_ad529794892a4a742851ccf77f37b72bd"><div class="ttname"><a href="class_c_bit_vector.html#ad529794892a4a742851ccf77f37b72bd">CBitVector::SetAND</a></div><div class="ttdeci">void SetAND(BYTE *p, BYTE *q, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:342</div></div>
+<div class="ttc" id="class_c_bit_vector_html_ac46c00c3986e7c22988a9e40ad1401b4"><div class="ttname"><a href="class_c_bit_vector.html#ac46c00c3986e7c22988a9e40ad1401b4">CBitVector::XORBytesReverse</a></div><div class="ttdeci">void XORBytesReverse(BYTE *p, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:194</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a154810d495493eb274b0918deea159f0"><div class="ttname"><a href="class_c_bit_vector.html#a154810d495493eb274b0918deea159f0">CBitVector::SetElementLength</a></div><div class="ttdeci">void SetElementLength(int elelen)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:347</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a93883bf4914d1dc028a5f3e0631d7952"><div class="ttname"><a href="class_c_bit_vector.html#a93883bf4914d1dc028a5f3e0631d7952">CBitVector::GetBitNoMask</a></div><div class="ttdeci">BYTE GetBitNoMask(int idx)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:467</div></div>
 <div class="ttc" id="crypto_8h_html"><div class="ttname"><a href="crypto_8h.html">crypto.h</a></div><div class="ttdoc">Crypto primitive class. </div></div>
+<div class="ttc" id="class_c_bit_vector_html_a6aa2c3db137c95be38a28507928237bb"><div class="ttname"><a href="class_c_bit_vector.html#a6aa2c3db137c95be38a28507928237bb">CBitVector::ORByte</a></div><div class="ttdeci">void ORByte(int pos, BYTE p)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:245</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a263d8b59ba682177f0ce45fac658098c"><div class="ttname"><a href="class_c_bit_vector.html#a263d8b59ba682177f0ce45fac658098c">CBitVector::XORBytes</a></div><div class="ttdeci">void XORBytes(BYTE *p, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:269</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a2b28ceb8806d5635e4c7df0d105cf709"><div class="ttname"><a href="class_c_bit_vector.html#a2b28ceb8806d5635e4c7df0d105cf709">CBitVector::GetBit</a></div><div class="ttdeci">BYTE GetBit(int idx)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:421</div></div>
+<div class="ttc" id="class_c_bit_vector_html_ac3819ba1f6d80d838abbd0e93041ce5a"><div class="ttname"><a href="class_c_bit_vector.html#ac3819ba1f6d80d838abbd0e93041ce5a">CBitVector::FillRand</a></div><div class="ttdeci">void FillRand(uint32_t bits, crypto *crypt)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:22</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a996e10ebc700e6eaa19e49d041a0c60a"><div class="ttname"><a href="class_c_bit_vector.html#a996e10ebc700e6eaa19e49d041a0c60a">CBitVector::Copy</a></div><div class="ttdeci">void Copy(CBitVector &amp;vec, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:381</div></div>
 <div class="ttc" id="classcrypto_html"><div class="ttname"><a href="classcrypto.html">crypto</a></div><div class="ttdef"><b>Definition:</b> crypto.h:58</div></div>
+<div class="ttc" id="class_c_bit_vector_html_ac5cfb99f0a20a8b45f38d37eb3fc7b00"><div class="ttname"><a href="class_c_bit_vector.html#ac5cfb99f0a20a8b45f38d37eb3fc7b00">CBitVector::PrintBinaryMasked</a></div><div class="ttdeci">void PrintBinaryMasked(int from, int to)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:371</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a48146fc1124ad63d930a6ea3d8e76c11"><div class="ttname"><a href="class_c_bit_vector.html#a48146fc1124ad63d930a6ea3d8e76c11">CBitVector::Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>Definition:</b> cbitvector.h:298</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a1cb6250074ff4317e67ecdfc99047260"><div class="ttname"><a href="class_c_bit_vector.html#a1cb6250074ff4317e67ecdfc99047260">CBitVector::SetBits</a></div><div class="ttdeci">void SetBits(BYTE *p, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:602</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a8e034dbbbe7efafde0507dfe4e2daf37"><div class="ttname"><a href="class_c_bit_vector.html#a8e034dbbbe7efafde0507dfe4e2daf37">CBitVector::DetachBuf</a></div><div class="ttdeci">void DetachBuf()</div><div class="ttdef"><b>Definition:</b> cbitvector.h:805</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a2a0df36cd75420fbf3662b3b2a43ff98"><div class="ttname"><a href="class_c_bit_vector.html#a2a0df36cd75420fbf3662b3b2a43ff98">CBitVector::SetByte</a></div><div class="ttdeci">void SetByte(int idx, BYTE p)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:512</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a82bcafefe7b29c8c64ab45258f2b3e82"><div class="ttname"><a href="class_c_bit_vector.html#a82bcafefe7b29c8c64ab45258f2b3e82">CBitVector::GetSize</a></div><div class="ttdeci">int GetSize()</div><div class="ttdef"><b>Definition:</b> cbitvector.h:322</div></div>
+<div class="ttc" id="class_c_bit_vector_html_abfb30c013fd211bf0eec9cacaf4b087d"><div class="ttname"><a href="class_c_bit_vector.html#abfb30c013fd211bf0eec9cacaf4b087d">CBitVector::delCBitVector</a></div><div class="ttdeci">void delCBitVector()</div><div class="ttdef"><b>Definition:</b> cbitvector.h:172</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a4e6f10b3bd827dda301dec3d88af0b4d"><div class="ttname"><a href="class_c_bit_vector.html#a4e6f10b3bd827dda301dec3d88af0b4d">CBitVector::Init</a></div><div class="ttdeci">void Init()</div><div class="ttdef"><b>Definition:</b> cbitvector.h:156</div></div>
+<div class="ttc" id="class_c_bit_vector_html_aec76212bf95a668f212f191dc70f5149"><div class="ttname"><a href="class_c_bit_vector.html#aec76212bf95a668f212f191dc70f5149">CBitVector::XOR</a></div><div class="ttdeci">void XOR(T val, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:685</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a02d8f5d6f91e48534739b7f43943c9fb"><div class="ttname"><a href="class_c_bit_vector.html#a02d8f5d6f91e48534739b7f43943c9fb">CBitVector::XORBits</a></div><div class="ttdeci">void XORBits(BYTE *p, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:210</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a985267d6e158994938ef0664fe7de259"><div class="ttname"><a href="class_c_bit_vector.html#a985267d6e158994938ef0664fe7de259">CBitVector::GetByte</a></div><div class="ttdeci">BYTE GetByte(int idx)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:521</div></div>
+<div class="ttc" id="class_c_bit_vector_html_ace95eb69514a8f3b1866f64237598228"><div class="ttname"><a href="class_c_bit_vector.html#ace95eb69514a8f3b1866f64237598228">CBitVector::IsEqual</a></div><div class="ttdeci">BOOL IsEqual(CBitVector &amp;vec)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:403</div></div>
+<div class="ttc" id="class_c_bit_vector_html_aab9ec30c7ce0e57b35fb1dee84f6b227"><div class="ttname"><a href="class_c_bit_vector.html#aab9ec30c7ce0e57b35fb1dee84f6b227">CBitVector::Get</a></div><div class="ttdeci">T Get(int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:577</div></div>
+<div class="ttc" id="class_c_bit_vector_html_ac06967330a3ea126866475abb09d06b3"><div class="ttname"><a href="class_c_bit_vector.html#ac06967330a3ea126866475abb09d06b3">CBitVector::SetToOne</a></div><div class="ttdeci">void SetToOne()</div><div class="ttdef"><b>Definition:</b> cbitvector.h:314</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a72a741227827d658c1715deec220032b"><div class="ttname"><a href="class_c_bit_vector.html#a72a741227827d658c1715deec220032b">CBitVector::XORBitNoMask</a></div><div class="ttdeci">void XORBitNoMask(int idx, BYTE b)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:487</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a59c33fdc7612480239624a5bf73c368d"><div class="ttname"><a href="class_c_bit_vector.html#a59c33fdc7612480239624a5bf73c368d">CBitVector::ANDBitNoMask</a></div><div class="ttdeci">void ANDBitNoMask(int idx, BYTE b)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:498</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a57566943e8183748b39fa85805ef3fff"><div class="ttname"><a href="class_c_bit_vector.html#a57566943e8183748b39fa85805ef3fff">CBitVector::SetBytes</a></div><div class="ttdeci">void SetBytes(BYTE *p, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:302</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a309ebf3ca25a520cba5c4fc3e35028f9"><div class="ttname"><a href="class_c_bit_vector.html#a309ebf3ca25a520cba5c4fc3e35028f9">CBitVector::SetBits</a></div><div class="ttdeci">void SetBits(BYTE *p, uint64_t pos, uint64_t len)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:103</div></div>
+<div class="ttc" id="class_c_bit_vector_html_aea918d3f0741daf876408cb4182c1b17"><div class="ttname"><a href="class_c_bit_vector.html#aea918d3f0741daf876408cb4182c1b17">CBitVector::GetBytes</a></div><div class="ttdeci">void GetBytes(BYTE *p, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:250</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a6c06ba63a5fbc2cda03a7fae02bd5709"><div class="ttname"><a href="class_c_bit_vector.html#a6c06ba63a5fbc2cda03a7fae02bd5709">CBitVector::Get2D</a></div><div class="ttdeci">T Get2D(int i, int j)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:885</div></div>
+<div class="ttc" id="class_c_bit_vector_html_ab345a6b215839a01e547ab3d54773646"><div class="ttname"><a href="class_c_bit_vector.html#ab345a6b215839a01e547ab3d54773646">CBitVector::PrintContent</a></div><div class="ttdeci">void PrintContent()</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:380</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a16049116df333c9498b2b26cde3530f4"><div class="ttname"><a href="class_c_bit_vector.html#a16049116df333c9498b2b26cde3530f4">CBitVector::ANDBytes</a></div><div class="ttdeci">void ANDBytes(BYTE *p, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:321</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a8c4775aef59942f5bef497a8e5ecd818"><div class="ttname"><a href="class_c_bit_vector.html#a8c4775aef59942f5bef497a8e5ecd818">CBitVector::SetBit</a></div><div class="ttdeci">void SetBit(int idx, BYTE b)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:431</div></div>
+<div class="ttc" id="class_c_bit_vector_html_ab6d21dc2673b728462c08eda0ff0d343"><div class="ttname"><a href="class_c_bit_vector.html#ab6d21dc2673b728462c08eda0ff0d343">CBitVector::XORRepeat</a></div><div class="ttdeci">void XORRepeat(BYTE *p, int pos, int len, int num)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:288</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a587d50aa7307f2846644ddfcf98749a0"><div class="ttname"><a href="class_c_bit_vector.html#a587d50aa7307f2846644ddfcf98749a0">CBitVector::CBitVector</a></div><div class="ttdeci">CBitVector(uint32_t bits, crypto *crypt)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:145</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a85139fc0623f0c8792511fa2bac23865"><div class="ttname"><a href="class_c_bit_vector.html#a85139fc0623f0c8792511fa2bac23865">CBitVector::GetBits</a></div><div class="ttdeci">void GetBits(BYTE *p, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:162</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a9996cb024410ad0b0bc8fbc4496a82bc"><div class="ttname"><a href="class_c_bit_vector.html#a9996cb024410ad0b0bc8fbc4496a82bc">CBitVector::SetBitNoMask</a></div><div class="ttdeci">void SetBitNoMask(int idx, BYTE b)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:477</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a40a8614cf0fc79043602aac083781307"><div class="ttname"><a href="class_c_bit_vector.html#a40a8614cf0fc79043602aac083781307">CBitVector::GetInt</a></div><div class="ttdeci">unsigned int GetInt(int bitPos, int bitLen)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:444</div></div>
+<div class="ttc" id="class_c_bit_vector_html_ad78f81531ed4219340aa03294e7f1de1"><div class="ttname"><a href="class_c_bit_vector.html#ad78f81531ed4219340aa03294e7f1de1">CBitVector::~CBitVector</a></div><div class="ttdeci">~CBitVector()</div><div class="ttdef"><b>Definition:</b> cbitvector.h:165</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a8152f869cce43fcc2216386afc21a643"><div class="ttname"><a href="class_c_bit_vector.html#a8152f869cce43fcc2216386afc21a643">CBitVector::CreateBytes</a></div><div class="ttdeci">void CreateBytes(uint64_t bytes)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:216</div></div>
+<div class="ttc" id="class_c_bit_vector_html_adc0c87c5eddf7a18cf3145bd2ba64c36"><div class="ttname"><a href="class_c_bit_vector.html#adc0c87c5eddf7a18cf3145bd2ba64c36">CBitVector::Get</a></div><div class="ttdeci">T Get(int i)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:864</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a56c4cbdfd0562d4bf0878cc481ae2166"><div class="ttname"><a href="class_c_bit_vector.html#a56c4cbdfd0562d4bf0878cc481ae2166">CBitVector::GetElementLength</a></div><div class="ttdeci">uint64_t GetElementLength()</div><div class="ttdef"><b>Definition:</b> cbitvector.h:356</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a498ce0adaeaf9fd9b56a362eada3bbba"><div class="ttname"><a href="class_c_bit_vector.html#a498ce0adaeaf9fd9b56a362eada3bbba">CBitVector::XORBytes</a></div><div class="ttdeci">void XORBytes(BYTE *p, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:665</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a5a0901dd5e52643359b6753125b3e6cd"><div class="ttname"><a href="class_c_bit_vector.html#a5a0901dd5e52643359b6753125b3e6cd">CBitVector::ANDBit</a></div><div class="ttdeci">void ANDBit(int idx, BYTE b)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:454</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a465c6c58b64215794bcbf927b79c6b0b"><div class="ttname"><a href="class_c_bit_vector.html#a465c6c58b64215794bcbf927b79c6b0b">CBitVector::CreateZeros</a></div><div class="ttdeci">void CreateZeros(uint64_t bits)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:226</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a5896f8fca8729c743deac7e99c361ca7"><div class="ttname"><a href="class_c_bit_vector.html#a5896f8fca8729c743deac7e99c361ca7">CBitVector::XORByte</a></div><div class="ttdeci">void XORByte(int idx, BYTE b)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:531</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a5573a0b254514ed8de9d7432e9d86033"><div class="ttname"><a href="class_c_bit_vector.html#a5573a0b254514ed8de9d7432e9d86033">CBitVector::Set</a></div><div class="ttdeci">void Set(T val, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:636</div></div>
+<div class="ttc" id="class_c_bit_vector_html_aa00441afa14ef881eb25b2ca676088f2"><div class="ttname"><a href="class_c_bit_vector.html#aa00441afa14ef881eb25b2ca676088f2">CBitVector::Print</a></div><div class="ttdeci">void Print(int fromBit, int toBit)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:347</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a7cfcce1c2beadebd6762ea83f2b100a0"><div class="ttname"><a href="class_c_bit_vector.html#a7cfcce1c2beadebd6762ea83f2b100a0">CBitVector::SetBitsToZero</a></div><div class="ttdeci">void SetBitsToZero(int bitpos, int bitlen)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:148</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a0e327fc81bc37e2914213f7a70e8b172"><div class="ttname"><a href="class_c_bit_vector.html#a0e327fc81bc37e2914213f7a70e8b172">CBitVector::CBitVector</a></div><div class="ttdeci">CBitVector()</div><div class="ttdef"><b>Definition:</b> cbitvector.h:129</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a0a588deb16b35b87af9bc1a6e59bf710"><div class="ttname"><a href="class_c_bit_vector.html#a0a588deb16b35b87af9bc1a6e59bf710">CBitVector::AttachBuf</a></div><div class="ttdeci">void AttachBuf(BYTE *p, uint64_t size=-1)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:796</div></div>
 <div class="ttc" id="typedefs_8h_html"><div class="ttname"><a href="typedefs_8h.html">typedefs.h</a></div><div class="ttdoc">Typedefs Implementation. </div></div>
-<div class="ttc" id="class_c_bit_vector_html"><div class="ttname"><a href="class_c_bit_vector.html">CBitVector</a></div><div class="ttdef"><b>Definition:</b> cbitvector.h:85</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a7394b44a53678cfc641730e655c7e496"><div class="ttname"><a href="class_c_bit_vector.html#a7394b44a53678cfc641730e655c7e496">CBitVector::Set</a></div><div class="ttdeci">void Set(T val, int i)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:873</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a9afd43a5ba95477f8a6d9746ec7f7a82"><div class="ttname"><a href="class_c_bit_vector.html#a9afd43a5ba95477f8a6d9746ec7f7a82">CBitVector::XORVector</a></div><div class="ttdeci">void XORVector(CBitVector &amp;vec, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:677</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a9c33f2491c526892da0c535644d813a7"><div class="ttname"><a href="class_c_bit_vector.html#a9c33f2491c526892da0c535644d813a7">CBitVector::AttachBuf</a></div><div class="ttdeci">void AttachBuf(BYTE *p, int size=-1)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:786</div></div>
+<div class="ttc" id="class_c_bit_vector_html_aad5967a41d1dd1a254ce196722f6c68d"><div class="ttname"><a href="class_c_bit_vector.html#aad5967a41d1dd1a254ce196722f6c68d">CBitVector::GetArr</a></div><div class="ttdeci">BYTE * GetArr()</div><div class="ttdef"><b>Definition:</b> cbitvector.h:777</div></div>
+<div class="ttc" id="class_c_bit_vector_html_ab4237185a0ebf54614bd6250b4e60a1e"><div class="ttname"><a href="class_c_bit_vector.html#ab4237185a0ebf54614bd6250b4e60a1e">CBitVector::ResizeinBytes</a></div><div class="ttdeci">void ResizeinBytes(int newSizeBytes)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:79</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a057a35cc675262513498ac61cad198f9"><div class="ttname"><a href="class_c_bit_vector.html#a057a35cc675262513498ac61cad198f9">CBitVector::XORBitsPosOffset</a></div><div class="ttdeci">void XORBitsPosOffset(BYTE *p, int ppos, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:204</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a0d2f1256613f532b1d728c2c36223931"><div class="ttname"><a href="class_c_bit_vector.html#a0d2f1256613f532b1d728c2c36223931">CBitVector::ResetFromTo</a></div><div class="ttdeci">void ResetFromTo(int frombyte, int tobyte)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:307</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a18d1e30af12e0e4f4d432186c1b0b40d"><div class="ttname"><a href="class_c_bit_vector.html#a18d1e30af12e0e4f4d432186c1b0b40d">CBitVector::SetBitsPosOffset</a></div><div class="ttdeci">void SetBitsPosOffset(BYTE *p, int ppos, int pos, int len)</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:141</div></div>
+<div class="ttc" id="class_c_bit_vector_html"><div class="ttname"><a href="class_c_bit_vector.html">CBitVector</a></div><div class="ttdef"><b>Definition:</b> cbitvector.h:123</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a701ec8dc5658058218ab0ac8be05aa48"><div class="ttname"><a href="class_c_bit_vector.html#a701ec8dc5658058218ab0ac8be05aa48">CBitVector::ANDByte</a></div><div class="ttdeci">void ANDByte(int idx, BYTE b)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:539</div></div>
+<div class="ttc" id="class_c_bit_vector_html_afec292cf93910f3ce9ca427f677958da"><div class="ttname"><a href="class_c_bit_vector.html#afec292cf93910f3ce9ca427f677958da">CBitVector::PrintHex</a></div><div class="ttdeci">void PrintHex()</div><div class="ttdef"><b>Definition:</b> cbitvector.cpp:364</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a10e6085997f64cec320a428b99367b89"><div class="ttname"><a href="class_c_bit_vector.html#a10e6085997f64cec320a428b99367b89">CBitVector::Copy</a></div><div class="ttdeci">void Copy(CBitVector &amp;vec)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:369</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a15616ece0d9d626a6fabf1b0495ef580"><div class="ttname"><a href="class_c_bit_vector.html#a15616ece0d9d626a6fabf1b0495ef580">CBitVector::Set2D</a></div><div class="ttdeci">void Set2D(T val, int i, int j)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:896</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 23 2015 19:14:06 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 26 2015 16:45:52 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

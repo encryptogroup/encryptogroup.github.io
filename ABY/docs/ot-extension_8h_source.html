@@ -180,9 +180,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            keyseeds = nbaseseeds;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        m_vU.<a class="code" href="class_c_bit_vector.html#a84d010b478a05a56b5bfa762e19641ad">Create</a>(keyseeds);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        m_vU.Copy(U.GetArr(), 0, ceil_divide(keyseeds, 8));</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        m_vU.<a class="code" href="class_c_bit_vector.html#a10e6085997f64cec320a428b99367b89">Copy</a>(U.<a class="code" href="class_c_bit_vector.html#aad5967a41d1dd1a254ce196722f6c68d">GetArr</a>(), 0, ceil_divide(keyseeds, 8));</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = keyseeds; i &lt; PadToMultiple(keyseeds, 8); i++)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            m_vU.SetBit(i, 0);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            m_vU.<a class="code" href="class_c_bit_vector.html#a8c4775aef59942f5bef497a8e5ecd818">SetBit</a>(i, 0);</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        m_vValues = (<a class="code" href="class_c_bit_vector.html">CBitVector</a>*) malloc(<span class="keyword">sizeof</span>(<a class="code" href="class_c_bit_vector.html">CBitVector</a>) * nSndVals);</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        m_vKeySeeds = (AES_KEY_CTX*) malloc(<span class="keyword">sizeof</span>(AES_KEY_CTX) * keyseeds);</div>
@@ -198,7 +198,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    ;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    ~<a class="code" href="class_o_t_ext_snd.html">OTExtSnd</a>() {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        free(m_vKeySeeds);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="comment">//free(m_vKeySeeds);</span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    ;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    BOOL send(uint32_t numOTs, uint32_t bitlength, <a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; s0, <a class="code" href="class_c_bit_vector.html">CBitVector</a>&amp; s1, BYTE type, uint32_t numThreads, <a class="code" href="class_masking_function.html">MaskingFunction</a>* maskfct);</div>
@@ -313,7 +313,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    }</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    ~<a class="code" href="class_o_t_ext_rec.html">OTExtRec</a>() {</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        free(m_vKeySeedMtx);</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="comment">//free(m_vKeySeedMtx);</span></div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    }</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    ;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
@@ -408,16 +408,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_o_t_ext_rec_html"><div class="ttname"><a href="class_o_t_ext_rec.html">OTExtRec</a></div><div class="ttdef"><b>Definition:</b> ot-extension.h:192</div></div>
 <div class="ttc" id="class_c_thread_html"><div class="ttname"><a href="class_c_thread.html">CThread</a></div><div class="ttdef"><b>Definition:</b> thread.h:125</div></div>
 <div class="ttc" id="class_o_t_ext_snd_html"><div class="ttname"><a href="class_o_t_ext_snd.html">OTExtSnd</a></div><div class="ttdef"><b>Definition:</b> ot-extension.h:67</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a8c4775aef59942f5bef497a8e5ecd818"><div class="ttname"><a href="class_c_bit_vector.html#a8c4775aef59942f5bef497a8e5ecd818">CBitVector::SetBit</a></div><div class="ttdeci">void SetBit(int idx, BYTE b)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:431</div></div>
+<div class="ttc" id="class_c_bit_vector_html_aad5967a41d1dd1a254ce196722f6c68d"><div class="ttname"><a href="class_c_bit_vector.html#aad5967a41d1dd1a254ce196722f6c68d">CBitVector::GetArr</a></div><div class="ttdeci">BYTE * GetArr()</div><div class="ttdef"><b>Definition:</b> cbitvector.h:777</div></div>
 <div class="ttc" id="struct_o_t_block__t_html"><div class="ttname"><a href="struct_o_t_block__t.html">OTBlock_t</a></div><div class="ttdef"><b>Definition:</b> ot-extension.h:44</div></div>
 <div class="ttc" id="class_masking_function_html"><div class="ttname"><a href="class_masking_function.html">MaskingFunction</a></div><div class="ttdef"><b>Definition:</b> maskingfunction.h:25</div></div>
 <div class="ttc" id="class_c_lock_html"><div class="ttname"><a href="class_c_lock.html">CLock</a></div><div class="ttdef"><b>Definition:</b> thread.h:170</div></div>
 <div class="ttc" id="maskingfunction_8h_html"><div class="ttname"><a href="maskingfunction_8h.html">maskingfunction.h</a></div><div class="ttdoc">Masking Function implementation. </div></div>
-<div class="ttc" id="class_c_bit_vector_html"><div class="ttname"><a href="class_c_bit_vector.html">CBitVector</a></div><div class="ttdef"><b>Definition:</b> cbitvector.h:85</div></div>
+<div class="ttc" id="class_c_bit_vector_html"><div class="ttname"><a href="class_c_bit_vector.html">CBitVector</a></div><div class="ttdef"><b>Definition:</b> cbitvector.h:123</div></div>
+<div class="ttc" id="class_c_bit_vector_html_a10e6085997f64cec320a428b99367b89"><div class="ttname"><a href="class_c_bit_vector.html#a10e6085997f64cec320a428b99367b89">CBitVector::Copy</a></div><div class="ttdeci">void Copy(CBitVector &amp;vec)</div><div class="ttdef"><b>Definition:</b> cbitvector.h:369</div></div>
 <div class="ttc" id="class_o_t_ext_rec_1_1_o_t_receiver_thread_html"><div class="ttname"><a href="class_o_t_ext_rec_1_1_o_t_receiver_thread.html">OTExtRec::OTReceiverThread</a></div><div class="ttdef"><b>Definition:</b> ot-extension.h:277</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 23 2015 19:14:05 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 26 2015 16:45:52 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['yaoclientsharing',['YaoClientSharing',['../class_yao_client_sharing.html#a4365dbe59cc01fab6274e6d338d6b27c',1,'YaoClientSharing']]],
-  ['yaoserversharing',['YaoServerSharing',['../class_yao_server_sharing.html#afc223682cac8ff47d83b0d1f9a23ec09',1,'YaoServerSharing']]],
-  ['yaosharing',['YaoSharing',['../class_yao_sharing.html#a0bc07b038f840323c851dd57394e88a1',1,'YaoSharing']]]
+  ['usedgate',['UsedGate',['../class_arith_sharing.html#a22b075cdc0648e1818a3160a39811c56',1,'ArithSharing::UsedGate()'],['../class_bool_sharing.html#a07e13f5b23d08fd78bb40dbc06b8b0f1',1,'BoolSharing::UsedGate()'],['../class_sharing.html#af1fbc452a1e17c1e0bbed958033cdcfd',1,'Sharing::UsedGate()'],['../class_yao_client_sharing.html#a1c8e86a7845bdfebc72751ac388b202b',1,'YaoClientSharing::UsedGate()'],['../class_yao_server_sharing.html#abf0870ed61e4068b273e6d140f92969b',1,'YaoServerSharing::UsedGate()'],['../class_yao_sharing.html#a84607086ad40abfc01b7374ca52bd5db',1,'YaoSharing::UsedGate()']]]
 ];

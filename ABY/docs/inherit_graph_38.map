@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_o_t_sender_vals.html" title="OTSenderVals" alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node1" href="$classnum.html" title="num" alt="" coords="5,31,52,57"/>
+<area shape="rect" id="node2" href="$classecc__num.html" title="ecc_num" alt="" coords="102,5,177,32"/>
+<area shape="rect" id="node3" href="$classgmp__num.html" title="gmp_num" alt="" coords="100,56,179,83"/>
 </map>

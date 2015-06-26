@@ -98,29 +98,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">enum</span> etype {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    T_NUM, T_STR, T_FLAG, T_DOUBLE</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structparsing__ctx.html">   32</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span>* val;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    etype type;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">char</span> opt_name;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::string help_str;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">bool</span> required;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> set;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;} <a class="code" href="structparsing__ctx.html">parsing_ctx</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;int32_t parse_options(int32_t* argcp, <span class="keywordtype">char</span>*** argvp, <a class="code" href="structparsing__ctx.html">parsing_ctx</a>* options, uint32_t nops);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> print_usage(std::string progname, <a class="code" href="structparsing__ctx.html">parsing_ctx</a>* options, uint32_t nops);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* PARSE_OPTIONS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="structparsing__ctx_html"><div class="ttname"><a href="structparsing__ctx.html">parsing_ctx</a></div><div class="ttdef"><b>Definition:</b> parse_options.h:32</div></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">enum</span> etype {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    T_NUM, T_STR, T_FLAG, T_DOUBLE</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structparsing__ctx.html">   33</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span>* val;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    etype type;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">char</span> opt_name;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::string help_str;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> required;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> set;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <a class="code" href="structparsing__ctx.html">parsing_ctx</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;int32_t parse_options(int32_t* argcp, <span class="keywordtype">char</span>*** argvp, <a class="code" href="structparsing__ctx.html">parsing_ctx</a>* options, uint32_t nops);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> print_usage(std::string progname, <a class="code" href="structparsing__ctx.html">parsing_ctx</a>* options, uint32_t nops);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="parse__options_8h.html#a5b677c1a0d02e6143806f0075fd408ce">tokenize</a>(<span class="keyword">const</span> std::string&amp; str, std::vector&lt;uint32_t&gt;&amp; tokens, <span class="keyword">const</span> std::string&amp; delimiters = <span class="stringliteral">&quot;| \t&quot;</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* PARSE_OPTIONS_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="parse__options_8h_html_a5b677c1a0d02e6143806f0075fd408ce"><div class="ttname"><a href="parse__options_8h.html#a5b677c1a0d02e6143806f0075fd408ce">tokenize</a></div><div class="ttdeci">void tokenize(const std::string &amp;str, std::vector&lt; uint32_t &gt; &amp;tokens, const std::string &amp;delimiters=&quot;| \t&quot;)</div><div class="ttdef"><b>Definition:</b> parse_options.cpp:27</div></div>
+<div class="ttc" id="structparsing__ctx_html"><div class="ttname"><a href="structparsing__ctx.html">parsing_ctx</a></div><div class="ttdef"><b>Definition:</b> parse_options.h:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 23 2015 19:14:06 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 26 2015 16:45:52 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

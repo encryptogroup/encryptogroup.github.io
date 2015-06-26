@@ -105,48 +105,54 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()</td></tr
 <tr class="memitem:aee858d4d4f64b968f8b2ca3e2572d442"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee858d4d4f64b968f8b2ca3e2572d442"></a>
 <a class="el" href="struct_g_a_t_e.html">GATE</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Gates</b> ()</td></tr>
 <tr class="separator:aee858d4d4f64b968f8b2ca3e2572d442"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8454818f8c75a60a312614ed43c2d264"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8454818f8c75a60a312614ed43c2d264"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutPrimitiveGate</b> (<a class="el" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, uint32_t inleft, uint32_t inright, uint32_t rounds, uint32_t mindepth=0)</td></tr>
-<tr class="separator:a8454818f8c75a60a312614ed43c2d264"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fd39a12e43e2b6650f1c81cdd4c941c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fd39a12e43e2b6650f1c81cdd4c941c"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutNonLinearVectorGate</b> (<a class="el" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, uint32_t choiceinput, uint32_t vectorinput, uint32_t rounds, uint32_t mindepth=0)</td></tr>
-<tr class="separator:a2fd39a12e43e2b6650f1c81cdd4c941c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59bbb6f9d4e50f694d0121b7f195770d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a59bbb6f9d4e50f694d0121b7f195770d"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutCombinerGate</b> (vector&lt; uint32_t &gt; &amp;input, uint32_t mindepth=0)</td></tr>
-<tr class="separator:a59bbb6f9d4e50f694d0121b7f195770d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec70972af393b8e8363cf9910b127a04"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec70972af393b8e8363cf9910b127a04"></a>
-vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>PutSplitterGate</b> (uint32_t input, uint32_t mindepth=0)</td></tr>
-<tr class="separator:aec70972af393b8e8363cf9910b127a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6657477dedbee7e296b596c97efbdb2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6657477dedbee7e296b596c97efbdb2"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutCombineAtPosGate</b> (vector&lt; uint32_t &gt; &amp;input, uint32_t pos, uint32_t mindepth=0)</td></tr>
-<tr class="separator:ae6657477dedbee7e296b596c97efbdb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48e5f7fe8ec8d54e0a59b546b8ca97de"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a48e5f7fe8ec8d54e0a59b546b8ca97de"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutRepeaterGate</b> (uint32_t input, uint32_t nvals, uint32_t mindepth=0)</td></tr>
-<tr class="separator:a48e5f7fe8ec8d54e0a59b546b8ca97de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c211740580f628508ffb0417b30d4f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c211740580f628508ffb0417b30d4f6"></a>
-vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>PutRepeaterGate</b> (vector&lt; uint32_t &gt; input, uint32_t nvals, uint32_t mindepth=0)</td></tr>
-<tr class="separator:a9c211740580f628508ffb0417b30d4f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cad67ae0a43da8c3d33ed15b348d3d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9cad67ae0a43da8c3d33ed15b348d3d0"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutPrimitiveGate</b> (<a class="el" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, uint32_t inleft, uint32_t inright, uint32_t rounds)</td></tr>
+<tr class="separator:a9cad67ae0a43da8c3d33ed15b348d3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6bb1857a42422c439acee1d0467fe51"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6bb1857a42422c439acee1d0467fe51"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutNonLinearVectorGate</b> (<a class="el" href="constants_8h.html#a04ce4f8c892d5edcd3052815a201c1b1">e_gatetype</a> type, uint32_t choiceinput, uint32_t vectorinput, uint32_t rounds)</td></tr>
+<tr class="separator:ac6bb1857a42422c439acee1d0467fe51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3031457561f7c4ad9c2e689c8953dc5c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3031457561f7c4ad9c2e689c8953dc5c"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutCombinerGate</b> (vector&lt; uint32_t &gt; &amp;input)</td></tr>
+<tr class="separator:a3031457561f7c4ad9c2e689c8953dc5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c7c8bf5ea62bbb120c55f4e59b82e0c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c7c8bf5ea62bbb120c55f4e59b82e0c"></a>
+vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>PutSplitterGate</b> (uint32_t input)</td></tr>
+<tr class="separator:a8c7c8bf5ea62bbb120c55f4e59b82e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42c140ab071af3698d366ef598947e64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42c140ab071af3698d366ef598947e64"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutCombineAtPosGate</b> (vector&lt; uint32_t &gt; &amp;input, uint32_t pos)</td></tr>
+<tr class="separator:a42c140ab071af3698d366ef598947e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b2118139d2841ff87e4ba7d7a84d3e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b2118139d2841ff87e4ba7d7a84d3e3"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutSubsetGate</b> (uint32_t input, uint32_t *posids, uint32_t nvals)</td></tr>
+<tr class="separator:a5b2118139d2841ff87e4ba7d7a84d3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23d10190eca0f5c658111a596cd35fed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23d10190eca0f5c658111a596cd35fed"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutRepeaterGate</b> (uint32_t input, uint32_t nvals)</td></tr>
+<tr class="separator:a23d10190eca0f5c658111a596cd35fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6b6605edc919fa398e4171f31e424e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6b6605edc919fa398e4171f31e424e2"></a>
+vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>PutRepeaterGate</b> (vector&lt; uint32_t &gt; input, uint32_t nvals)</td></tr>
+<tr class="separator:af6b6605edc919fa398e4171f31e424e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a234cb7ad9f78c2eacfef21ea06309851"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a234cb7ad9f78c2eacfef21ea06309851"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutPermutationGate</b> ()</td></tr>
 <tr class="separator:a234cb7ad9f78c2eacfef21ea06309851"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4354c69db4c4ef66befcfe815e68b7f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4354c69db4c4ef66befcfe815e68b7f5"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutOUTGate</b> (uint32_t in, e_role dst, uint32_t rounds, uint32_t mindepth=0)</td></tr>
-<tr class="separator:a4354c69db4c4ef66befcfe815e68b7f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a590e4a12d10bd5b0fb2f2f8afabe7513"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a590e4a12d10bd5b0fb2f2f8afabe7513"></a>
-vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>PutOUTGate</b> (vector&lt; uint32_t &gt; in, e_role dst, uint32_t rounds, uint32_t mindepth=0)</td></tr>
-<tr class="separator:a590e4a12d10bd5b0fb2f2f8afabe7513"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eb3294d9a0341f8e3968f8a639ddf3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2eb3294d9a0341f8e3968f8a639ddf3b"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutINGate</b> (<a class="el" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> context, uint32_t nvals, uint32_t sharebitlen, e_role src, uint32_t rounds, uint32_t mindepth=0)</td></tr>
-<tr class="separator:a2eb3294d9a0341f8e3968f8a639ddf3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa986c028073fcf598d9cc122e211b582"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa986c028073fcf598d9cc122e211b582"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutConstantGate</b> (<a class="el" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> context, UGATE_T val, uint32_t nvals, uint32_t sharebitlen, uint32_t mindepth=0)</td></tr>
-<tr class="separator:aa986c028073fcf598d9cc122e211b582"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8304ee8fe20a3cf0dd4899c6517f927"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8304ee8fe20a3cf0dd4899c6517f927"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutINVGate</b> (uint32_t in, uint32_t mindepth=0)</td></tr>
-<tr class="separator:ab8304ee8fe20a3cf0dd4899c6517f927"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac63794474c4e50b74b370ceca1ab5e12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac63794474c4e50b74b370ceca1ab5e12"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutCONVGate</b> (vector&lt; uint32_t &gt; &amp;in, uint32_t nrounds, <a class="el" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> dst, uint32_t sharebitlen, uint32_t mindepth=0)</td></tr>
-<tr class="separator:ac63794474c4e50b74b370ceca1ab5e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00f62f2b5b0c57b97a86e490db7432e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00f62f2b5b0c57b97a86e490db7432e2"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutOUTGate</b> (uint32_t in, <a class="el" href="constants_8h.html#ab40aefc92bb691490850a668351e207b">e_role</a> dst, uint32_t rounds)</td></tr>
+<tr class="separator:a00f62f2b5b0c57b97a86e490db7432e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b8d1439c1a787f2e6d9f22eb25b7791"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b8d1439c1a787f2e6d9f22eb25b7791"></a>
+vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>PutOUTGate</b> (vector&lt; uint32_t &gt; in, <a class="el" href="constants_8h.html#ab40aefc92bb691490850a668351e207b">e_role</a> dst, uint32_t rounds)</td></tr>
+<tr class="separator:a2b8d1439c1a787f2e6d9f22eb25b7791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7247e7d9334338facfa750a47671126b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7247e7d9334338facfa750a47671126b"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutINGate</b> (<a class="el" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> context, uint32_t nvals, uint32_t sharebitlen, <a class="el" href="constants_8h.html#ab40aefc92bb691490850a668351e207b">e_role</a> src, uint32_t rounds)</td></tr>
+<tr class="separator:a7247e7d9334338facfa750a47671126b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dc77943a9ae138abe1896c98b96ffb9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4dc77943a9ae138abe1896c98b96ffb9"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutConstantGate</b> (<a class="el" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> context, UGATE_T val, uint32_t nvals, uint32_t sharebitlen)</td></tr>
+<tr class="separator:a4dc77943a9ae138abe1896c98b96ffb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bacad157e710f50ca79d08944291603"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5bacad157e710f50ca79d08944291603"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutINVGate</b> (uint32_t in)</td></tr>
+<tr class="separator:a5bacad157e710f50ca79d08944291603"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae421d1bfacd9e2f8fabc13bbbca76c9f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae421d1bfacd9e2f8fabc13bbbca76c9f"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutCONVGate</b> (vector&lt; uint32_t &gt; &amp;in, uint32_t nrounds, <a class="el" href="constants_8h.html#a855a4099bbce3f19217e3e50eb6f0706">e_sharing</a> dst, uint32_t sharebitlen)</td></tr>
+<tr class="separator:ae421d1bfacd9e2f8fabc13bbbca76c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10b7bbe6a7bbd7374db6ffc34f4d9448"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10b7bbe6a7bbd7374db6ffc34f4d9448"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PutCallbackGate</b> (vector&lt; uint32_t &gt; in, uint32_t rounds, void(*callback)(<a class="el" href="struct_g_a_t_e.html">GATE</a> *, void *), void *infos, uint32_t nvals)</td></tr>
+<tr class="separator:a10b7bbe6a7bbd7374db6ffc34f4d9448"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5af609127700c58ae462d99f1f8ce9cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5af609127700c58ae462d99f1f8ce9cb"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetGateHead</b> ()</td></tr>
 <tr class="separator:a5af609127700c58ae462d99f1f8ce9cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,7 +170,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FinishCircuitGenerati
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 23 2015 19:14:06 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 26 2015 16:45:52 for ABY Framework by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
